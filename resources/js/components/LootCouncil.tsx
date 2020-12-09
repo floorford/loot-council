@@ -2,17 +2,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-interface IMember {
-    id: number;
-    member: string;
-    class_id: number;
-    rank_id: number;
-    role_id: number;
-    prev_raids: number;
-    absence: number;
-    101: number;
-    six_months: boolean;
-}
+import { IMember } from "../types";
+import Member from "./Member";
 
 const LootCouncil = (): JSX.Element => {
     const [members, setMembers] = useState<IMember[]>([]);
@@ -40,12 +31,17 @@ const LootCouncil = (): JSX.Element => {
             });
     }, []);
 
-    console.log(members);
     return (
         <main>
             <header>
                 <h1>Loot Council</h1>
             </header>
+
+            {members
+                ? members.map((member: IMember) => (
+                      <Member key={member.id} member={member} />
+                  ))
+                : null}
 
             {loading && <p>Loading...</p>}
             {error && <p>{error}</p>}

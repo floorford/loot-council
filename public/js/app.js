@@ -33425,6 +33425,7 @@ var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules
 // window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 var react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
+var Member_1 = __importDefault(__webpack_require__(/*! ./Member */ "./resources/js/components/Member.tsx"));
 var LootCouncil = function () {
     var _a = react_1.useState([]), members = _a[0], setMembers = _a[1];
     var _b = react_1.useState(true), loading = _b[0], setLoading = _b[1];
@@ -33448,12 +33449,46 @@ var LootCouncil = function () {
             setLoading(false);
         });
     }, []);
-    console.log(members);
     return (jsx_runtime_1.jsxs("main", { children: [jsx_runtime_1.jsx("header", { children: jsx_runtime_1.jsx("h1", { children: "Loot Council" }, void 0) }, void 0),
+            members
+                ? members.map(function (member) { return (jsx_runtime_1.jsx(Member_1.default, { member: member }, member.id)); })
+                : null,
             loading && jsx_runtime_1.jsx("p", { children: "Loading..." }, void 0),
             error && jsx_runtime_1.jsx("p", { children: error }, void 0)] }, void 0));
 };
 exports.default = LootCouncil;
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Member.tsx":
+/*!********************************************!*\
+  !*** ./resources/js/components/Member.tsx ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+var Member = function (_a) {
+    var member = _a.member;
+    return (jsx_runtime_1.jsxs("section", __assign({ className: member.class }, { children: [jsx_runtime_1.jsx("h1", { children: member.member }, void 0),
+            jsx_runtime_1.jsx("img", { alt: member.class, src: "/assets/" + member.class + ".png" }, void 0)] }), void 0));
+};
+exports.default = Member;
 
 
 /***/ }),
