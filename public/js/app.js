@@ -33417,10 +33417,41 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEB
 
 "use strict";
 
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+// window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
+var react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 var LootCouncil = function () {
-    return jsx_runtime_1.jsx("div", { children: "hi" }, void 0);
+    var _a = react_1.useState([]), members = _a[0], setMembers = _a[1];
+    var _b = react_1.useState(true), loading = _b[0], setLoading = _b[1];
+    var _c = react_1.useState(""), error = _c[0], setError = _c[1];
+    react_1.useEffect(function () {
+        axios_1.default
+            .get("/api/members", {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+            .then(function (response) {
+            setMembers(response.data);
+            setLoading(false);
+        })
+            .catch(function (ex) {
+            var err = ex.response.status === 404
+                ? "Resource not found"
+                : "An unexpected error has occurred";
+            setError(err);
+            setLoading(false);
+        });
+    }, []);
+    console.log(members);
+    return (jsx_runtime_1.jsxs("main", { children: [jsx_runtime_1.jsx("header", { children: jsx_runtime_1.jsx("h1", { children: "Loot Council" }, void 0) }, void 0),
+            loading && jsx_runtime_1.jsx("p", { children: "Loading..." }, void 0),
+            error && jsx_runtime_1.jsx("p", { children: error }, void 0)] }, void 0));
 };
 exports.default = LootCouncil;
 
