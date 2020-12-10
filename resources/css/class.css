@@ -108,6 +108,7 @@ i {
 
 .wrapper .flex {
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .class-icon {

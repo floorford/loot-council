@@ -18,15 +18,20 @@ class MemberController extends Controller
           ->join('class', 'members.class_id', '=', 'class.id')
           ->join('rank', 'members.rank_id', '=', 'rank.id')
           ->join('role', 'members.role_id', '=', 'role.id')
-          ->select('members.member', 'rank.title as rank', 'role.title as role', 'class.title AS class')
-          ->get()
-          ->toJson();
+          ->select('members.member', 'members.prev_raids', 'members.absence', 'members.one_oh_one',
+                   'members.six_months', 'members.id', 'rank.title as rank', 'role.title as role', 'class.title AS class')
+          ->get();
 
-    $classes = PlayerClass::all()->toJson();
-    $ranks = Rank::all()->toJson();
-    $roles = Role::all()->toJson();
+    $classes = PlayerClass::all();
+    $ranks = Rank::all();
+    $roles = Role::all();
 
-    return $members;
+    return response()->json([
+      'members' => $members,
+      'classes' => $classes,
+      'ranks' => $ranks,
+      'roles' => $roles
+    ], 200);  
   }
 
   public function categoriseMembers($category, $id)

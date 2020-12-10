@@ -1986,7 +1986,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".member {\n    box-shadow: 0 0 0.25em 0.25em rgba(0, 0, 0, 0.25);\n    height: 80px;\n    width: 39%;\n    padding: 1rem;\n    margin: 0.5rem;\n}\n\n.member h1 {\n    margin: 0;\n}\n\n.member .member-wrapper {\n    margin: 0 0 0 1rem;\n    width: 72%;\n}\n\n.member-wrapper h1 {\n    overflow: hidden;\n    max-width: 90%;\n}\n\n.member-header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    width: 100%;\n}\n\n.member p {\n    margin: 0;\n    font-size: 13px;\n}\n\n.tooltip {\n    position: relative;\n    display: inline-block;\n    border-bottom: 1px dotted black;\n}\n\n.tooltip .tooltip-text {\n    visibility: hidden;\n    width: 120px;\n    background-color: black;\n    color: #fff;\n    text-align: center;\n    border-radius: 6px;\n    padding: 5px 0;\n\n    /* Position the tooltip */\n    position: absolute;\n    z-index: 1;\n    top: -5px;\n    left: 105%;\n}\n\n.tooltip:hover .tooltip-text {\n    visibility: visible;\n}\n\n.warrior {\n    background-color: #c69b6d;\n}\n\n.druid {\n    background-color: #ff7c0a;\n}\n\n.hunter {\n    background-color: #aad372;\n}\n\n.priest {\n    background-color: #ffffff;\n}\n\n.warlock {\n    background-color: #8788ee;\n}\n\n.mage {\n    background-color: #3fc7eb;\n}\n\n.shaman {\n    background-color: #0070dd;\n}\n\n.icon {\n    height: 20px;\n    width: 20px;\n}\n\n.rogue {\n    background-color: #fff468;\n}\n\n.team-role {\n    color: #f040af;\n    padding: 1rem;\n    border: 1px solid #f040af;\n    width: fit-content;\n}\n\ni {\n    margin-right: 5px;\n}\n\n.wrapper .flex {\n    flex-wrap: wrap;\n}\n\n.class-icon {\n    height: 100%;\n}\n", ""]);
+exports.push([module.i, ".member {\n    box-shadow: 0 0 0.25em 0.25em rgba(0, 0, 0, 0.25);\n    height: 80px;\n    width: 39%;\n    padding: 1rem;\n    margin: 0.5rem;\n}\n\n.member h1 {\n    margin: 0;\n}\n\n.member .member-wrapper {\n    margin: 0 0 0 1rem;\n    width: 72%;\n}\n\n.member-wrapper h1 {\n    overflow: hidden;\n    max-width: 90%;\n}\n\n.member-header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    width: 100%;\n}\n\n.member p {\n    margin: 0;\n    font-size: 13px;\n}\n\n.tooltip {\n    position: relative;\n    display: inline-block;\n    border-bottom: 1px dotted black;\n}\n\n.tooltip .tooltip-text {\n    visibility: hidden;\n    width: 120px;\n    background-color: black;\n    color: #fff;\n    text-align: center;\n    border-radius: 6px;\n    padding: 5px 0;\n\n    /* Position the tooltip */\n    position: absolute;\n    z-index: 1;\n    top: -5px;\n    left: 105%;\n}\n\n.tooltip:hover .tooltip-text {\n    visibility: visible;\n}\n\n.warrior {\n    background-color: #c69b6d;\n}\n\n.druid {\n    background-color: #ff7c0a;\n}\n\n.hunter {\n    background-color: #aad372;\n}\n\n.priest {\n    background-color: #ffffff;\n}\n\n.warlock {\n    background-color: #8788ee;\n}\n\n.mage {\n    background-color: #3fc7eb;\n}\n\n.shaman {\n    background-color: #0070dd;\n}\n\n.icon {\n    height: 20px;\n    width: 20px;\n}\n\n.rogue {\n    background-color: #fff468;\n}\n\n.team-role {\n    color: #f040af;\n    padding: 1rem;\n    border: 1px solid #f040af;\n    width: fit-content;\n}\n\ni {\n    margin-right: 5px;\n}\n\n.wrapper .flex {\n    flex-wrap: wrap;\n    justify-content: center;\n}\n\n.class-icon {\n    height: 100%;\n}\n", ""]);
 
 // exports
 
@@ -38366,6 +38366,42 @@ exports.ucFirst = ucFirst;
 
 /***/ }),
 
+/***/ "./resources/js/pages/Classes.tsx":
+/*!****************************************!*\
+  !*** ./resources/js/pages/Classes.tsx ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+var react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var helper_1 = __webpack_require__(/*! ../helper */ "./resources/js/helper.ts");
+var Classes = function (_a) {
+    var members = _a.members, classes = _a.classes, loading = _a.loading, error = _a.error;
+    var _b = react_1.useState(""), selectedClass = _b[0], setClass = _b[1];
+    return (jsx_runtime_1.jsxs("main", __assign({ className: "wrapper" }, { children: [jsx_runtime_1.jsx("header", { children: jsx_runtime_1.jsx("h1", __assign({ className: "pink" }, { children: "Class Overview" }), void 0) }, void 0),
+            classes.length ? (jsx_runtime_1.jsx("form", { children: jsx_runtime_1.jsxs("select", __assign({ value: selectedClass, onChange: function (e) { return setClass(e.target.value); } }, { children: [jsx_runtime_1.jsx("option", __assign({ value: "" }, { children: "Please Select" }), void 0),
+                        classes.map(function (cl) { return (jsx_runtime_1.jsx("option", __assign({ value: cl.title }, { children: helper_1.ucFirst(cl.title) }), cl.id)); })] }), void 0) }, void 0)) : null] }), void 0));
+};
+exports.default = Classes;
+
+
+/***/ }),
+
 /***/ "./resources/js/pages/LootCouncil.tsx":
 /*!********************************************!*\
   !*** ./resources/js/pages/LootCouncil.tsx ***!
@@ -38391,12 +38427,45 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+// window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
+var react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 var Overview_1 = __importDefault(__webpack_require__(/*! ./Overview */ "./resources/js/pages/Overview.tsx"));
+var Classes_1 = __importDefault(__webpack_require__(/*! ./Classes */ "./resources/js/pages/Classes.tsx"));
 var NavBar_1 = __importDefault(__webpack_require__(/*! ../components/NavBar */ "./resources/js/components/NavBar.tsx"));
 var LootCouncil = function () {
+    var _a = react_1.useState([]), members = _a[0], setMembers = _a[1];
+    var _b = react_1.useState([]), classes = _b[0], setClasses = _b[1];
+    var _c = react_1.useState([]), roles = _c[0], setRoles = _c[1];
+    var _d = react_1.useState([]), ranks = _d[0], setRanks = _d[1];
+    var _e = react_1.useState(true), loading = _e[0], setLoading = _e[1];
+    var _f = react_1.useState(""), error = _f[0], setError = _f[1];
+    react_1.useEffect(function () {
+        axios_1.default
+            .get("/api/members", {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+            .then(function (response) {
+            setMembers(response.data.members);
+            setClasses(response.data.classes);
+            setRoles(response.data.roles);
+            setRanks(response.data.ranks);
+            setLoading(false);
+        })
+            .catch(function (ex) {
+            var err = ex.response.status === 404
+                ? "Resource not found"
+                : "An unexpected error has occurred";
+            setError(err);
+            setLoading(false);
+        });
+    }, []);
     return (jsx_runtime_1.jsxs(react_router_dom_1.BrowserRouter, { children: [jsx_runtime_1.jsx(NavBar_1.default, {}, void 0),
-            jsx_runtime_1.jsx(react_router_dom_1.Switch, { children: jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ exact: true, path: "/" }, { children: jsx_runtime_1.jsx(Overview_1.default, {}, void 0) }), void 0) }, void 0)] }, void 0));
+            jsx_runtime_1.jsxs(react_router_dom_1.Switch, { children: [jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ exact: true, path: "/" }, { children: jsx_runtime_1.jsx(Overview_1.default, { members: members, loading: loading, error: error }, void 0) }), void 0),
+                    jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ exact: true, path: "/classes" }, { children: jsx_runtime_1.jsx(Classes_1.default, { members: members, classes: classes, loading: loading, error: error }, void 0) }), void 0)] }, void 0)] }, void 0));
 };
 exports.default = LootCouncil;
 
@@ -38428,50 +38497,36 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-// window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
-var react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 var Member_1 = __importDefault(__webpack_require__(/*! ../components/Member */ "./resources/js/components/Member.tsx"));
-var LootCouncil = function () {
-    var _a = react_1.useState([]), members = _a[0], setMembers = _a[1];
-    var _b = react_1.useState(true), loading = _b[0], setLoading = _b[1];
-    var _c = react_1.useState(""), error = _c[0], setError = _c[1];
-    react_1.useEffect(function () {
-        axios_1.default
-            .get("/api/members", {
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-            .then(function (response) {
-            setMembers(response.data);
-            setLoading(false);
-        })
-            .catch(function (ex) {
-            var err = ex.response.status === 404
-                ? "Resource not found"
-                : "An unexpected error has occurred";
-            setError(err);
-            setLoading(false);
-        });
-    }, []);
+var Overview = function (_a) {
+    var members = _a.members, loading = _a.loading, error = _a.error;
     var tanks = members.filter(function (mem) { return mem.role === "tank"; });
     var healers = members.filter(function (mem) { return mem.role === "healer"; });
-    var dps = members.filter(function (mem) {
+    var dps = members
+        .filter(function (mem) {
         return mem.role === "melee" ||
             mem.role === "caster" ||
             mem.role === "ranged";
+    })
+        .sort(function (a, b) {
+        if (a.class < b.class) {
+            return 1;
+        }
+        if (a.class > b.class) {
+            return -1;
+        }
+        return 0;
     });
-    return (jsx_runtime_1.jsxs("main", __assign({ className: "wrapper" }, { children: [tanks ? (jsx_runtime_1.jsxs("section", { children: [jsx_runtime_1.jsxs("p", __assign({ className: "team-role" }, { children: [jsx_runtime_1.jsx("i", { className: "fas fa-shield-alt" }, void 0), "TANKS (", tanks.length, ")"] }), void 0),
+    return (jsx_runtime_1.jsxs("main", __assign({ className: "wrapper" }, { children: [tanks.length ? (jsx_runtime_1.jsxs("section", { children: [jsx_runtime_1.jsxs("p", __assign({ className: "team-role" }, { children: [jsx_runtime_1.jsx("i", { className: "fas fa-shield-alt" }, void 0), "TANKS (", tanks.length, ")"] }), void 0),
                     jsx_runtime_1.jsx("div", __assign({ className: "flex" }, { children: tanks.map(function (member) { return (jsx_runtime_1.jsx(Member_1.default, { member: member }, member.id)); }) }), void 0)] }, void 0)) : null,
-            healers ? (jsx_runtime_1.jsxs("section", { children: [jsx_runtime_1.jsxs("p", __assign({ className: "team-role" }, { children: [jsx_runtime_1.jsx("i", { className: "fas fa-medkit" }, void 0), "HEALERS (", healers.length, ")"] }), void 0),
+            healers.length ? (jsx_runtime_1.jsxs("section", { children: [jsx_runtime_1.jsxs("p", __assign({ className: "team-role" }, { children: [jsx_runtime_1.jsx("i", { className: "fas fa-medkit" }, void 0), "HEALERS (", healers.length, ")"] }), void 0),
                     jsx_runtime_1.jsx("div", __assign({ className: "flex" }, { children: healers.map(function (member) { return (jsx_runtime_1.jsx(Member_1.default, { member: member }, member.id)); }) }), void 0)] }, void 0)) : null,
-            dps ? (jsx_runtime_1.jsxs("section", { children: [jsx_runtime_1.jsxs("p", __assign({ className: "team-role" }, { children: [jsx_runtime_1.jsx("i", { className: "fas fa-skull-crossbones" }, void 0), " DPS (", dps.length, ")"] }), void 0),
+            dps.length ? (jsx_runtime_1.jsxs("section", { children: [jsx_runtime_1.jsxs("p", __assign({ className: "team-role" }, { children: [jsx_runtime_1.jsx("i", { className: "fas fa-skull-crossbones" }, void 0), " DPS (", dps.length, ")"] }), void 0),
                     jsx_runtime_1.jsx("div", __assign({ className: "flex" }, { children: dps.map(function (member) { return (jsx_runtime_1.jsx(Member_1.default, { member: member }, member.id)); }) }), void 0)] }, void 0)) : null,
-            loading && jsx_runtime_1.jsx("p", { children: "Loading..." }, void 0),
-            error && jsx_runtime_1.jsx("p", { children: error }, void 0)] }), void 0));
+            loading && jsx_runtime_1.jsx("p", __assign({ className: "pink" }, { children: "Loading..." }), void 0),
+            error && jsx_runtime_1.jsx("p", __assign({ className: "pink" }, { children: error }), void 0)] }), void 0));
 };
-exports.default = LootCouncil;
+exports.default = Overview;
 
 
 /***/ }),
