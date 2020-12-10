@@ -8,6 +8,7 @@
     display: flex;
     justify-content: start;
     flex-wrap: nowrap;
+    cursor: pointer;
 }
 
 .member h1 {

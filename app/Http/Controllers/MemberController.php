@@ -26,20 +26,27 @@ class MemberController extends Controller
     $ranks = Rank::all();
     $roles = Role::all();
 
+    $total = DB::table('raid')->get()->count();
+
     return response()->json([
       'members' => $members,
       'classes' => $classes,
       'ranks' => $ranks,
-      'roles' => $roles
+      'roles' => $roles,
+      'raid_total' => $total,
     ], 200);  
   }
 
-  public function categoriseMembers($category, $id)
+  public function findPlayer($id)
   {
-    $members = DB::table('member')->where(function ($query) use ($category, $id) {
-      $query->where($category + '_id', '=', $id);
-    })->get();
+    $details = DB::table('items')
+    ->join('raid', 'items.raid_id', '=', 'raid.id')
+    ->select('items.id', 'items.item', 'raid.title')
+    ->where('items.member_id', '=', $id)
+    ->get();
 
-    return $members->toJson();
+    return response()->json([
+      'details' => $details,
+    ], 200);  
   }   
 }

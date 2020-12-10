@@ -10,7 +10,7 @@ import Member from "../components/Member";
 
 const Filter = ({ members, filter, loading, error }: FilterProps) => {
     const location = useLocation().pathname.slice(1);
-    const locationNameReady =
+    const locationNameReady: string =
         location.slice(0, -1) === "classe" ? "class" : location.slice(0, -1);
     const [selectedFilter, setFilter] = useState<string>("");
 

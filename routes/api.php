@@ -17,3 +17,5 @@ use App\Http\Controllers\MemberController;
 */
 
 Route::get('members', [MemberController::class, 'index']);
+Route::get('members/{id}',[MemberController::class, 'findPlayer']);
+?>

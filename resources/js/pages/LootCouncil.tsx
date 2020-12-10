@@ -3,40 +3,37 @@ import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import axios from "axios";
 
-import { IMember, IRoleRankClass, IState } from "../types";
+import lcStore from "../store/lc";
+import { IState, IData } from "../types";
 import Overview from "./Overview";
 import Filter from "./Filter";
 import NavBar from "../components/NavBar";
+import Player from "../components/Player";
 
 const LootCouncil = (): JSX.Element => {
-    const [members, setMembers] = useState<IMember[]>([]);
-    const [classes, setClasses] = useState<IRoleRankClass[]>([]);
-    const [roles, setRoles] = useState<IRoleRankClass[]>([]);
-    const [ranks, setRanks] = useState<IRoleRankClass[]>([]);
-    const [loading, setLoading] = useState<boolean>(true);
-    const [error, setError] = useState<string>("");
+    const [data, setDataState] = useState<IState>(lcStore.initialState);
 
     useEffect(() => {
+        lcStore.subscribe(setDataState);
+        lcStore.init();
+
         axios
-            .get<IState>("/api/members", {
+            .get<IData>("/api/members", {
                 headers: {
                     "Content-Type": "application/json"
                 }
             })
             .then(response => {
-                setMembers(response.data.members);
-                setClasses(response.data.classes);
-                setRoles(response.data.roles);
-                setRanks(response.data.ranks);
-                setLoading(false);
+                lcStore.setData(response.data);
+                lcStore.setLoading(false);
             })
             .catch(ex => {
                 const err =
                     ex.response.status === 404
                         ? "Resource not found"
                         : "An unexpected error has occurred";
-                setError(err);
-                setLoading(false);
+                lcStore.setError(err);
+                lcStore.setLoading(false);
             });
     }, []);
     return (
@@ -45,34 +42,37 @@ const LootCouncil = (): JSX.Element => {
             <Switch>
                 <Route exact path="/">
                     <Overview
-                        members={members}
-                        loading={loading}
-                        error={error}
+                        members={data.members}
+                        loading={data.loading}
+                        error={data.error}
                     />
                 </Route>
                 <Route exact path="/classes">
                     <Filter
-                        members={members}
-                        filter={classes}
-                        loading={loading}
-                        error={error}
+                        members={data.members}
+                        filter={data.classes}
+                        loading={data.loading}
+                        error={data.error}
                     />
                 </Route>
                 <Route exact path="/roles">
                     <Filter
-                        members={members}
-                        filter={roles}
-                        loading={loading}
-                        error={error}
+                        members={data.members}
+                        filter={data.roles}
+                        loading={data.loading}
+                        error={data.error}
                     />
                 </Route>
                 <Route exact path="/ranks">
                     <Filter
-                        members={members}
-                        filter={ranks}
-                        loading={loading}
-                        error={error}
+                        members={data.members}
+                        filter={data.ranks}
+                        loading={data.loading}
+                        error={data.error}
                     />
+                </Route>
+                <Route path="/player/:playerName">
+                    <Player />
                 </Route>
             </Switch>
         </Router>

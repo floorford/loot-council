@@ -40,17 +40,18 @@ nav a:hover:not(.flex),
 .subnav-content {
     display: none;
     position: absolute;
-    left: 0;
     background-color: #272727;
     width: 100%;
+    left: 0;
     z-index: 1;
 }
 
 .subnav-content a {
-    float: left;
+    float: right;
     color: white;
     text-decoration: none;
     padding: 14px 16px;
+    margin: 0 2rem;
 }
 
 .subnav-content a:hover {
