@@ -9,3 +9,7 @@ export interface IMember {
     one_oh_one: number;
     six_months: boolean;
 }
+
+export type MemberProps = {
+    member: IMember;
+};

@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+import "../../css/nav.css";
+
 const NavBar = () => (
     <nav>
         <Link to="/" className="flex">

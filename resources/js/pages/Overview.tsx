@@ -31,14 +31,56 @@ const LootCouncil = (): JSX.Element => {
             });
     }, []);
 
-    return (
-        <main>
-            {members
-                ? members.map((member: IMember) => (
-                      <Member key={member.id} member={member} />
-                  ))
-                : null}
+    const tanks = members.filter(mem => mem.role === "tank");
+    const healers = members.filter(mem => mem.role === "healer");
+    const dps = members.filter(
+        mem =>
+            mem.role === "melee" ||
+            mem.role === "caster" ||
+            mem.role === "ranged"
+    );
 
+    return (
+        <main className="wrapper">
+            {tanks ? (
+                <section>
+                    <p className="team-role">
+                        <i className="fas fa-shield-alt"></i>
+                        TANKS ({tanks.length})
+                    </p>
+                    <div className="flex">
+                        {tanks.map((member: IMember) => (
+                            <Member key={member.id} member={member} />
+                        ))}
+                    </div>
+                </section>
+            ) : null}
+            {healers ? (
+                <section>
+                    <p className="team-role">
+                        <i className="fas fa-medkit"></i>
+                        HEALERS ({healers.length})
+                    </p>
+                    <div className="flex">
+                        {healers.map((member: IMember) => (
+                            <Member key={member.id} member={member} />
+                        ))}
+                    </div>
+                </section>
+            ) : null}
+            {dps ? (
+                <section>
+                    <p className="team-role">
+                        <i className="fas fa-skull-crossbones"></i> DPS (
+                        {dps.length})
+                    </p>
+                    <div className="flex">
+                        {dps.map((member: IMember) => (
+                            <Member key={member.id} member={member} />
+                        ))}
+                    </div>
+                </section>
+            ) : null}
             {loading && <p>Loading...</p>}
             {error && <p>{error}</p>}
         </main>
