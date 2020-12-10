@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 import { IMember } from "../types";
-import Member from "./Member";
+import Member from "../components/Member";
 
 const LootCouncil = (): JSX.Element => {
     const [members, setMembers] = useState<IMember[]>([]);
@@ -33,10 +33,6 @@ const LootCouncil = (): JSX.Element => {
 
     return (
         <main>
-            <header>
-                <h1>Loot Council</h1>
-            </header>
-
             {members
                 ? members.map((member: IMember) => (
                       <Member key={member.id} member={member} />
