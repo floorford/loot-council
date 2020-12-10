@@ -1,9 +1,9 @@
 import { MemberProps } from "../types";
 import { ucFirst } from "../helper";
-import "../../css/class.css";
+import "../../css/members.css";
 
 const Member = ({ member }: MemberProps): JSX.Element => (
-    <section className={`flex member ${member.class}`}>
+    <section className={`member ${member.class}`}>
         <img
             className="class-icon"
             alt={member.class}

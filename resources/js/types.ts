@@ -31,9 +31,9 @@ export type LootCouncilProps = {
     error: string;
 };
 
-export type ClassesProps = {
+export type FilterProps = {
     members: Array<IMember>;
-    classes: Array<IRoleRankClass>;
+    filter: Array<IRoleRankClass>;
     loading: boolean;
     error: string;
 };

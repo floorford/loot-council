@@ -4,6 +4,10 @@
     width: 39%;
     padding: 1rem;
     margin: 0.5rem;
+    border-radius: 5px;
+    display: flex;
+    justify-content: start;
+    flex-wrap: nowrap;
 }
 
 .member h1 {
@@ -12,7 +16,7 @@
 
 .member .member-wrapper {
     margin: 0 0 0 1rem;
-    width: 72%;
+    width: 100%;
 }
 
 .member-wrapper h1 {

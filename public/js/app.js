@@ -1974,10 +1974,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/css/class.css":
-/*!*****************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--7-1!./node_modules/postcss-loader/src??ref--7-2!./resources/css/class.css ***!
-  \*****************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/css/filter.css":
+/*!******************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--7-1!./node_modules/postcss-loader/src??ref--7-2!./resources/css/filter.css ***!
+  \******************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1986,7 +1986,26 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".member {\n    box-shadow: 0 0 0.25em 0.25em rgba(0, 0, 0, 0.25);\n    height: 80px;\n    width: 39%;\n    padding: 1rem;\n    margin: 0.5rem;\n}\n\n.member h1 {\n    margin: 0;\n}\n\n.member .member-wrapper {\n    margin: 0 0 0 1rem;\n    width: 72%;\n}\n\n.member-wrapper h1 {\n    overflow: hidden;\n    max-width: 90%;\n}\n\n.member-header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    width: 100%;\n}\n\n.member p {\n    margin: 0;\n    font-size: 13px;\n}\n\n.tooltip {\n    position: relative;\n    display: inline-block;\n    border-bottom: 1px dotted black;\n}\n\n.tooltip .tooltip-text {\n    visibility: hidden;\n    width: 120px;\n    background-color: black;\n    color: #fff;\n    text-align: center;\n    border-radius: 6px;\n    padding: 5px 0;\n\n    /* Position the tooltip */\n    position: absolute;\n    z-index: 1;\n    top: -5px;\n    left: 105%;\n}\n\n.tooltip:hover .tooltip-text {\n    visibility: visible;\n}\n\n.warrior {\n    background-color: #c69b6d;\n}\n\n.druid {\n    background-color: #ff7c0a;\n}\n\n.hunter {\n    background-color: #aad372;\n}\n\n.priest {\n    background-color: #ffffff;\n}\n\n.warlock {\n    background-color: #8788ee;\n}\n\n.mage {\n    background-color: #3fc7eb;\n}\n\n.shaman {\n    background-color: #0070dd;\n}\n\n.icon {\n    height: 20px;\n    width: 20px;\n}\n\n.rogue {\n    background-color: #fff468;\n}\n\n.team-role {\n    color: #f040af;\n    padding: 1rem;\n    border: 1px solid #f040af;\n    width: fit-content;\n}\n\ni {\n    margin-right: 5px;\n}\n\n.wrapper .flex {\n    flex-wrap: wrap;\n    justify-content: center;\n}\n\n.class-icon {\n    height: 100%;\n}\n", ""]);
+exports.push([module.i, "select {\n    background-color: transparent;\n    border: none;\n    padding: 0 1em 0 0;\n    margin: 0;\n    width: 100%;\n    font-family: inherit;\n    font-size: inherit;\n    cursor: inherit;\n    line-height: inherit;\n    outline: none;\n}\n\nform {\n    width: 100%;\n    display: grid;\n    grid-template-areas: \"select\";\n    min-width: 15ch;\n    max-width: 30ch;\n    border-radius: 0.25em;\n    padding: 0.25em 0.5em;\n    font-size: 1.25rem;\n    cursor: pointer;\n    line-height: 1.1;\n    background-color: #fff;\n    margin-bottom: 2rem;\n}\n\nlabel {\n    font-size: 1.125rem;\n    font-weight: 500;\n}\n\nform + label {\n    margin-top: 2rem;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/css/members.css":
+/*!*******************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--7-1!./node_modules/postcss-loader/src??ref--7-2!./resources/css/members.css ***!
+  \*******************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".member {\n    box-shadow: 0 0 0.25em 0.25em rgba(0, 0, 0, 0.25);\n    height: 80px;\n    width: 39%;\n    padding: 1rem;\n    margin: 0.5rem;\n    border-radius: 5px;\n    display: flex;\n    justify-content: start;\n    flex-wrap: nowrap;\n}\n\n.member h1 {\n    margin: 0;\n}\n\n.member .member-wrapper {\n    margin: 0 0 0 1rem;\n    width: 100%;\n}\n\n.member-wrapper h1 {\n    overflow: hidden;\n    max-width: 90%;\n}\n\n.member-header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    width: 100%;\n}\n\n.member p {\n    margin: 0;\n    font-size: 13px;\n}\n\n.tooltip {\n    position: relative;\n    display: inline-block;\n    border-bottom: 1px dotted black;\n}\n\n.tooltip .tooltip-text {\n    visibility: hidden;\n    width: 120px;\n    background-color: black;\n    color: #fff;\n    text-align: center;\n    border-radius: 6px;\n    padding: 5px 0;\n\n    /* Position the tooltip */\n    position: absolute;\n    z-index: 1;\n    top: -5px;\n    left: 105%;\n}\n\n.tooltip:hover .tooltip-text {\n    visibility: visible;\n}\n\n.warrior {\n    background-color: #c69b6d;\n}\n\n.druid {\n    background-color: #ff7c0a;\n}\n\n.hunter {\n    background-color: #aad372;\n}\n\n.priest {\n    background-color: #ffffff;\n}\n\n.warlock {\n    background-color: #8788ee;\n}\n\n.mage {\n    background-color: #3fc7eb;\n}\n\n.shaman {\n    background-color: #0070dd;\n}\n\n.icon {\n    height: 20px;\n    width: 20px;\n}\n\n.rogue {\n    background-color: #fff468;\n}\n\n.team-role {\n    color: #f040af;\n    padding: 1rem;\n    border: 1px solid #f040af;\n    width: fit-content;\n}\n\ni {\n    margin-right: 5px;\n}\n\n.wrapper .flex {\n    flex-wrap: wrap;\n    justify-content: center;\n}\n\n.class-icon {\n    height: 100%;\n}\n", ""]);
 
 // exports
 
@@ -38190,15 +38209,45 @@ module.exports = g;
 
 /***/ }),
 
-/***/ "./resources/css/class.css":
-/*!*********************************!*\
-  !*** ./resources/css/class.css ***!
-  \*********************************/
+/***/ "./resources/css/filter.css":
+/*!**********************************!*\
+  !*** ./resources/css/filter.css ***!
+  \**********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../node_modules/css-loader??ref--7-1!../../node_modules/postcss-loader/src??ref--7-2!./class.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/css/class.css");
+var content = __webpack_require__(/*! !../../node_modules/css-loader??ref--7-1!../../node_modules/postcss-loader/src??ref--7-2!./filter.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/css/filter.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./resources/css/members.css":
+/*!***********************************!*\
+  !*** ./resources/css/members.css ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader??ref--7-1!../../node_modules/postcss-loader/src??ref--7-2!./members.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/css/members.css");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -38295,10 +38344,10 @@ var __assign = (this && this.__assign) || function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 var helper_1 = __webpack_require__(/*! ../helper */ "./resources/js/helper.ts");
-__webpack_require__(/*! ../../css/class.css */ "./resources/css/class.css");
+__webpack_require__(/*! ../../css/members.css */ "./resources/css/members.css");
 var Member = function (_a) {
     var member = _a.member;
-    return (jsx_runtime_1.jsxs("section", __assign({ className: "flex member " + member.class }, { children: [jsx_runtime_1.jsx("img", { className: "class-icon", alt: member.class, src: "/assets/" + member.class + ".png" }, void 0),
+    return (jsx_runtime_1.jsxs("section", __assign({ className: "member " + member.class }, { children: [jsx_runtime_1.jsx("img", { className: "class-icon", alt: member.class, src: "/assets/" + member.class + ".png" }, void 0),
             jsx_runtime_1.jsxs("div", __assign({ className: "member-wrapper" }, { children: [jsx_runtime_1.jsxs("header", __assign({ className: "member-header" }, { children: [jsx_runtime_1.jsx("h1", { children: member.member }, void 0),
                             jsx_runtime_1.jsxs("a", __assign({ href: "https://classic.warcraftlogs.com/character/eu/firemaw/" + member.member, target: "_blank", className: "tooltip" }, { children: [jsx_runtime_1.jsx("img", { className: "icon", alt: "Warcraft Logs", src: "/assets/warcraftlogs.png" }, void 0),
                                     jsx_runtime_1.jsx("span", __assign({ className: "tooltip-text" }, { children: "Warcraft Logs" }), void 0)] }), void 0)] }), void 0),
@@ -38366,10 +38415,10 @@ exports.ucFirst = ucFirst;
 
 /***/ }),
 
-/***/ "./resources/js/pages/Classes.tsx":
-/*!****************************************!*\
-  !*** ./resources/js/pages/Classes.tsx ***!
-  \****************************************/
+/***/ "./resources/js/pages/Filter.tsx":
+/*!***************************************!*\
+  !*** ./resources/js/pages/Filter.tsx ***!
+  \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -38386,18 +38435,30 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 var react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 var helper_1 = __webpack_require__(/*! ../helper */ "./resources/js/helper.ts");
-var Classes = function (_a) {
-    var members = _a.members, classes = _a.classes, loading = _a.loading, error = _a.error;
-    var _b = react_1.useState(""), selectedClass = _b[0], setClass = _b[1];
-    return (jsx_runtime_1.jsxs("main", __assign({ className: "wrapper" }, { children: [jsx_runtime_1.jsx("header", { children: jsx_runtime_1.jsx("h1", __assign({ className: "pink" }, { children: "Class Overview" }), void 0) }, void 0),
-            classes.length ? (jsx_runtime_1.jsx("form", { children: jsx_runtime_1.jsxs("select", __assign({ value: selectedClass, onChange: function (e) { return setClass(e.target.value); } }, { children: [jsx_runtime_1.jsx("option", __assign({ value: "" }, { children: "Please Select" }), void 0),
-                        classes.map(function (cl) { return (jsx_runtime_1.jsx("option", __assign({ value: cl.title }, { children: helper_1.ucFirst(cl.title) }), cl.id)); })] }), void 0) }, void 0)) : null] }), void 0));
+__webpack_require__(/*! ../../css/filter.css */ "./resources/css/filter.css");
+var Member_1 = __importDefault(__webpack_require__(/*! ../components/Member */ "./resources/js/components/Member.tsx"));
+var Filter = function (_a) {
+    var members = _a.members, filter = _a.filter, loading = _a.loading, error = _a.error;
+    var location = react_router_dom_1.useLocation().pathname.slice(1);
+    var locationNameReady = location.slice(0, -1) === "classe" ? "class" : location.slice(0, -1);
+    var _b = react_1.useState(""), selectedFilter = _b[0], setFilter = _b[1];
+    var filteredMembers = members.filter(function (mem) { return mem[locationNameReady] === selectedFilter; });
+    return (jsx_runtime_1.jsxs("main", __assign({ className: "wrapper" }, { children: [jsx_runtime_1.jsx("header", { children: jsx_runtime_1.jsxs("h1", __assign({ className: "pink" }, { children: [helper_1.ucFirst(locationNameReady), " Overview"] }), void 0) }, void 0),
+            filter.length ? (jsx_runtime_1.jsx("form", { children: jsx_runtime_1.jsxs("select", __assign({ className: "pink", value: selectedFilter, onChange: function (e) { return setFilter(e.target.value); } }, { children: [jsx_runtime_1.jsxs("option", __assign({ value: "" }, { children: ["Please Select a ", helper_1.ucFirst(locationNameReady)] }), void 0),
+                        filter.map(function (cl) { return (jsx_runtime_1.jsx("option", __assign({ value: cl.title }, { children: helper_1.ucFirst(cl.title) }), cl.id)); })] }), void 0) }, void 0)) : null,
+            filteredMembers.length ? (jsx_runtime_1.jsx("section", __assign({ className: "flex" }, { children: filteredMembers.map(function (member) { return (jsx_runtime_1.jsx(Member_1.default, { member: member }, member.id)); }) }), void 0)) : null,
+            loading && jsx_runtime_1.jsx("p", __assign({ className: "pink" }, { children: "Loading..." }), void 0),
+            error && jsx_runtime_1.jsx("p", __assign({ className: "pink" }, { children: error }), void 0)] }), void 0));
 };
-exports.default = Classes;
+exports.default = Filter;
 
 
 /***/ }),
@@ -38432,7 +38493,7 @@ var react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 var Overview_1 = __importDefault(__webpack_require__(/*! ./Overview */ "./resources/js/pages/Overview.tsx"));
-var Classes_1 = __importDefault(__webpack_require__(/*! ./Classes */ "./resources/js/pages/Classes.tsx"));
+var Filter_1 = __importDefault(__webpack_require__(/*! ./Filter */ "./resources/js/pages/Filter.tsx"));
 var NavBar_1 = __importDefault(__webpack_require__(/*! ../components/NavBar */ "./resources/js/components/NavBar.tsx"));
 var LootCouncil = function () {
     var _a = react_1.useState([]), members = _a[0], setMembers = _a[1];
@@ -38465,7 +38526,9 @@ var LootCouncil = function () {
     }, []);
     return (jsx_runtime_1.jsxs(react_router_dom_1.BrowserRouter, { children: [jsx_runtime_1.jsx(NavBar_1.default, {}, void 0),
             jsx_runtime_1.jsxs(react_router_dom_1.Switch, { children: [jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ exact: true, path: "/" }, { children: jsx_runtime_1.jsx(Overview_1.default, { members: members, loading: loading, error: error }, void 0) }), void 0),
-                    jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ exact: true, path: "/classes" }, { children: jsx_runtime_1.jsx(Classes_1.default, { members: members, classes: classes, loading: loading, error: error }, void 0) }), void 0)] }, void 0)] }, void 0));
+                    jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ exact: true, path: "/classes" }, { children: jsx_runtime_1.jsx(Filter_1.default, { members: members, filter: classes, loading: loading, error: error }, void 0) }), void 0),
+                    jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ exact: true, path: "/roles" }, { children: jsx_runtime_1.jsx(Filter_1.default, { members: members, filter: roles, loading: loading, error: error }, void 0) }), void 0),
+                    jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ exact: true, path: "/ranks" }, { children: jsx_runtime_1.jsx(Filter_1.default, { members: members, filter: ranks, loading: loading, error: error }, void 0) }), void 0)] }, void 0)] }, void 0));
 };
 exports.default = LootCouncil;
 

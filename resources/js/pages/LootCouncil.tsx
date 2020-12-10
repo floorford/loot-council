@@ -5,7 +5,7 @@ import axios from "axios";
 
 import { IMember, IRoleRankClass, IState } from "../types";
 import Overview from "./Overview";
-import Classes from "./Classes";
+import Filter from "./Filter";
 import NavBar from "../components/NavBar";
 
 const LootCouncil = (): JSX.Element => {
@@ -51,9 +51,25 @@ const LootCouncil = (): JSX.Element => {
                     />
                 </Route>
                 <Route exact path="/classes">
-                    <Classes
+                    <Filter
                         members={members}
-                        classes={classes}
+                        filter={classes}
+                        loading={loading}
+                        error={error}
+                    />
+                </Route>
+                <Route exact path="/roles">
+                    <Filter
+                        members={members}
+                        filter={roles}
+                        loading={loading}
+                        error={error}
+                    />
+                </Route>
+                <Route exact path="/ranks">
+                    <Filter
+                        members={members}
+                        filter={ranks}
                         loading={loading}
                         error={error}
                     />
