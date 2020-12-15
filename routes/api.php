@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\RaidController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,5 +18,7 @@ use App\Http\Controllers\MemberController;
 */
 
 Route::get('members', [MemberController::class, 'index']);
-Route::get('members/{id}',[MemberController::class, 'findPlayer']);
+Route::get('player/{id}',[MemberController::class, 'findPlayer']);
+Route::get('raids/{?id}',[RaidController::class, 'index']);
+
 ?>

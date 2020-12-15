@@ -17,6 +17,7 @@ const NavBar = () => (
                     <Link to="/classes">Classes</Link>
                     <Link to="/roles">Roles</Link>
                     <Link to="/ranks">Ranks</Link>
+                    <Link to="/raids">Raids</Link>
                 </div>
             </div>
             <Link className="link" to="/loot-council">

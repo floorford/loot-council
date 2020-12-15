@@ -11,6 +11,13 @@
     cursor: pointer;
 }
 
+.member.header {
+    box-shadow: unset;
+    height: unset;
+    width: unset;
+    cursor: unset;
+}
+
 .member h1 {
     margin: 0;
 }

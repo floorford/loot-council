@@ -10,7 +10,7 @@ const Member = ({ member }: MemberProps): JSX.Element => {
 
     const selectMember = () => {
         lcStore.setIMember(member);
-        history.push(`/player/${member.member}`);
+        history.push(`/player/${member.id}`);
     };
 
     return (

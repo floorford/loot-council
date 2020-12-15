@@ -9,6 +9,7 @@ import Overview from "./Overview";
 import Filter from "./Filter";
 import NavBar from "../components/NavBar";
 import Player from "../components/Player";
+import Raids from "./Raids";
 
 const LootCouncil = (): JSX.Element => {
     const [data, setDataState] = useState<IState>(lcStore.initialState);
@@ -36,6 +37,7 @@ const LootCouncil = (): JSX.Element => {
                 lcStore.setLoading(false);
             });
     }, []);
+
     return (
         <Router>
             <NavBar />
@@ -71,8 +73,11 @@ const LootCouncil = (): JSX.Element => {
                         error={data.error}
                     />
                 </Route>
-                <Route path="/player/:playerName">
+                <Route path="/player/:playerID">
                     <Player />
+                </Route>
+                <Route path="/raids/:playerID">
+                    <Raids />
                 </Route>
             </Switch>
         </Router>
