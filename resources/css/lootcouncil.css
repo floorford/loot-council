@@ -1,0 +1,33 @@
+input {
+    border: none;
+    appearance: none;
+    background-color: white;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    width: 100%;
+}
+
+input:focus {
+    outline: none;
+}
+
+.wrapper .search {
+    justify-content: start;
+}
+
+.search form {
+    margin: 0;
+}
+
+button {
+    color: white;
+    font-family: inherit;
+    font-size: inherit;
+    background-color: #f040af;
+    box-shadow: none;
+    border: none;
+    border-radius: 5px;
+    margin: 0 1rem;
+}

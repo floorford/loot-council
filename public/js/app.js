@@ -1993,6 +1993,25 @@ exports.push([module.i, "select {\n    background-color: transparent;\n    borde
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/css/lootcouncil.css":
+/*!***********************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--7-1!./node_modules/postcss-loader/src??ref--7-2!./resources/css/lootcouncil.css ***!
+  \***********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "input {\n    border: none;\n    appearance: none;\n    background-color: white;\n    font-family: inherit;\n    font-size: inherit;\n    cursor: inherit;\n    line-height: inherit;\n    width: 100%;\n}\n\ninput:focus {\n    outline: none;\n}\n\n.wrapper .search {\n    justify-content: start;\n}\n\n.search form {\n    margin: 0;\n}\n\nbutton {\n    color: white;\n    font-family: inherit;\n    font-size: inherit;\n    background-color: #f040af;\n    box-shadow: none;\n    border: none;\n    border-radius: 5px;\n    margin: 0 1rem;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/css/members.css":
 /*!*******************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--7-1!./node_modules/postcss-loader/src??ref--7-2!./resources/css/members.css ***!
@@ -44552,6 +44571,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./resources/css/lootcouncil.css":
+/*!***************************************!*\
+  !*** ./resources/css/lootcouncil.css ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader??ref--7-1!../../node_modules/postcss-loader/src??ref--7-2!./lootcouncil.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/css/lootcouncil.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./resources/css/members.css":
 /*!***********************************!*\
   !*** ./resources/css/members.css ***!
@@ -44655,12 +44704,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _pages_LootCouncil__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/LootCouncil */ "./resources/js/pages/LootCouncil.tsx");
-/* harmony import */ var _pages_LootCouncil__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_pages_LootCouncil__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _pages_App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/App */ "./resources/js/pages/App.tsx");
+/* harmony import */ var _pages_App__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_pages_App__WEBPACK_IMPORTED_MODULE_2__);
 
 
 
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_LootCouncil__WEBPACK_IMPORTED_MODULE_2___default.a, null), document.getElementById("root"));
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_App__WEBPACK_IMPORTED_MODULE_2___default.a, null), document.getElementById("root"));
 
 /***/ }),
 
@@ -44858,6 +44907,53 @@ exports.ucFirst = ucFirst;
 
 /***/ }),
 
+/***/ "./resources/js/pages/App.tsx":
+/*!************************************!*\
+  !*** ./resources/js/pages/App.tsx ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+var NavBar_1 = __importDefault(__webpack_require__(/*! ../components/NavBar */ "./resources/js/components/NavBar.tsx"));
+var Player_1 = __importDefault(__webpack_require__(/*! ../components/Player */ "./resources/js/components/Player.tsx"));
+var Raids_1 = __importDefault(__webpack_require__(/*! ./Raids */ "./resources/js/pages/Raids.tsx"));
+var Overview_1 = __importDefault(__webpack_require__(/*! ./Overview */ "./resources/js/pages/Overview.tsx"));
+var Filter_1 = __importDefault(__webpack_require__(/*! ./Filter */ "./resources/js/pages/Filter.tsx"));
+var LootCouncil_1 = __importDefault(__webpack_require__(/*! ./LootCouncil */ "./resources/js/pages/LootCouncil.tsx"));
+var App = function () {
+    return (jsx_runtime_1.jsxs(react_router_dom_1.BrowserRouter, { children: [jsx_runtime_1.jsx(NavBar_1.default, {}, void 0),
+            jsx_runtime_1.jsxs(react_router_dom_1.Switch, { children: [jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ exact: true, path: "/" }, { children: jsx_runtime_1.jsx(Overview_1.default, {}, void 0) }), void 0),
+                    jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ exact: true, path: "/classes" }, { children: jsx_runtime_1.jsx(Filter_1.default, {}, void 0) }), void 0),
+                    jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ exact: true, path: "/roles" }, { children: jsx_runtime_1.jsx(Filter_1.default, {}, void 0) }), void 0),
+                    jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ exact: true, path: "/ranks" }, { children: jsx_runtime_1.jsx(Filter_1.default, {}, void 0) }), void 0),
+                    jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ path: "/player/:playerID" }, { children: jsx_runtime_1.jsx(Player_1.default, {}, void 0) }), void 0),
+                    jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ path: ["/raids", "/raids/:raidID"] }, { children: jsx_runtime_1.jsx(Raids_1.default, {}, void 0) }), void 0),
+                    jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ path: "/loot-council" }, { children: jsx_runtime_1.jsx(LootCouncil_1.default, {}, void 0) }), void 0)] }, void 0)] }, void 0));
+};
+exports.default = App;
+
+
+/***/ }),
+
 /***/ "./resources/js/pages/Filter.tsx":
 /*!***************************************!*\
   !*** ./resources/js/pages/Filter.tsx ***!
@@ -44960,20 +45056,42 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-var Overview_1 = __importDefault(__webpack_require__(/*! ./Overview */ "./resources/js/pages/Overview.tsx"));
-var Filter_1 = __importDefault(__webpack_require__(/*! ./Filter */ "./resources/js/pages/Filter.tsx"));
-var NavBar_1 = __importDefault(__webpack_require__(/*! ../components/NavBar */ "./resources/js/components/NavBar.tsx"));
-var Player_1 = __importDefault(__webpack_require__(/*! ../components/Player */ "./resources/js/components/Player.tsx"));
-var Raids_1 = __importDefault(__webpack_require__(/*! ./Raids */ "./resources/js/pages/Raids.tsx"));
+var react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
+var lc_1 = __importDefault(__webpack_require__(/*! ../store/lc */ "./resources/js/store/lc.ts"));
+__webpack_require__(/*! ../../css/lootcouncil.css */ "./resources/css/lootcouncil.css");
 var LootCouncil = function () {
-    return (jsx_runtime_1.jsxs(react_router_dom_1.BrowserRouter, { children: [jsx_runtime_1.jsx(NavBar_1.default, {}, void 0),
-            jsx_runtime_1.jsxs(react_router_dom_1.Switch, { children: [jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ exact: true, path: "/" }, { children: jsx_runtime_1.jsx(Overview_1.default, {}, void 0) }), void 0),
-                    jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ exact: true, path: "/classes" }, { children: jsx_runtime_1.jsx(Filter_1.default, {}, void 0) }), void 0),
-                    jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ exact: true, path: "/roles" }, { children: jsx_runtime_1.jsx(Filter_1.default, {}, void 0) }), void 0),
-                    jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ exact: true, path: "/ranks" }, { children: jsx_runtime_1.jsx(Filter_1.default, {}, void 0) }), void 0),
-                    jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ path: "/player/:playerID" }, { children: jsx_runtime_1.jsx(Player_1.default, {}, void 0) }), void 0),
-                    jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ path: ["/raids", "/raids/:raidID"] }, { children: jsx_runtime_1.jsx(Raids_1.default, {}, void 0) }), void 0)] }, void 0)] }, void 0));
+    var _a = react_1.useState(""), searchTerm = _a[0], setSearchTerm = _a[1];
+    var _b = react_1.useState(lc_1.default.initialState), data = _b[0], setDataState = _b[1];
+    var _c = react_1.useState([]), players = _c[0], setPlayer = _c[1];
+    react_1.useLayoutEffect(function () {
+        lc_1.default.subscribe(setDataState);
+        lc_1.default.init();
+    });
+    var submitSearch = function (e) {
+        e.preventDefault();
+        axios_1.default
+            .get("/api/addPlayer/" + searchTerm, {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+            .then(function (response) {
+            setPlayer(response.data.player);
+            lc_1.default.setLoading(false);
+        })
+            .catch(function (ex) {
+            var err = ex.response.status === 404
+                ? "Resource not found"
+                : "An unexpected error has occurred";
+            lc_1.default.setError(err);
+            lc_1.default.setLoading(false);
+        });
+    };
+    return (jsx_runtime_1.jsxs("main", __assign({ className: "wrapper" }, { children: [jsx_runtime_1.jsxs("div", __assign({ className: "flex search" }, { children: [jsx_runtime_1.jsx("form", __assign({ onSubmit: function (e) { return submitSearch(e); } }, { children: jsx_runtime_1.jsx("label", __assign({ htmlFor: "search" }, { children: jsx_runtime_1.jsx("input", { type: "search", id: "search", className: "pink", value: searchTerm, placeholder: "Enter a player...", onChange: function (e) { return setSearchTerm(e.target.value); } }, void 0) }), void 0) }), void 0),
+                    jsx_runtime_1.jsx("button", __assign({ onClick: function (e) { return submitSearch(e); }, type: "button" }, { children: "Add" }), void 0)] }), void 0),
+            data.loading && jsx_runtime_1.jsx("p", __assign({ className: "pink" }, { children: "Loading..." }), void 0),
+            data.error && jsx_runtime_1.jsx("p", __assign({ className: "pink" }, { children: data.error }), void 0)] }), void 0));
 };
 exports.default = LootCouncil;
 

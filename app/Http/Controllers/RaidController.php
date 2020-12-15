@@ -31,4 +31,20 @@ class RaidController extends Controller
             'raidInfo' => $raidInfo,
         ], 200);  
     }
+
+    public function addPlayer($playerName) 
+    {   
+        $id = DB::table('members')
+            ->select('members.id')
+            ->where('members.member', 'LIKE', '%' . $playerName . '%')
+            ->first()->id;
+        
+        $details = MemberController::playerLoot($id);
+    
+        $member = MemberController::memberInformation($id);
+
+        return response()->json([
+            'player' => ['player' => $member, 'playerLoot' => $details],
+        ], 200); 
+    }
 }

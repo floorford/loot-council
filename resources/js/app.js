@@ -1,5 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import LootCouncil from "./pages/LootCouncil";
+import App from "./pages/App";
 
-ReactDOM.render(<LootCouncil />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
