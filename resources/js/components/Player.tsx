@@ -1,16 +1,18 @@
 import { useState, useEffect, useLayoutEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
+
 import lcStore from "../store/lc";
 import axios from "axios";
 
-import { IState, IDetail } from "../types";
+import { IState, Detail } from "../types";
 import { ucFirst } from "../helper";
 
 import "../../css/player.css";
 
 const Player = (): JSX.Element => {
     const [data, setDataState] = useState<IState>(lcStore.initialState);
-    const [details, setDetails] = useState<IDetail[]>([]);
+    const [details, setDetails] = useState<Detail[]>([]);
+    const [raidTotal, setRaidTotal] = useState<number>(0);
 
     const location = useLocation();
 
@@ -28,7 +30,8 @@ const Player = (): JSX.Element => {
             })
             .then(response => {
                 setDetails(response.data.details);
-                lcStore.setIMember(response.data.member[0]);
+                setRaidTotal(response.data.raid_total);
+                lcStore.setMember(response.data.member[0]);
                 lcStore.setLoading(false);
             })
             .catch(ex => {
@@ -51,6 +54,7 @@ const Player = (): JSX.Element => {
     } = data.selectedMember;
 
     const playerClass = data.selectedMember.class;
+    const urlName = member.slice(0, member.indexOf("/"));
 
     return (
         <main className="wrapper">
@@ -64,7 +68,7 @@ const Player = (): JSX.Element => {
                     <header className="member-header">
                         <h1>{member}</h1>
                         <a
-                            href={`https://classic.warcraftlogs.com/character/eu/firemaw/${member}`}
+                            href={`https://classic.warcraftlogs.com/character/eu/firemaw/${urlName}`}
                             target="_blank"
                             className="tooltip"
                         >
@@ -86,10 +90,7 @@ const Player = (): JSX.Element => {
                 <p>Missed Raids: {absence}</p>
                 <p>
                     Attendance:{" "}
-                    {Math.ceil(
-                        ((data.raidTotal - absence) / data.raidTotal) * 100
-                    )}
-                    %
+                    {Math.ceil(((raidTotal - absence) / raidTotal) * 100)}%
                 </p>
                 {/* <p>Recent Attendance: {one_oh_one}</p> */}
                 <p>Raids before MO: {prev_raids}</p>
@@ -111,11 +112,15 @@ const Player = (): JSX.Element => {
                             </tr>
                         </thead>
                         <tbody>
-                            {details.map((item: IDetail) => {
+                            {details.map((item: Detail) => {
                                 let formattedItems: any = item.item.split("/");
                                 return (
                                     <tr key={item.id}>
-                                        <td>{item.title}</td>
+                                        <td>
+                                            <Link to={`/raids/${item.id}`}>
+                                                {item.title}
+                                            </Link>
+                                        </td>
                                         <td>
                                             {formattedItems.map(
                                                 (x: string, i: number) => (

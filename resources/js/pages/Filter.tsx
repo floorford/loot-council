@@ -3,19 +3,20 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 import lcStore from "../store/lc";
-import { IState, IData, IRoleRankClass, IMember } from "../types";
+import { IState, IData, RoleRankClass, Member } from "../types";
 import { ucFirst } from "../helper";
-import Member from "../components/Member";
+import MemberCard from "../components/Member";
 
 import "../../css/filter.css";
 
 const Filter = () => {
     const location = useLocation().pathname.slice(1);
     const [data, setDataState] = useState<IState>(lcStore.initialState);
+    const [selectedFilter, setFilter] = useState<string>("");
 
     useEffect(() => {
-        lcStore.subscribe(setDataState);
         lcStore.init();
+        const sub = lcStore.subscribe(setDataState);
 
         if (!data.members.length) {
             axios
@@ -37,14 +38,17 @@ const Filter = () => {
                     lcStore.setLoading(false);
                 });
         }
+
+        return function cleanup() {
+            sub.unsubscribe();
+        };
     }, []);
 
     const locationNameReady: string =
         location.slice(0, -1) === "classe" ? "class" : location.slice(0, -1);
-    const [selectedFilter, setFilter] = useState<string>("");
 
     const filteredMembers = data.members.filter(
-        (mem: IMember) => mem[locationNameReady] === selectedFilter
+        (mem: Member) => mem[locationNameReady] === selectedFilter
     );
 
     let filter = data[location];
@@ -64,7 +68,7 @@ const Filter = () => {
                         <option value="">
                             Please Select a {ucFirst(locationNameReady)}
                         </option>
-                        {filter.map((cl: IRoleRankClass) => (
+                        {filter.map((cl: RoleRankClass) => (
                             <option key={cl.id} value={cl.title}>
                                 {ucFirst(cl.title)}
                             </option>
@@ -75,8 +79,8 @@ const Filter = () => {
 
             {filteredMembers.length ? (
                 <section className="flex">
-                    {filteredMembers.map((member: IMember) => (
-                        <Member key={member.id} member={member} />
+                    {filteredMembers.map((member: Member) => (
+                        <MemberCard key={member.id} member={member} />
                     ))}
                 </section>
             ) : null}

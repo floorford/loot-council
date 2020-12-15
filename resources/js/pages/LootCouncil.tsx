@@ -26,7 +26,7 @@ const LootCouncil = (): JSX.Element => {
                 <Route path="/player/:playerID">
                     <Player />
                 </Route>
-                <Route path="/raids/:raidID">
+                <Route path={["/raids", "/raids/:raidID"]}>
                     <Raids />
                 </Route>
             </Switch>

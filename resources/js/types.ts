@@ -1,4 +1,4 @@
-export interface IMember {
+export type Member = {
     id: number;
     member: string;
     class: string;
@@ -9,38 +9,44 @@ export interface IMember {
     one_oh_one: number;
     six_months: boolean;
     [key: string]: any;
-}
-export interface IRoleRankClass {
+};
+
+export type RoleRankClass = {
     id: number;
     title: string;
-}
+};
 
-export interface IDetail {
+export type Detail = {
     item: string;
     title: string;
     id: number;
-}
+};
 
 export interface IState {
-    members: Array<IMember>;
-    roles: Array<IRoleRankClass>;
-    ranks: Array<IRoleRankClass>;
-    classes: Array<IRoleRankClass>;
-    selectedMember: IMember;
+    members: Array<Member>;
+    roles: Array<RoleRankClass>;
+    ranks: Array<RoleRankClass>;
+    classes: Array<RoleRankClass>;
+    raids: Array<RoleRankClass>;
+    selectedMember: Member;
     loading: boolean;
     error: string;
-    raidTotal: number;
     [key: string]: any;
 }
 
 export interface IData {
-    members: Array<IMember>;
-    roles: Array<IRoleRankClass>;
-    ranks: Array<IRoleRankClass>;
-    classes: Array<IRoleRankClass>;
-    raid_total: number;
+    members: Array<Member>;
+    roles: Array<RoleRankClass>;
+    ranks: Array<RoleRankClass>;
+    classes: Array<RoleRankClass>;
 }
 
 export type MemberProps = {
-    member: IMember;
+    member: Member;
+};
+
+export type Loot = {
+    item: string;
+    id: number;
+    member: string;
 };

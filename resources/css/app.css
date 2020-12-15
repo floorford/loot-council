@@ -31,6 +31,7 @@ a {
     margin: 0 auto;
 }
 
-.pink {
+.pink,
+.wrapper a:hover {
     color: #f040af;
 }

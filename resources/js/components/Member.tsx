@@ -9,9 +9,11 @@ const Member = ({ member }: MemberProps): JSX.Element => {
     const history = useHistory();
 
     const selectMember = () => {
-        lcStore.setIMember(member);
+        lcStore.setMember(member);
         history.push(`/player/${member.id}`);
     };
+
+    const urlName = member.member.slice(0, member.member.indexOf("/"));
 
     return (
         <section className={`member ${member.class}`} onClick={selectMember}>
@@ -24,7 +26,7 @@ const Member = ({ member }: MemberProps): JSX.Element => {
                 <header className="member-header">
                     <h1>{member.member}</h1>
                     <a
-                        href={`https://classic.warcraftlogs.com/character/eu/firemaw/${member.member}`}
+                        href={`https://classic.warcraftlogs.com/character/eu/firemaw/${urlName}`}
                         target="_blank"
                         className="tooltip"
                     >

@@ -1,5 +1,5 @@
 import { Subject } from "rxjs";
-import { IState, IMember, IData } from "../types";
+import { IState, Member, IData, RoleRankClass } from "../types";
 
 // An RxJS Subject can act as both an Observable and an Observer at the same time
 // when a Subject receives any data, that data can be forwarded to every Observer subscribed to it
@@ -10,7 +10,7 @@ const initialState: IState = {
     roles: [],
     ranks: [],
     classes: [],
-    raidTotal: 0,
+    raids: [],
     selectedMember: {
         id: 0,
         member: "",
@@ -41,15 +41,21 @@ const lcStore = {
             members: data.members,
             roles: data.roles,
             ranks: data.ranks,
-            classes: data.classes,
-            raidTotal: data.raid_total
+            classes: data.classes
         };
         subject.next(state);
     },
-    setIMember: (member: IMember) => {
+    setMember: (member: Member) => {
         state = {
             ...state,
             selectedMember: member
+        };
+        subject.next(state);
+    },
+    setRaids: (raidInfo: Array<RoleRankClass>) => {
+        state = {
+            ...state,
+            raids: raidInfo
         };
         subject.next(state);
     },

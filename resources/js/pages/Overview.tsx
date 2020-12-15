@@ -2,8 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 import lcStore from "../store/lc";
-import { IState, IData, IMember } from "../types";
-import Member from "../components/Member";
+import { IState, IData, Member } from "../types";
+import MemberCard from "../components/Member";
 
 const Overview = (): JSX.Element => {
     const [{ error, loading, members }, setDataState] = useState<IState>(
@@ -11,8 +11,8 @@ const Overview = (): JSX.Element => {
     );
 
     useEffect(() => {
-        lcStore.subscribe(setDataState);
         lcStore.init();
+        const sub = lcStore.subscribe(setDataState);
 
         if (!members.length) {
             axios
@@ -34,6 +34,10 @@ const Overview = (): JSX.Element => {
                     lcStore.setLoading(false);
                 });
         }
+
+        return function cleanup() {
+            sub.unsubscribe();
+        };
     }, []);
 
     const tanks = members.filter(mem => mem.role === "tank");
@@ -65,8 +69,8 @@ const Overview = (): JSX.Element => {
                         TANKS ({tanks.length})
                     </p>
                     <div className="flex">
-                        {tanks.map((member: IMember) => (
-                            <Member key={member.id} member={member} />
+                        {tanks.map((member: Member) => (
+                            <MemberCard key={member.id} member={member} />
                         ))}
                     </div>
                 </section>
@@ -78,8 +82,8 @@ const Overview = (): JSX.Element => {
                         HEALERS ({healers.length})
                     </p>
                     <div className="flex">
-                        {healers.map((member: IMember) => (
-                            <Member key={member.id} member={member} />
+                        {healers.map((member: Member) => (
+                            <MemberCard key={member.id} member={member} />
                         ))}
                     </div>
                 </section>
@@ -91,8 +95,8 @@ const Overview = (): JSX.Element => {
                         {dps.length})
                     </p>
                     <div className="flex">
-                        {dps.map((member: IMember) => (
-                            <Member key={member.id} member={member} />
+                        {dps.map((member: Member) => (
+                            <MemberCard key={member.id} member={member} />
                         ))}
                     </div>
                 </section>

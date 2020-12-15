@@ -26,14 +26,11 @@ class MemberController extends Controller
     $ranks = Rank::all();
     $roles = Role::all();
 
-    $total = DB::table('raid')->get()->count();
-
     return response()->json([
       'members' => $members,
       'classes' => $classes,
       'ranks' => $ranks,
       'roles' => $roles,
-      'raid_total' => $total,
     ], 200);  
   }
 
@@ -41,7 +38,7 @@ class MemberController extends Controller
   {
     $details = DB::table('items')
     ->join('raid', 'items.raid_id', '=', 'raid.id')
-    ->select('items.id', 'items.item', 'raid.title')
+    ->select('raid.id', 'items.item', 'raid.title')
     ->where('items.member_id', '=', $id)
     ->get();
 
@@ -54,9 +51,12 @@ class MemberController extends Controller
           ->where('members.id', '=', $id)
           ->get();
 
+    $total = DB::table('raid')->get()->count();
+
     return response()->json([
       'details' => $details,
       'member' => $member,
+      'raid_total' => $total
     ], 200);  
   }   
 }

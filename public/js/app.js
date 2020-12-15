@@ -2005,7 +2005,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".member {\n    box-shadow: 0 0 0.25em 0.25em rgba(0, 0, 0, 0.25);\n    height: 80px;\n    width: 39%;\n    padding: 1rem;\n    margin: 0.5rem;\n    border-radius: 5px;\n    display: flex;\n    justify-content: start;\n    flex-wrap: nowrap;\n    cursor: pointer;\n}\n\n.member.header {\n    box-shadow: unset;\n    height: unset;\n    width: unset;\n    cursor: unset;\n}\n\n.member h1 {\n    margin: 0;\n}\n\n.member .member-wrapper {\n    margin: 0 0 0 1rem;\n    width: 100%;\n}\n\n.member-wrapper h1 {\n    overflow: hidden;\n    max-width: 90%;\n}\n\n.member-header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    width: 100%;\n}\n\n.member p {\n    margin: 0;\n    font-size: 13px;\n}\n\n.tooltip {\n    position: relative;\n    display: inline-block;\n    border-bottom: 1px dotted black;\n}\n\n.tooltip .tooltip-text {\n    visibility: hidden;\n    width: 120px;\n    background-color: black;\n    color: #fff;\n    text-align: center;\n    border-radius: 6px;\n    padding: 5px 0;\n\n    /* Position the tooltip */\n    position: absolute;\n    z-index: 1;\n    top: -5px;\n    left: 105%;\n}\n\n.tooltip:hover .tooltip-text {\n    visibility: visible;\n}\n\n.warrior {\n    background-color: #c69b6d;\n}\n\n.druid {\n    background-color: #ff7c0a;\n}\n\n.hunter {\n    background-color: #aad372;\n}\n\n.priest {\n    background-color: #ffffff;\n}\n\n.warlock {\n    background-color: #8788ee;\n}\n\n.mage {\n    background-color: #3fc7eb;\n}\n\n.shaman {\n    background-color: #0070dd;\n}\n\n.icon {\n    height: 20px;\n    width: 20px;\n}\n\n.rogue {\n    background-color: #fff468;\n}\n\n.team-role {\n    color: #f040af;\n    padding: 1rem;\n    border: 1px solid #f040af;\n    width: fit-content;\n}\n\ni {\n    margin-right: 5px;\n}\n\n.wrapper .flex {\n    flex-wrap: wrap;\n    justify-content: center;\n}\n\n.class-icon {\n    height: 100%;\n}\n", ""]);
+exports.push([module.i, ".member {\n    box-shadow: 0 0 0.25em 0.25em rgba(0, 0, 0, 0.25);\n    width: 39%;\n    padding: 1rem;\n    margin: 0.5rem;\n    border-radius: 5px;\n    display: flex;\n    justify-content: start;\n    flex-wrap: nowrap;\n    cursor: pointer;\n}\n\n.member.header {\n    box-shadow: unset;\n    width: unset;\n    cursor: unset;\n}\n\n.member h1 {\n    margin: 0;\n}\n\n.member .member-wrapper {\n    margin: 0 0 0 1rem;\n    width: 100%;\n}\n\n.member-wrapper h1 {\n    overflow: hidden;\n    max-width: 90%;\n}\n\n.member-header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    width: 100%;\n}\n\n.member p {\n    margin: 0;\n    font-size: 13px;\n}\n\n.tooltip {\n    position: relative;\n    display: inline-block;\n    border-bottom: 1px dotted black;\n}\n\n.tooltip .tooltip-text {\n    visibility: hidden;\n    width: 120px;\n    background-color: black;\n    color: #fff;\n    text-align: center;\n    border-radius: 6px;\n    padding: 5px 0;\n\n    /* Position the tooltip */\n    position: absolute;\n    z-index: 1;\n    top: -5px;\n    left: 105%;\n}\n\n.tooltip:hover .tooltip-text {\n    visibility: visible;\n}\n\n.warrior {\n    background-color: #c69b6d;\n}\n\n.druid {\n    background-color: #ff7c0a;\n}\n\n.hunter {\n    background-color: #aad372;\n}\n\n.priest {\n    background-color: #ffffff;\n}\n\n.warlock {\n    background-color: #8788ee;\n}\n\n.mage {\n    background-color: #3fc7eb;\n}\n\n.shaman {\n    background-color: #0070dd;\n}\n\n.icon {\n    height: 20px;\n    width: 20px;\n}\n\n.rogue {\n    background-color: #fff468;\n}\n\n.team-role {\n    color: #f040af;\n    padding: 1rem;\n    border: 1px solid #f040af;\n    width: fit-content;\n}\n\ni {\n    margin-right: 5px;\n}\n\n.wrapper .flex {\n    flex-wrap: wrap;\n    justify-content: center;\n}\n\n.class-icon {\n    height: 100%;\n}\n", ""]);
 
 // exports
 
@@ -2043,7 +2043,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "table {\n    width: 800px;\n    border-collapse: collapse;\n    overflow: hidden;\n    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\n}\n\nth,\ntd {\n    padding: 15px;\n    background-color: rgba(255, 255, 255, 0.2);\n    color: black;\n}\n\nth {\n    text-align: left;\n}\n\nthead th {\n    background-color: #8936a4;\n}\n\ntbody td {\n    position: relative;\n}\n\n.player-info i {\n    margin: 5px;\n}\n\n.player-info {\n    padding: 1rem;\n    margin: 0.5rem;\n    border-radius: 5px;\n}\n", ""]);
+exports.push([module.i, "table {\n    width: 800px;\n    border-collapse: collapse;\n    overflow: hidden;\n    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\n    margin: 0 auto;\n}\n\nth,\ntd {\n    padding: 15px;\n    background-color: rgba(255, 255, 255, 0.2);\n    color: black;\n}\n\nth {\n    text-align: left;\n}\n\nthead th {\n    background-color: #8936a4;\n}\n\ntbody td {\n    position: relative;\n}\n\n.player-info i {\n    margin: 5px;\n}\n\n.player-info {\n    padding: 1rem;\n    margin: 0.5rem;\n    border-radius: 5px;\n}\n", ""]);
 
 // exports
 
@@ -44697,12 +44697,13 @@ var Member = function (_a) {
     var member = _a.member;
     var history = react_router_dom_1.useHistory();
     var selectMember = function () {
-        lc_1.default.setIMember(member);
+        lc_1.default.setMember(member);
         history.push("/player/" + member.id);
     };
+    var urlName = member.member.slice(0, member.member.indexOf("/"));
     return (jsx_runtime_1.jsxs("section", __assign({ className: "member " + member.class, onClick: selectMember }, { children: [jsx_runtime_1.jsx("img", { className: "class-icon", alt: member.class, src: "/assets/" + member.class + ".png" }, void 0),
             jsx_runtime_1.jsxs("div", __assign({ className: "member-wrapper" }, { children: [jsx_runtime_1.jsxs("header", __assign({ className: "member-header" }, { children: [jsx_runtime_1.jsx("h1", { children: member.member }, void 0),
-                            jsx_runtime_1.jsxs("a", __assign({ href: "https://classic.warcraftlogs.com/character/eu/firemaw/" + member.member, target: "_blank", className: "tooltip" }, { children: [jsx_runtime_1.jsx("img", { className: "icon", alt: "Warcraft Logs", src: "/assets/warcraftlogs.png" }, void 0),
+                            jsx_runtime_1.jsxs("a", __assign({ href: "https://classic.warcraftlogs.com/character/eu/firemaw/" + urlName, target: "_blank", className: "tooltip" }, { children: [jsx_runtime_1.jsx("img", { className: "icon", alt: "Warcraft Logs", src: "/assets/warcraftlogs.png" }, void 0),
                                     jsx_runtime_1.jsx("span", __assign({ className: "tooltip-text" }, { children: "Warcraft Logs" }), void 0)] }), void 0)] }), void 0),
                     jsx_runtime_1.jsx("p", { children: helper_1.ucFirst(member.class) }, void 0),
                     jsx_runtime_1.jsxs("p", { children: ["Rank: ", helper_1.ucFirst(member.rank)] }, void 0)] }), void 0)] }), void 0));
@@ -44783,6 +44784,7 @@ __webpack_require__(/*! ../../css/player.css */ "./resources/css/player.css");
 var Player = function () {
     var _a = react_1.useState(lc_1.default.initialState), data = _a[0], setDataState = _a[1];
     var _b = react_1.useState([]), details = _b[0], setDetails = _b[1];
+    var _c = react_1.useState(0), raidTotal = _c[0], setRaidTotal = _c[1];
     var location = react_router_dom_1.useLocation();
     react_1.useLayoutEffect(function () {
         lc_1.default.subscribe(setDataState);
@@ -44797,7 +44799,8 @@ var Player = function () {
         })
             .then(function (response) {
             setDetails(response.data.details);
-            lc_1.default.setIMember(response.data.member[0]);
+            setRaidTotal(response.data.raid_total);
+            lc_1.default.setMember(response.data.member[0]);
             lc_1.default.setLoading(false);
         })
             .catch(function (ex) {
@@ -44808,17 +44811,18 @@ var Player = function () {
             lc_1.default.setLoading(false);
         });
     }, []);
-    var _c = data.selectedMember, absence = _c.absence, member = _c.member, prev_raids = _c.prev_raids, rank = _c.rank, six_months = _c.six_months, one_oh_one = _c.one_oh_one;
+    var _d = data.selectedMember, absence = _d.absence, member = _d.member, prev_raids = _d.prev_raids, rank = _d.rank, six_months = _d.six_months, one_oh_one = _d.one_oh_one;
     var playerClass = data.selectedMember.class;
+    var urlName = member.slice(0, member.indexOf("/"));
     return (jsx_runtime_1.jsxs("main", __assign({ className: "wrapper" }, { children: [jsx_runtime_1.jsxs("section", __assign({ className: "member " + playerClass + " header" }, { children: [jsx_runtime_1.jsx("img", { className: "class-icon", alt: playerClass, src: "/assets/" + playerClass + ".png" }, void 0),
                     jsx_runtime_1.jsxs("div", __assign({ className: "member-wrapper" }, { children: [jsx_runtime_1.jsxs("header", __assign({ className: "member-header" }, { children: [jsx_runtime_1.jsx("h1", { children: member }, void 0),
-                                    jsx_runtime_1.jsxs("a", __assign({ href: "https://classic.warcraftlogs.com/character/eu/firemaw/" + member, target: "_blank", className: "tooltip" }, { children: [jsx_runtime_1.jsx("img", { className: "icon", alt: "Warcraft Logs", src: "/assets/warcraftlogs.png" }, void 0),
+                                    jsx_runtime_1.jsxs("a", __assign({ href: "https://classic.warcraftlogs.com/character/eu/firemaw/" + urlName, target: "_blank", className: "tooltip" }, { children: [jsx_runtime_1.jsx("img", { className: "icon", alt: "Warcraft Logs", src: "/assets/warcraftlogs.png" }, void 0),
                                             jsx_runtime_1.jsx("span", __assign({ className: "tooltip-text" }, { children: "Warcraft Logs" }), void 0)] }), void 0)] }), void 0),
                             jsx_runtime_1.jsx("p", { children: helper_1.ucFirst(playerClass) }, void 0),
                             jsx_runtime_1.jsxs("p", { children: ["Rank: ", helper_1.ucFirst(rank)] }, void 0)] }), void 0)] }), void 0),
             jsx_runtime_1.jsxs("section", __assign({ className: "player-info " + playerClass }, { children: [jsx_runtime_1.jsx("h3", __assign({ className: "pink" }, { children: "Player Stats" }), void 0),
                     jsx_runtime_1.jsxs("p", { children: ["Missed Raids: ", absence] }, void 0),
-                    jsx_runtime_1.jsxs("p", { children: ["Attendance:", " ", Math.ceil(((data.raidTotal - absence) / data.raidTotal) * 100), "%"] }, void 0),
+                    jsx_runtime_1.jsxs("p", { children: ["Attendance:", " ", Math.ceil(((raidTotal - absence) / raidTotal) * 100), "%"] }, void 0),
                     jsx_runtime_1.jsxs("p", { children: ["Raids before MO: ", prev_raids] }, void 0),
                     six_months ? (jsx_runtime_1.jsxs("p", { children: ["6 months", jsx_runtime_1.jsx("sup", { children: "+" }, void 0), " member"] }, void 0)) : null] }), void 0),
             jsx_runtime_1.jsxs("section", __assign({ className: "player-info " + playerClass }, { children: [jsx_runtime_1.jsx("h3", __assign({ className: "pink" }, { children: "Loot Recieved" }), void 0),
@@ -44826,7 +44830,7 @@ var Player = function () {
                                         jsx_runtime_1.jsx("th", { children: "Item" }, void 0)] }, void 0) }, void 0),
                             jsx_runtime_1.jsx("tbody", { children: details.map(function (item) {
                                     var formattedItems = item.item.split("/");
-                                    return (jsx_runtime_1.jsxs("tr", { children: [jsx_runtime_1.jsx("td", { children: item.title }, void 0),
+                                    return (jsx_runtime_1.jsxs("tr", { children: [jsx_runtime_1.jsx("td", { children: jsx_runtime_1.jsx(react_router_dom_1.Link, __assign({ to: "/raids/" + item.id }, { children: item.title }), void 0) }, void 0),
                                             jsx_runtime_1.jsx("td", { children: formattedItems.map(function (x, i) { return (jsx_runtime_1.jsx("p", { children: x }, i)); }) }, void 0)] }, item.id));
                                 }) }, void 0)] }, void 0)) : (jsx_runtime_1.jsx("p", { children: "No loot recieved!" }, void 0))] }), void 0)] }), void 0));
 };
@@ -44889,9 +44893,10 @@ __webpack_require__(/*! ../../css/filter.css */ "./resources/css/filter.css");
 var Filter = function () {
     var location = react_router_dom_1.useLocation().pathname.slice(1);
     var _a = react_1.useState(lc_1.default.initialState), data = _a[0], setDataState = _a[1];
+    var _b = react_1.useState(""), selectedFilter = _b[0], setFilter = _b[1];
     react_1.useEffect(function () {
-        lc_1.default.subscribe(setDataState);
         lc_1.default.init();
+        var sub = lc_1.default.subscribe(setDataState);
         if (!data.members.length) {
             axios_1.default
                 .get("/api/members", {
@@ -44911,9 +44916,11 @@ var Filter = function () {
                 lc_1.default.setLoading(false);
             });
         }
+        return function cleanup() {
+            sub.unsubscribe();
+        };
     }, []);
     var locationNameReady = location.slice(0, -1) === "classe" ? "class" : location.slice(0, -1);
-    var _b = react_1.useState(""), selectedFilter = _b[0], setFilter = _b[1];
     var filteredMembers = data.members.filter(function (mem) { return mem[locationNameReady] === selectedFilter; });
     var filter = data[location];
     return (jsx_runtime_1.jsxs("main", __assign({ className: "wrapper" }, { children: [jsx_runtime_1.jsx("header", { children: jsx_runtime_1.jsxs("h1", __assign({ className: "pink" }, { children: [helper_1.ucFirst(locationNameReady), " Overview"] }), void 0) }, void 0),
@@ -44966,7 +44973,7 @@ var LootCouncil = function () {
                     jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ exact: true, path: "/roles" }, { children: jsx_runtime_1.jsx(Filter_1.default, {}, void 0) }), void 0),
                     jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ exact: true, path: "/ranks" }, { children: jsx_runtime_1.jsx(Filter_1.default, {}, void 0) }), void 0),
                     jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ path: "/player/:playerID" }, { children: jsx_runtime_1.jsx(Player_1.default, {}, void 0) }), void 0),
-                    jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ path: "/raids/:raidID" }, { children: jsx_runtime_1.jsx(Raids_1.default, {}, void 0) }), void 0)] }, void 0)] }, void 0));
+                    jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ path: ["/raids", "/raids/:raidID"] }, { children: jsx_runtime_1.jsx(Raids_1.default, {}, void 0) }), void 0)] }, void 0)] }, void 0));
 };
 exports.default = LootCouncil;
 
@@ -45005,8 +45012,8 @@ var Member_1 = __importDefault(__webpack_require__(/*! ../components/Member */ "
 var Overview = function () {
     var _a = react_1.useState(lc_1.default.initialState), _b = _a[0], error = _b.error, loading = _b.loading, members = _b.members, setDataState = _a[1];
     react_1.useEffect(function () {
-        lc_1.default.subscribe(setDataState);
         lc_1.default.init();
+        var sub = lc_1.default.subscribe(setDataState);
         if (!members.length) {
             axios_1.default
                 .get("/api/members", {
@@ -45026,6 +45033,9 @@ var Overview = function () {
                 lc_1.default.setLoading(false);
             });
         }
+        return function cleanup() {
+            sub.unsubscribe();
+        };
     }, []);
     var tanks = members.filter(function (mem) { return mem.role === "tank"; });
     var healers = members.filter(function (mem) { return mem.role === "healer"; });
@@ -45067,6 +45077,17 @@ exports.default = Overview;
 
 "use strict";
 
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -45077,28 +45098,65 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 var lc_1 = __importDefault(__webpack_require__(/*! ../store/lc */ "./resources/js/store/lc.ts"));
 var Raids = function () {
-    var id = react_router_dom_1.useParams();
+    var _a = react_1.useState(lc_1.default.initialState), raids = _a[0].raids, setRaidsData = _a[1];
+    var location = react_router_dom_1.useLocation();
+    var _b = react_1.useState(location.pathname.replace(/[^0-9]+/, "")), selectedFilter = _b[0], setFilter = _b[1];
+    var _c = react_1.useState([]), raidDetails = _c[0], setRaidDetails = _c[1];
+    var raidID = selectedFilter;
     react_1.useEffect(function () {
-        var url = id ? "/api/raids/" + id : "/api/raids";
-        axios_1.default
-            .get(url, {
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-            .then(function (response) {
-            lc_1.default.setIMember(response.data.member[0]);
-            lc_1.default.setLoading(false);
-        })
-            .catch(function (ex) {
-            var err = ex.response.status === 404
-                ? "Resource not found"
-                : "An unexpected error has occurred";
-            lc_1.default.setError(err);
-            lc_1.default.setLoading(false);
-        });
-    }, []);
-    return jsx_runtime_1.jsx("main", { children: "hi" }, void 0);
+        lc_1.default.init();
+        var sub = lc_1.default.subscribe(setRaidsData);
+        if (!raids.length) {
+            axios_1.default
+                .get("/api/raids", {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+                .then(function (response) {
+                lc_1.default.setRaids(response.data.raids);
+                lc_1.default.setLoading(false);
+            })
+                .catch(function (ex) {
+                var err = ex.response.status === 404
+                    ? "Resource not found"
+                    : "An unexpected error has occurred";
+                lc_1.default.setError(err);
+                lc_1.default.setLoading(false);
+            });
+        }
+        if (raidID) {
+            axios_1.default
+                .get("/api/raids/" + raidID, {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+                .then(function (response) {
+                setRaidDetails(response.data.raidInfo);
+                lc_1.default.setLoading(false);
+            })
+                .catch(function (ex) {
+                var err = ex.response.status === 404
+                    ? "Resource not found"
+                    : "An unexpected error has occurred";
+                lc_1.default.setError(err);
+                lc_1.default.setLoading(false);
+            });
+        }
+        return function cleanup() {
+            sub.unsubscribe();
+        };
+    }, [selectedFilter]);
+    return (jsx_runtime_1.jsxs("main", __assign({ className: "wrapper" }, { children: [jsx_runtime_1.jsx("header", { children: jsx_runtime_1.jsx("h1", __assign({ className: "pink" }, { children: "Raid Overview" }), void 0) }, void 0),
+            raids.length ? (jsx_runtime_1.jsx("form", { children: jsx_runtime_1.jsxs("select", __assign({ className: "pink", value: selectedFilter, onChange: function (e) { return setFilter(e.target.value); } }, { children: [jsx_runtime_1.jsx("option", __assign({ value: "" }, { children: "Please Select a Raid" }), void 0),
+                        raids.map(function (cl) { return (jsx_runtime_1.jsx("option", __assign({ value: cl.id }, { children: cl.title }), cl.id)); })] }), void 0) }, void 0)) : null,
+            raidDetails.length ? (jsx_runtime_1.jsxs("table", { children: [jsx_runtime_1.jsx("thead", { children: jsx_runtime_1.jsxs("tr", { children: [jsx_runtime_1.jsx("th", { children: "Item" }, void 0),
+                                jsx_runtime_1.jsx("th", { children: "Member" }, void 0)] }, void 0) }, void 0),
+                    jsx_runtime_1.jsx("tbody", { children: raidDetails.map(function (item) {
+                            return (jsx_runtime_1.jsxs("tr", { children: [jsx_runtime_1.jsx("td", { children: item.item }, void 0),
+                                    jsx_runtime_1.jsx("td", { children: jsx_runtime_1.jsx(react_router_dom_1.Link, __assign({ to: "/player/" + item.id }, { children: item.member }), void 0) }, void 0)] }, item.id));
+                        }) }, void 0)] }, void 0)) : null] }), void 0));
 };
 exports.default = Raids;
 
@@ -45135,7 +45193,7 @@ var initialState = {
     roles: [],
     ranks: [],
     classes: [],
-    raidTotal: 0,
+    raids: [],
     selectedMember: {
         id: 0,
         member: "",
@@ -45159,11 +45217,15 @@ var lcStore = {
     init: function () { return subject.next(state); },
     subscribe: function (setState) { return subject.subscribe(setState); },
     setData: function (data) {
-        state = __assign(__assign({}, state), { members: data.members, roles: data.roles, ranks: data.ranks, classes: data.classes, raidTotal: data.raid_total });
+        state = __assign(__assign({}, state), { members: data.members, roles: data.roles, ranks: data.ranks, classes: data.classes });
         subject.next(state);
     },
-    setIMember: function (member) {
+    setMember: function (member) {
         state = __assign(__assign({}, state), { selectedMember: member });
+        subject.next(state);
+    },
+    setRaids: function (raidInfo) {
+        state = __assign(__assign({}, state), { raids: raidInfo });
         subject.next(state);
     },
     setLoading: function (boolean) {

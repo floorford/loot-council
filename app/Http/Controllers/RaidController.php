@@ -2,21 +2,33 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Raid;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RaidController extends Controller
 {
     public function index()
     {
-        $raidInfo = DB::table('items')
-            ->join('member', 'items.member_id', '=', 'member.id')
-            ->join('raid', 'items.raid_id', '=', 'raid.id')
-            ->select('members.member', 'items.item', 'raid.title')
-            ->groupBy('raid.id')
-            ->get();
+        $raids = Raid::all(); 
 
         return response()->json([
-        'raidInfo' => $raidInfo,
+            'raids' => $raids,
+        ], 200);
+    }    
+    
+    public function getRaidInfo($id)
+    {
+        $raidInfo = DB::table('raid')
+        ->join('items', 'items.raid_id', '=', 'raid.id')
+        ->join('members', 'members.id', '=', 'items.member_id')
+        ->select('members.id', 'items.item', 'members.member')
+        ->where('raid.id', '=', $id)
+        ->get();
+
+        return response()->json([
+            'raidInfo' => $raidInfo,
         ], 200);  
     }
 }
