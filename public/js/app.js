@@ -44879,23 +44879,49 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 var react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+var lc_1 = __importDefault(__webpack_require__(/*! ../store/lc */ "./resources/js/store/lc.ts"));
 var helper_1 = __webpack_require__(/*! ../helper */ "./resources/js/helper.ts");
-__webpack_require__(/*! ../../css/filter.css */ "./resources/css/filter.css");
 var Member_1 = __importDefault(__webpack_require__(/*! ../components/Member */ "./resources/js/components/Member.tsx"));
-var Filter = function (_a) {
-    var members = _a.members, filter = _a.filter, loading = _a.loading, error = _a.error;
+__webpack_require__(/*! ../../css/filter.css */ "./resources/css/filter.css");
+var Filter = function () {
     var location = react_router_dom_1.useLocation().pathname.slice(1);
+    var _a = react_1.useState(lc_1.default.initialState), data = _a[0], setDataState = _a[1];
+    react_1.useEffect(function () {
+        lc_1.default.subscribe(setDataState);
+        lc_1.default.init();
+        if (!data.members.length) {
+            axios_1.default
+                .get("/api/members", {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+                .then(function (response) {
+                lc_1.default.setData(response.data);
+                lc_1.default.setLoading(false);
+            })
+                .catch(function (ex) {
+                var err = ex.response.status === 404
+                    ? "Resource not found"
+                    : "An unexpected error has occurred";
+                lc_1.default.setError(err);
+                lc_1.default.setLoading(false);
+            });
+        }
+    }, []);
     var locationNameReady = location.slice(0, -1) === "classe" ? "class" : location.slice(0, -1);
     var _b = react_1.useState(""), selectedFilter = _b[0], setFilter = _b[1];
-    var filteredMembers = members.filter(function (mem) { return mem[locationNameReady] === selectedFilter; });
+    var filteredMembers = data.members.filter(function (mem) { return mem[locationNameReady] === selectedFilter; });
+    var filter = data[location];
     return (jsx_runtime_1.jsxs("main", __assign({ className: "wrapper" }, { children: [jsx_runtime_1.jsx("header", { children: jsx_runtime_1.jsxs("h1", __assign({ className: "pink" }, { children: [helper_1.ucFirst(locationNameReady), " Overview"] }), void 0) }, void 0),
             filter.length ? (jsx_runtime_1.jsx("form", { children: jsx_runtime_1.jsxs("select", __assign({ className: "pink", value: selectedFilter, onChange: function (e) { return setFilter(e.target.value); } }, { children: [jsx_runtime_1.jsxs("option", __assign({ value: "" }, { children: ["Please Select a ", helper_1.ucFirst(locationNameReady)] }), void 0),
                         filter.map(function (cl) { return (jsx_runtime_1.jsx("option", __assign({ value: cl.title }, { children: helper_1.ucFirst(cl.title) }), cl.id)); })] }), void 0) }, void 0)) : null,
             filteredMembers.length ? (jsx_runtime_1.jsx("section", __assign({ className: "flex" }, { children: filteredMembers.map(function (member) { return (jsx_runtime_1.jsx(Member_1.default, { member: member }, member.id)); }) }), void 0)) : null,
-            loading && jsx_runtime_1.jsx("p", __assign({ className: "pink" }, { children: "Loading..." }), void 0),
-            error && jsx_runtime_1.jsx("p", __assign({ className: "pink" }, { children: error }), void 0)] }), void 0));
+            data.loading && jsx_runtime_1.jsx("p", __assign({ className: "pink" }, { children: "Loading..." }), void 0),
+            data.error && jsx_runtime_1.jsx("p", __assign({ className: "pink" }, { children: data.error }), void 0)] }), void 0));
 };
 exports.default = Filter;
 
@@ -44927,46 +44953,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-// window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
-var react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
-var lc_1 = __importDefault(__webpack_require__(/*! ../store/lc */ "./resources/js/store/lc.ts"));
 var Overview_1 = __importDefault(__webpack_require__(/*! ./Overview */ "./resources/js/pages/Overview.tsx"));
 var Filter_1 = __importDefault(__webpack_require__(/*! ./Filter */ "./resources/js/pages/Filter.tsx"));
 var NavBar_1 = __importDefault(__webpack_require__(/*! ../components/NavBar */ "./resources/js/components/NavBar.tsx"));
 var Player_1 = __importDefault(__webpack_require__(/*! ../components/Player */ "./resources/js/components/Player.tsx"));
 var Raids_1 = __importDefault(__webpack_require__(/*! ./Raids */ "./resources/js/pages/Raids.tsx"));
 var LootCouncil = function () {
-    var _a = react_1.useState(lc_1.default.initialState), data = _a[0], setDataState = _a[1];
-    react_1.useEffect(function () {
-        lc_1.default.subscribe(setDataState);
-        lc_1.default.init();
-        axios_1.default
-            .get("/api/members", {
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-            .then(function (response) {
-            lc_1.default.setData(response.data);
-            lc_1.default.setLoading(false);
-        })
-            .catch(function (ex) {
-            var err = ex.response.status === 404
-                ? "Resource not found"
-                : "An unexpected error has occurred";
-            lc_1.default.setError(err);
-            lc_1.default.setLoading(false);
-        });
-    }, []);
     return (jsx_runtime_1.jsxs(react_router_dom_1.BrowserRouter, { children: [jsx_runtime_1.jsx(NavBar_1.default, {}, void 0),
-            jsx_runtime_1.jsxs(react_router_dom_1.Switch, { children: [jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ exact: true, path: "/" }, { children: jsx_runtime_1.jsx(Overview_1.default, { members: data.members, loading: data.loading, error: data.error }, void 0) }), void 0),
-                    jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ exact: true, path: "/classes" }, { children: jsx_runtime_1.jsx(Filter_1.default, { members: data.members, filter: data.classes, loading: data.loading, error: data.error }, void 0) }), void 0),
-                    jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ exact: true, path: "/roles" }, { children: jsx_runtime_1.jsx(Filter_1.default, { members: data.members, filter: data.roles, loading: data.loading, error: data.error }, void 0) }), void 0),
-                    jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ exact: true, path: "/ranks" }, { children: jsx_runtime_1.jsx(Filter_1.default, { members: data.members, filter: data.ranks, loading: data.loading, error: data.error }, void 0) }), void 0),
+            jsx_runtime_1.jsxs(react_router_dom_1.Switch, { children: [jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ exact: true, path: "/" }, { children: jsx_runtime_1.jsx(Overview_1.default, {}, void 0) }), void 0),
+                    jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ exact: true, path: "/classes" }, { children: jsx_runtime_1.jsx(Filter_1.default, {}, void 0) }), void 0),
+                    jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ exact: true, path: "/roles" }, { children: jsx_runtime_1.jsx(Filter_1.default, {}, void 0) }), void 0),
+                    jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ exact: true, path: "/ranks" }, { children: jsx_runtime_1.jsx(Filter_1.default, {}, void 0) }), void 0),
                     jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ path: "/player/:playerID" }, { children: jsx_runtime_1.jsx(Player_1.default, {}, void 0) }), void 0),
-                    jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ path: "/raids/:playerID" }, { children: jsx_runtime_1.jsx(Raids_1.default, {}, void 0) }), void 0)] }, void 0)] }, void 0));
+                    jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ path: "/raids/:raidID" }, { children: jsx_runtime_1.jsx(Raids_1.default, {}, void 0) }), void 0)] }, void 0)] }, void 0));
 };
 exports.default = LootCouncil;
 
@@ -44998,9 +44998,35 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
+var react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var lc_1 = __importDefault(__webpack_require__(/*! ../store/lc */ "./resources/js/store/lc.ts"));
 var Member_1 = __importDefault(__webpack_require__(/*! ../components/Member */ "./resources/js/components/Member.tsx"));
-var Overview = function (_a) {
-    var members = _a.members, loading = _a.loading, error = _a.error;
+var Overview = function () {
+    var _a = react_1.useState(lc_1.default.initialState), _b = _a[0], error = _b.error, loading = _b.loading, members = _b.members, setDataState = _a[1];
+    react_1.useEffect(function () {
+        lc_1.default.subscribe(setDataState);
+        lc_1.default.init();
+        if (!members.length) {
+            axios_1.default
+                .get("/api/members", {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+                .then(function (response) {
+                lc_1.default.setData(response.data);
+                lc_1.default.setLoading(false);
+            })
+                .catch(function (ex) {
+                var err = ex.response.status === 404
+                    ? "Resource not found"
+                    : "An unexpected error has occurred";
+                lc_1.default.setError(err);
+                lc_1.default.setLoading(false);
+            });
+        }
+    }, []);
     var tanks = members.filter(function (mem) { return mem.role === "tank"; });
     var healers = members.filter(function (mem) { return mem.role === "healer"; });
     var dps = members

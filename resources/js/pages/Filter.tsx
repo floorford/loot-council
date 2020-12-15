@@ -1,22 +1,53 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
-import { FilterProps, IRoleRankClass, IMember } from "../types";
+import lcStore from "../store/lc";
+import { IState, IData, IRoleRankClass, IMember } from "../types";
 import { ucFirst } from "../helper";
+import Member from "../components/Member";
 
 import "../../css/filter.css";
 
-import Member from "../components/Member";
-
-const Filter = ({ members, filter, loading, error }: FilterProps) => {
+const Filter = () => {
     const location = useLocation().pathname.slice(1);
+    const [data, setDataState] = useState<IState>(lcStore.initialState);
+
+    useEffect(() => {
+        lcStore.subscribe(setDataState);
+        lcStore.init();
+
+        if (!data.members.length) {
+            axios
+                .get<IData>("/api/members", {
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                })
+                .then(response => {
+                    lcStore.setData(response.data);
+                    lcStore.setLoading(false);
+                })
+                .catch(ex => {
+                    const err =
+                        ex.response.status === 404
+                            ? "Resource not found"
+                            : "An unexpected error has occurred";
+                    lcStore.setError(err);
+                    lcStore.setLoading(false);
+                });
+        }
+    }, []);
+
     const locationNameReady: string =
         location.slice(0, -1) === "classe" ? "class" : location.slice(0, -1);
     const [selectedFilter, setFilter] = useState<string>("");
 
-    const filteredMembers = members.filter(
+    const filteredMembers = data.members.filter(
         (mem: IMember) => mem[locationNameReady] === selectedFilter
     );
+
+    let filter = data[location];
     return (
         <main className="wrapper">
             <header>
@@ -50,9 +81,9 @@ const Filter = ({ members, filter, loading, error }: FilterProps) => {
                 </section>
             ) : null}
 
-            {loading && <p className="pink">Loading...</p>}
+            {data.loading && <p className="pink">Loading...</p>}
 
-            {error && <p className="pink">{error}</p>}
+            {data.error && <p className="pink">{data.error}</p>}
         </main>
     );
 };

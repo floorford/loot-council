@@ -1,11 +1,41 @@
-import { IMember, LootCouncilProps } from "../types";
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+import lcStore from "../store/lc";
+import { IState, IData, IMember } from "../types";
 import Member from "../components/Member";
 
-const Overview = ({
-    members,
-    loading,
-    error
-}: LootCouncilProps): JSX.Element => {
+const Overview = (): JSX.Element => {
+    const [{ error, loading, members }, setDataState] = useState<IState>(
+        lcStore.initialState
+    );
+
+    useEffect(() => {
+        lcStore.subscribe(setDataState);
+        lcStore.init();
+
+        if (!members.length) {
+            axios
+                .get<IData>("/api/members", {
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                })
+                .then(response => {
+                    lcStore.setData(response.data);
+                    lcStore.setLoading(false);
+                })
+                .catch(ex => {
+                    const err =
+                        ex.response.status === 404
+                            ? "Resource not found"
+                            : "An unexpected error has occurred";
+                    lcStore.setError(err);
+                    lcStore.setLoading(false);
+                });
+        }
+    }, []);
+
     const tanks = members.filter(mem => mem.role === "tank");
     const healers = members.filter(mem => mem.role === "healer");
     const dps = members

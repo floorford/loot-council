@@ -30,6 +30,7 @@ export interface IState {
     loading: boolean;
     error: string;
     raidTotal: number;
+    [key: string]: any;
 }
 
 export interface IData {
@@ -42,17 +43,4 @@ export interface IData {
 
 export type MemberProps = {
     member: IMember;
-};
-
-export type LootCouncilProps = {
-    members: Array<IMember>;
-    loading: boolean;
-    error: string;
-};
-
-export type FilterProps = {
-    members: Array<IMember>;
-    filter: Array<IRoleRankClass>;
-    loading: boolean;
-    error: string;
 };
