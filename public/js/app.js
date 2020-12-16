@@ -45133,6 +45133,10 @@ var LootCouncil = function () {
             sub.unsubscribe();
         };
     });
+    react_1.useEffect(function () {
+        var newPlayers = JSON.parse(localStorage.getItem("lcPlayers") || "[]");
+        lc_1.default.setPlayers(newPlayers);
+    }, []);
     var submitSearch = function (e) {
         e.preventDefault();
         axios_1.default
@@ -45144,6 +45148,7 @@ var LootCouncil = function () {
             .then(function (response) {
             var newPlayers = data.lcPlayers.concat(response.data.player);
             lc_1.default.setPlayers(newPlayers);
+            localStorage.setItem("lcPlayers", JSON.stringify(newPlayers));
             lc_1.default.setLoading(false);
             setSearchTerm("");
         })

@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect } from "react";
+import { useState, useLayoutEffect, useEffect } from "react";
 import axios from "axios";
 
 import lcStore from "../store/lc";
@@ -19,6 +19,13 @@ const LootCouncil = () => {
         };
     });
 
+    useEffect(() => {
+        const newPlayers = JSON.parse(
+            localStorage.getItem("lcPlayers") || "[]"
+        );
+        lcStore.setPlayers(newPlayers);
+    }, []);
+
     const submitSearch = (e: React.SyntheticEvent): void => {
         e.preventDefault();
 
@@ -31,6 +38,7 @@ const LootCouncil = () => {
             .then(response => {
                 const newPlayers = data.lcPlayers.concat(response.data.player);
                 lcStore.setPlayers(newPlayers);
+                localStorage.setItem("lcPlayers", JSON.stringify(newPlayers));
                 lcStore.setLoading(false);
                 setSearchTerm("");
             })
