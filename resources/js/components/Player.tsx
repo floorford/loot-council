@@ -5,7 +5,9 @@ import lcStore from "../store/lc";
 import axios from "axios";
 
 import { IState, Detail } from "../types";
-import { ucFirst } from "../helper";
+import MemberCard from "./Member";
+import LootTable from "./LootTable";
+import Stats from "./Stats";
 
 import "../../css/player.css";
 
@@ -44,99 +46,20 @@ const Player = (): JSX.Element => {
             });
     }, []);
 
-    const {
-        absence,
-        member,
-        prev_raids,
-        rank,
-        six_months,
-        one_oh_one
-    } = data.selectedMember;
-
-    const playerClass = data.selectedMember.class;
-    const urlName = member.slice(0, member.indexOf("/"));
-
     return (
         <main className="wrapper">
-            <section className={`member ${playerClass} header`}>
-                <img
-                    className="class-icon"
-                    alt={playerClass}
-                    src={`/assets/${playerClass}.png`}
-                />
-                <div className="member-wrapper">
-                    <header className="member-header">
-                        <h1>{member}</h1>
-                        <a
-                            href={`https://classic.warcraftlogs.com/character/eu/firemaw/${urlName}`}
-                            target="_blank"
-                            className="tooltip"
-                        >
-                            <img
-                                className="icon"
-                                alt="Warcraft Logs"
-                                src={`/assets/warcraftlogs.png`}
-                            />
-                            <span className="tooltip-text">Warcraft Logs</span>
-                        </a>
-                    </header>
-                    <p>{ucFirst(playerClass)}</p>
-                    <p>Rank: {ucFirst(rank)}</p>
-                </div>
-            </section>
+            <MemberCard
+                member={data.selectedMember}
+                interactive={false}
+                propClass="header"
+            />
 
-            <section className={`player-info ${playerClass}`}>
-                <h3 className="pink">Player Stats</h3>
-                <p>Missed Raids: {absence}</p>
-                <p>
-                    Attendance:{" "}
-                    {Math.ceil(((raidTotal - absence) / raidTotal) * 100)}%
-                </p>
-                {/* <p>Recent Attendance: {one_oh_one}</p> */}
-                <p>Raids before MO: {prev_raids}</p>
-                {six_months ? (
-                    <p>
-                        6 months<sup>+</sup> member
-                    </p>
-                ) : null}
-            </section>
+            <Stats member={data.selectedMember} raidTotal={raidTotal} />
 
-            <section className={`player-info ${playerClass}`}>
-                <h3 className="pink">Loot Recieved</h3>
-                {details ? (
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Raid</th>
-                                <th>Item</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {details.map((item: Detail) => {
-                                let formattedItems: any = item.item.split("/");
-                                return (
-                                    <tr key={item.id}>
-                                        <td>
-                                            <Link to={`/raids/${item.id}`}>
-                                                {item.title}
-                                            </Link>
-                                        </td>
-                                        <td>
-                                            {formattedItems.map(
-                                                (x: string, i: number) => (
-                                                    <p key={i}>{x}</p>
-                                                )
-                                            )}
-                                        </td>
-                                    </tr>
-                                );
-                            })}
-                        </tbody>
-                    </table>
-                ) : (
-                    <p>No loot recieved!</p>
-                )}
-            </section>
+            <LootTable
+                details={details}
+                playerClass={data.selectedMember.class}
+            />
         </main>
     );
 };

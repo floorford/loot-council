@@ -70,7 +70,12 @@ const Overview = (): JSX.Element => {
                     </p>
                     <div className="flex">
                         {tanks.map((member: Member) => (
-                            <MemberCard key={member.id} member={member} />
+                            <MemberCard
+                                key={member.id}
+                                member={member}
+                                interactive={true}
+                                propClass=""
+                            />
                         ))}
                     </div>
                 </section>
@@ -83,7 +88,12 @@ const Overview = (): JSX.Element => {
                     </p>
                     <div className="flex">
                         {healers.map((member: Member) => (
-                            <MemberCard key={member.id} member={member} />
+                            <MemberCard
+                                key={member.id}
+                                member={member}
+                                interactive={true}
+                                propClass=""
+                            />
                         ))}
                     </div>
                 </section>
@@ -96,7 +106,12 @@ const Overview = (): JSX.Element => {
                     </p>
                     <div className="flex">
                         {dps.map((member: Member) => (
-                            <MemberCard key={member.id} member={member} />
+                            <MemberCard
+                                key={member.id}
+                                member={member}
+                                interactive={true}
+                                propClass=""
+                            />
                         ))}
                     </div>
                 </section>

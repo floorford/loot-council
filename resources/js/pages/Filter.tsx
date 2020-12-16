@@ -80,7 +80,12 @@ const Filter = () => {
             {filteredMembers.length ? (
                 <section className="flex">
                     {filteredMembers.map((member: Member) => (
-                        <MemberCard key={member.id} member={member} />
+                        <MemberCard
+                            key={member.id}
+                            member={member}
+                            interactive={true}
+                            propClass=""
+                        />
                     ))}
                 </section>
             ) : null}

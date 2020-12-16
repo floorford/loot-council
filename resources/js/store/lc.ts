@@ -23,6 +23,7 @@ const initialState: IState = {
         six_months: false
     },
     loading: false,
+    lcPlayers: [],
     error: ""
 };
 
@@ -42,6 +43,13 @@ const lcStore = {
             roles: data.roles,
             ranks: data.ranks,
             classes: data.classes
+        };
+        subject.next(state);
+    },
+    setPlayers: (newPlayers: any) => {
+        state = {
+            ...state,
+            lcPlayers: newPlayers
         };
         subject.next(state);
     },

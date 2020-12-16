@@ -30,4 +30,24 @@ button {
     border: none;
     border-radius: 5px;
     margin: 0 1rem;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: #7f506e;
+    cursor: not-allowed;
+}
+
+.search {
+    margin-bottom: 4rem;
+}
+
+.lc {
+    border-radius: 5px;
+}
+
+.lc i {
+    margin: 1rem;
+    float: right;
+    cursor: pointer;
 }

@@ -31,6 +31,7 @@ export interface IState {
     selectedMember: Member;
     loading: boolean;
     error: string;
+    lcPlayers: [];
     [key: string]: any;
 }
 
@@ -43,6 +44,18 @@ export interface IData {
 
 export type MemberProps = {
     member: Member;
+    interactive: boolean;
+    propClass: string;
+};
+
+export type StatsProps = {
+    member: Member;
+    raidTotal: number;
+};
+
+export type LootTableProps = {
+    details: Array<Detail>;
+    playerClass: string;
 };
 
 export type Loot = {

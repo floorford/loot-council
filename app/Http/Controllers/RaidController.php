@@ -37,14 +37,20 @@ class RaidController extends Controller
         $id = DB::table('members')
             ->select('members.id')
             ->where('members.member', 'LIKE', '%' . $playerName . '%')
-            ->first()->id;
+            ->first();
+            
+        if(empty($id)) {
+            return response()->json([
+                'err' => 'No player could be found, please try again!',
+            ], 404); 
+        }
         
-        $details = MemberController::playerLoot($id);
+        $details = MemberController::playerLoot($id->id);
     
-        $member = MemberController::memberInformation($id);
+        $member = MemberController::memberInformation($id->id);
 
         return response()->json([
-            'player' => ['player' => $member, 'playerLoot' => $details],
+            'player' => ['player' => $member[0], 'playerLoot' => $details],
         ], 200); 
     }
 }

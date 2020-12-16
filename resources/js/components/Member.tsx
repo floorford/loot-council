@@ -5,18 +5,30 @@ import { MemberProps } from "../types";
 import { ucFirst } from "../helper";
 import "../../css/members.css";
 
-const Member = ({ member }: MemberProps): JSX.Element => {
+const Member = ({
+    member,
+    interactive = true,
+    propClass = ""
+}: MemberProps): JSX.Element => {
     const history = useHistory();
 
     const selectMember = () => {
-        lcStore.setMember(member);
-        history.push(`/player/${member.id}`);
+        if (interactive) {
+            lcStore.setMember(member);
+            history.push(`/player/${member.id}`);
+        }
     };
 
-    const urlName = member.member.slice(0, member.member.indexOf("/"));
+    const urlName =
+        member.member.indexOf("/") !== -1
+            ? member.member.slice(0, member.member.indexOf("/"))
+            : member.member;
 
     return (
-        <section className={`member ${member.class}`} onClick={selectMember}>
+        <section
+            className={`member ${member.class} ${propClass}`}
+            onClick={selectMember}
+        >
             <img
                 className="class-icon"
                 alt={member.class}

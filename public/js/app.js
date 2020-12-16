@@ -2005,7 +2005,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "input {\n    border: none;\n    appearance: none;\n    background-color: white;\n    font-family: inherit;\n    font-size: inherit;\n    cursor: inherit;\n    line-height: inherit;\n    width: 100%;\n}\n\ninput:focus {\n    outline: none;\n}\n\n.wrapper .search {\n    justify-content: start;\n}\n\n.search form {\n    margin: 0;\n}\n\nbutton {\n    color: white;\n    font-family: inherit;\n    font-size: inherit;\n    background-color: #f040af;\n    box-shadow: none;\n    border: none;\n    border-radius: 5px;\n    margin: 0 1rem;\n}\n", ""]);
+exports.push([module.i, "input {\n    border: none;\n    appearance: none;\n    background-color: white;\n    font-family: inherit;\n    font-size: inherit;\n    cursor: inherit;\n    line-height: inherit;\n    width: 100%;\n}\n\ninput:focus {\n    outline: none;\n}\n\n.wrapper .search {\n    justify-content: start;\n}\n\n.search form {\n    margin: 0;\n}\n\nbutton {\n    color: white;\n    font-family: inherit;\n    font-size: inherit;\n    background-color: #f040af;\n    box-shadow: none;\n    border: none;\n    border-radius: 5px;\n    margin: 0 1rem;\n    cursor: pointer;\n}\n\nbutton:disabled {\n    background-color: #7f506e;\n    cursor: not-allowed;\n}\n\n.search {\n    margin-bottom: 4rem;\n}\n\n.lc {\n    border-radius: 5px;\n}\n\n.lc i {\n    margin: 1rem;\n    float: right;\n    cursor: pointer;\n}\n", ""]);
 
 // exports
 
@@ -44713,6 +44713,45 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEB
 
 /***/ }),
 
+/***/ "./resources/js/components/LootTable.tsx":
+/*!***********************************************!*\
+  !*** ./resources/js/components/LootTable.tsx ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+var LootTable = function (_a) {
+    var details = _a.details, playerClass = _a.playerClass;
+    return (jsx_runtime_1.jsxs("section", __assign({ className: "player-info " + playerClass }, { children: [jsx_runtime_1.jsx("h3", __assign({ className: "pink" }, { children: "Loot Recieved" }), void 0),
+            details ? (jsx_runtime_1.jsxs("table", { children: [jsx_runtime_1.jsx("thead", { children: jsx_runtime_1.jsxs("tr", { children: [jsx_runtime_1.jsx("th", { children: "Raid" }, void 0),
+                                jsx_runtime_1.jsx("th", { children: "Item" }, void 0)] }, void 0) }, void 0),
+                    jsx_runtime_1.jsx("tbody", { children: details.map(function (item) {
+                            var formattedItems = item.item.split("/");
+                            return (jsx_runtime_1.jsxs("tr", { children: [jsx_runtime_1.jsx("td", { children: jsx_runtime_1.jsx(react_router_dom_1.Link, __assign({ to: "/raids/" + item.id }, { children: item.title }), void 0) }, void 0),
+                                    jsx_runtime_1.jsx("td", { children: formattedItems.map(function (x, i) { return (jsx_runtime_1.jsx("p", { children: x }, i)); }) }, void 0)] }, item.id));
+                        }) }, void 0)] }, void 0)) : (jsx_runtime_1.jsx("p", { children: "No loot recieved!" }, void 0))] }), void 0));
+};
+exports.default = LootTable;
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Member.tsx":
 /*!********************************************!*\
   !*** ./resources/js/components/Member.tsx ***!
@@ -44743,14 +44782,18 @@ var lc_1 = __importDefault(__webpack_require__(/*! ../store/lc */ "./resources/j
 var helper_1 = __webpack_require__(/*! ../helper */ "./resources/js/helper.ts");
 __webpack_require__(/*! ../../css/members.css */ "./resources/css/members.css");
 var Member = function (_a) {
-    var member = _a.member;
+    var member = _a.member, _b = _a.interactive, interactive = _b === void 0 ? true : _b, _c = _a.propClass, propClass = _c === void 0 ? "" : _c;
     var history = react_router_dom_1.useHistory();
     var selectMember = function () {
-        lc_1.default.setMember(member);
-        history.push("/player/" + member.id);
+        if (interactive) {
+            lc_1.default.setMember(member);
+            history.push("/player/" + member.id);
+        }
     };
-    var urlName = member.member.slice(0, member.member.indexOf("/"));
-    return (jsx_runtime_1.jsxs("section", __assign({ className: "member " + member.class, onClick: selectMember }, { children: [jsx_runtime_1.jsx("img", { className: "class-icon", alt: member.class, src: "/assets/" + member.class + ".png" }, void 0),
+    var urlName = member.member.indexOf("/") !== -1
+        ? member.member.slice(0, member.member.indexOf("/"))
+        : member.member;
+    return (jsx_runtime_1.jsxs("section", __assign({ className: "member " + member.class + " " + propClass, onClick: selectMember }, { children: [jsx_runtime_1.jsx("img", { className: "class-icon", alt: member.class, src: "/assets/" + member.class + ".png" }, void 0),
             jsx_runtime_1.jsxs("div", __assign({ className: "member-wrapper" }, { children: [jsx_runtime_1.jsxs("header", __assign({ className: "member-header" }, { children: [jsx_runtime_1.jsx("h1", { children: member.member }, void 0),
                             jsx_runtime_1.jsxs("a", __assign({ href: "https://classic.warcraftlogs.com/character/eu/firemaw/" + urlName, target: "_blank", className: "tooltip" }, { children: [jsx_runtime_1.jsx("img", { className: "icon", alt: "Warcraft Logs", src: "/assets/warcraftlogs.png" }, void 0),
                                     jsx_runtime_1.jsx("span", __assign({ className: "tooltip-text" }, { children: "Warcraft Logs" }), void 0)] }), void 0)] }), void 0),
@@ -44828,7 +44871,9 @@ var react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 var lc_1 = __importDefault(__webpack_require__(/*! ../store/lc */ "./resources/js/store/lc.ts"));
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
-var helper_1 = __webpack_require__(/*! ../helper */ "./resources/js/helper.ts");
+var Member_1 = __importDefault(__webpack_require__(/*! ./Member */ "./resources/js/components/Member.tsx"));
+var LootTable_1 = __importDefault(__webpack_require__(/*! ./LootTable */ "./resources/js/components/LootTable.tsx"));
+var Stats_1 = __importDefault(__webpack_require__(/*! ./Stats */ "./resources/js/components/Stats.tsx"));
 __webpack_require__(/*! ../../css/player.css */ "./resources/css/player.css");
 var Player = function () {
     var _a = react_1.useState(lc_1.default.initialState), data = _a[0], setDataState = _a[1];
@@ -44860,30 +44905,47 @@ var Player = function () {
             lc_1.default.setLoading(false);
         });
     }, []);
-    var _d = data.selectedMember, absence = _d.absence, member = _d.member, prev_raids = _d.prev_raids, rank = _d.rank, six_months = _d.six_months, one_oh_one = _d.one_oh_one;
-    var playerClass = data.selectedMember.class;
-    var urlName = member.slice(0, member.indexOf("/"));
-    return (jsx_runtime_1.jsxs("main", __assign({ className: "wrapper" }, { children: [jsx_runtime_1.jsxs("section", __assign({ className: "member " + playerClass + " header" }, { children: [jsx_runtime_1.jsx("img", { className: "class-icon", alt: playerClass, src: "/assets/" + playerClass + ".png" }, void 0),
-                    jsx_runtime_1.jsxs("div", __assign({ className: "member-wrapper" }, { children: [jsx_runtime_1.jsxs("header", __assign({ className: "member-header" }, { children: [jsx_runtime_1.jsx("h1", { children: member }, void 0),
-                                    jsx_runtime_1.jsxs("a", __assign({ href: "https://classic.warcraftlogs.com/character/eu/firemaw/" + urlName, target: "_blank", className: "tooltip" }, { children: [jsx_runtime_1.jsx("img", { className: "icon", alt: "Warcraft Logs", src: "/assets/warcraftlogs.png" }, void 0),
-                                            jsx_runtime_1.jsx("span", __assign({ className: "tooltip-text" }, { children: "Warcraft Logs" }), void 0)] }), void 0)] }), void 0),
-                            jsx_runtime_1.jsx("p", { children: helper_1.ucFirst(playerClass) }, void 0),
-                            jsx_runtime_1.jsxs("p", { children: ["Rank: ", helper_1.ucFirst(rank)] }, void 0)] }), void 0)] }), void 0),
-            jsx_runtime_1.jsxs("section", __assign({ className: "player-info " + playerClass }, { children: [jsx_runtime_1.jsx("h3", __assign({ className: "pink" }, { children: "Player Stats" }), void 0),
-                    jsx_runtime_1.jsxs("p", { children: ["Missed Raids: ", absence] }, void 0),
-                    jsx_runtime_1.jsxs("p", { children: ["Attendance:", " ", Math.ceil(((raidTotal - absence) / raidTotal) * 100), "%"] }, void 0),
-                    jsx_runtime_1.jsxs("p", { children: ["Raids before MO: ", prev_raids] }, void 0),
-                    six_months ? (jsx_runtime_1.jsxs("p", { children: ["6 months", jsx_runtime_1.jsx("sup", { children: "+" }, void 0), " member"] }, void 0)) : null] }), void 0),
-            jsx_runtime_1.jsxs("section", __assign({ className: "player-info " + playerClass }, { children: [jsx_runtime_1.jsx("h3", __assign({ className: "pink" }, { children: "Loot Recieved" }), void 0),
-                    details ? (jsx_runtime_1.jsxs("table", { children: [jsx_runtime_1.jsx("thead", { children: jsx_runtime_1.jsxs("tr", { children: [jsx_runtime_1.jsx("th", { children: "Raid" }, void 0),
-                                        jsx_runtime_1.jsx("th", { children: "Item" }, void 0)] }, void 0) }, void 0),
-                            jsx_runtime_1.jsx("tbody", { children: details.map(function (item) {
-                                    var formattedItems = item.item.split("/");
-                                    return (jsx_runtime_1.jsxs("tr", { children: [jsx_runtime_1.jsx("td", { children: jsx_runtime_1.jsx(react_router_dom_1.Link, __assign({ to: "/raids/" + item.id }, { children: item.title }), void 0) }, void 0),
-                                            jsx_runtime_1.jsx("td", { children: formattedItems.map(function (x, i) { return (jsx_runtime_1.jsx("p", { children: x }, i)); }) }, void 0)] }, item.id));
-                                }) }, void 0)] }, void 0)) : (jsx_runtime_1.jsx("p", { children: "No loot recieved!" }, void 0))] }), void 0)] }), void 0));
+    return (jsx_runtime_1.jsxs("main", __assign({ className: "wrapper" }, { children: [jsx_runtime_1.jsx(Member_1.default, { member: data.selectedMember, interactive: false, propClass: "header" }, void 0),
+            jsx_runtime_1.jsx(Stats_1.default, { member: data.selectedMember, raidTotal: raidTotal }, void 0),
+            jsx_runtime_1.jsx(LootTable_1.default, { details: details, playerClass: data.selectedMember.class }, void 0)] }), void 0));
 };
 exports.default = Player;
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Stats.tsx":
+/*!*******************************************!*\
+  !*** ./resources/js/components/Stats.tsx ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+var Stats = function (_a) {
+    var member = _a.member, raidTotal = _a.raidTotal;
+    var absence = member.absence, prev_raids = member.prev_raids, six_months = member.six_months, one_oh_one = member.one_oh_one;
+    return (jsx_runtime_1.jsxs("section", __assign({ className: "player-info " + member.class }, { children: [jsx_runtime_1.jsx("h3", __assign({ className: "pink" }, { children: "Player Stats" }), void 0),
+            jsx_runtime_1.jsxs("p", { children: ["Missed Raids: ", absence] }, void 0),
+            jsx_runtime_1.jsxs("p", { children: ["Attendance:", " ", Math.ceil(((raidTotal - absence) / raidTotal) * 100), "%"] }, void 0),
+            jsx_runtime_1.jsxs("p", { children: ["Raids before MO: ", prev_raids] }, void 0),
+            six_months ? (jsx_runtime_1.jsxs("p", { children: ["6 months", jsx_runtime_1.jsx("sup", { children: "+" }, void 0), " member"] }, void 0)) : null] }), void 0));
+};
+exports.default = Stats;
 
 
 /***/ }),
@@ -45022,7 +45084,7 @@ var Filter = function () {
     return (jsx_runtime_1.jsxs("main", __assign({ className: "wrapper" }, { children: [jsx_runtime_1.jsx("header", { children: jsx_runtime_1.jsxs("h1", __assign({ className: "pink" }, { children: [helper_1.ucFirst(locationNameReady), " Overview"] }), void 0) }, void 0),
             filter.length ? (jsx_runtime_1.jsx("form", { children: jsx_runtime_1.jsxs("select", __assign({ className: "pink", value: selectedFilter, onChange: function (e) { return setFilter(e.target.value); } }, { children: [jsx_runtime_1.jsxs("option", __assign({ value: "" }, { children: ["Please Select a ", helper_1.ucFirst(locationNameReady)] }), void 0),
                         filter.map(function (cl) { return (jsx_runtime_1.jsx("option", __assign({ value: cl.title }, { children: helper_1.ucFirst(cl.title) }), cl.id)); })] }), void 0) }, void 0)) : null,
-            filteredMembers.length ? (jsx_runtime_1.jsx("section", __assign({ className: "flex" }, { children: filteredMembers.map(function (member) { return (jsx_runtime_1.jsx(Member_1.default, { member: member }, member.id)); }) }), void 0)) : null,
+            filteredMembers.length ? (jsx_runtime_1.jsx("section", __assign({ className: "flex" }, { children: filteredMembers.map(function (member) { return (jsx_runtime_1.jsx(Member_1.default, { member: member, interactive: true, propClass: "" }, member.id)); }) }), void 0)) : null,
             data.loading && jsx_runtime_1.jsx("p", __assign({ className: "pink" }, { children: "Loading..." }), void 0),
             data.error && jsx_runtime_1.jsx("p", __assign({ className: "pink" }, { children: data.error }), void 0)] }), void 0));
 };
@@ -45059,14 +45121,17 @@ var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules
 var react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 var lc_1 = __importDefault(__webpack_require__(/*! ../store/lc */ "./resources/js/store/lc.ts"));
+var Member_1 = __importDefault(__webpack_require__(/*! ../components/Member */ "./resources/js/components/Member.tsx"));
 __webpack_require__(/*! ../../css/lootcouncil.css */ "./resources/css/lootcouncil.css");
 var LootCouncil = function () {
     var _a = react_1.useState(""), searchTerm = _a[0], setSearchTerm = _a[1];
     var _b = react_1.useState(lc_1.default.initialState), data = _b[0], setDataState = _b[1];
-    var _c = react_1.useState([]), players = _c[0], setPlayer = _c[1];
     react_1.useLayoutEffect(function () {
-        lc_1.default.subscribe(setDataState);
+        var sub = lc_1.default.subscribe(setDataState);
         lc_1.default.init();
+        return function cleanup() {
+            sub.unsubscribe();
+        };
     });
     var submitSearch = function (e) {
         e.preventDefault();
@@ -45077,19 +45142,31 @@ var LootCouncil = function () {
             }
         })
             .then(function (response) {
-            setPlayer(response.data.player);
+            var newPlayers = data.lcPlayers.concat(response.data.player);
+            lc_1.default.setPlayers(newPlayers);
             lc_1.default.setLoading(false);
+            setSearchTerm("");
         })
             .catch(function (ex) {
             var err = ex.response.status === 404
-                ? "Resource not found"
+                ? "No player could be found"
                 : "An unexpected error has occurred";
             lc_1.default.setError(err);
             lc_1.default.setLoading(false);
         });
     };
-    return (jsx_runtime_1.jsxs("main", __assign({ className: "wrapper" }, { children: [jsx_runtime_1.jsxs("div", __assign({ className: "flex search" }, { children: [jsx_runtime_1.jsx("form", __assign({ onSubmit: function (e) { return submitSearch(e); } }, { children: jsx_runtime_1.jsx("label", __assign({ htmlFor: "search" }, { children: jsx_runtime_1.jsx("input", { type: "search", id: "search", className: "pink", value: searchTerm, placeholder: "Enter a player...", onChange: function (e) { return setSearchTerm(e.target.value); } }, void 0) }), void 0) }), void 0),
-                    jsx_runtime_1.jsx("button", __assign({ onClick: function (e) { return submitSearch(e); }, type: "button" }, { children: "Add" }), void 0)] }), void 0),
+    var deletePlayer = function (player) {
+        var newPlayers = data.lcPlayers.filter(function (x) { return x.player.id !== player.id; });
+        lc_1.default.setPlayers(newPlayers);
+    };
+    return (jsx_runtime_1.jsxs("main", __assign({ className: "wrapper" }, { children: [jsx_runtime_1.jsxs("header", __assign({ className: "pink" }, { children: [jsx_runtime_1.jsx("h1", { children: "Loot Council" }, void 0),
+                    jsx_runtime_1.jsx("h4", { children: "Add players using the search below to compare" }, void 0)] }), void 0),
+            jsx_runtime_1.jsxs("div", __assign({ className: "flex search" }, { children: [jsx_runtime_1.jsx("form", __assign({ onSubmit: function (e) { return submitSearch(e); } }, { children: jsx_runtime_1.jsx("label", __assign({ htmlFor: "search" }, { children: jsx_runtime_1.jsx("input", { type: "search", id: "search", className: "pink", value: searchTerm, placeholder: "Enter a player...", onChange: function (e) { return setSearchTerm(e.target.value); } }, void 0) }), void 0) }), void 0),
+                    jsx_runtime_1.jsx("button", __assign({ disabled: !searchTerm.length ? true : false, onClick: function (e) { return submitSearch(e); }, type: "button" }, { children: "Add" }), void 0)] }), void 0),
+            data.lcPlayers.length
+                ? data.lcPlayers.map(function (x, i) { return (jsx_runtime_1.jsxs("section", __assign({ className: "lc " + x.player.class }, { children: [jsx_runtime_1.jsx("i", { className: "fas fa-times", onClick: function () { return deletePlayer(x.player); } }, void 0),
+                        jsx_runtime_1.jsx(Member_1.default, { member: x.player, interactive: false, propClass: "header" }, void 0)] }), i)); })
+                : null,
             data.loading && jsx_runtime_1.jsx("p", __assign({ className: "pink" }, { children: "Loading..." }), void 0),
             data.error && jsx_runtime_1.jsx("p", __assign({ className: "pink" }, { children: data.error }), void 0)] }), void 0));
 };
@@ -45173,11 +45250,11 @@ var Overview = function () {
         return 0;
     });
     return (jsx_runtime_1.jsxs("main", __assign({ className: "wrapper" }, { children: [tanks.length ? (jsx_runtime_1.jsxs("section", { children: [jsx_runtime_1.jsxs("p", __assign({ className: "team-role" }, { children: [jsx_runtime_1.jsx("i", { className: "fas fa-shield-alt" }, void 0), "TANKS (", tanks.length, ")"] }), void 0),
-                    jsx_runtime_1.jsx("div", __assign({ className: "flex" }, { children: tanks.map(function (member) { return (jsx_runtime_1.jsx(Member_1.default, { member: member }, member.id)); }) }), void 0)] }, void 0)) : null,
+                    jsx_runtime_1.jsx("div", __assign({ className: "flex" }, { children: tanks.map(function (member) { return (jsx_runtime_1.jsx(Member_1.default, { member: member, interactive: true, propClass: "" }, member.id)); }) }), void 0)] }, void 0)) : null,
             healers.length ? (jsx_runtime_1.jsxs("section", { children: [jsx_runtime_1.jsxs("p", __assign({ className: "team-role" }, { children: [jsx_runtime_1.jsx("i", { className: "fas fa-medkit" }, void 0), "HEALERS (", healers.length, ")"] }), void 0),
-                    jsx_runtime_1.jsx("div", __assign({ className: "flex" }, { children: healers.map(function (member) { return (jsx_runtime_1.jsx(Member_1.default, { member: member }, member.id)); }) }), void 0)] }, void 0)) : null,
+                    jsx_runtime_1.jsx("div", __assign({ className: "flex" }, { children: healers.map(function (member) { return (jsx_runtime_1.jsx(Member_1.default, { member: member, interactive: true, propClass: "" }, member.id)); }) }), void 0)] }, void 0)) : null,
             dps.length ? (jsx_runtime_1.jsxs("section", { children: [jsx_runtime_1.jsxs("p", __assign({ className: "team-role" }, { children: [jsx_runtime_1.jsx("i", { className: "fas fa-skull-crossbones" }, void 0), " DPS (", dps.length, ")"] }), void 0),
-                    jsx_runtime_1.jsx("div", __assign({ className: "flex" }, { children: dps.map(function (member) { return (jsx_runtime_1.jsx(Member_1.default, { member: member }, member.id)); }) }), void 0)] }, void 0)) : null,
+                    jsx_runtime_1.jsx("div", __assign({ className: "flex" }, { children: dps.map(function (member) { return (jsx_runtime_1.jsx(Member_1.default, { member: member, interactive: true, propClass: "" }, member.id)); }) }), void 0)] }, void 0)) : null,
             loading && jsx_runtime_1.jsx("p", __assign({ className: "pink" }, { children: "Loading..." }), void 0),
             error && jsx_runtime_1.jsx("p", __assign({ className: "pink" }, { children: error }), void 0)] }), void 0));
 };
@@ -45324,6 +45401,7 @@ var initialState = {
         six_months: false
     },
     loading: false,
+    lcPlayers: [],
     error: ""
 };
 var state = initialState;
@@ -45336,6 +45414,10 @@ var lcStore = {
     subscribe: function (setState) { return subject.subscribe(setState); },
     setData: function (data) {
         state = __assign(__assign({}, state), { members: data.members, roles: data.roles, ranks: data.ranks, classes: data.classes });
+        subject.next(state);
+    },
+    setPlayers: function (newPlayers) {
+        state = __assign(__assign({}, state), { lcPlayers: newPlayers });
         subject.next(state);
     },
     setMember: function (member) {
