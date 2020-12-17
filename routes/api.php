@@ -22,5 +22,6 @@ Route::get('player/{id}',[MemberController::class, 'findPlayer']);
 Route::get('raids',[RaidController::class, 'index']);
 Route::get('raids/{id}',[RaidController::class, 'getRaidInfo']);
 Route::get('addPlayer/{playerName}',[RaidController::class, 'addPlayer']);
+Route::get('raids/total',[RaidController::class, 'totalRaids']);
 
 ?>

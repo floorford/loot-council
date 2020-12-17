@@ -44,10 +44,21 @@ button:disabled {
 
 .lc {
     border-radius: 5px;
+    margin: 0.5rem;
+    width: 40%;
+}
+
+.lc .member {
+    margin: 0;
+    width: unset;
+    box-shadow: unset;
 }
 
 .lc i {
     margin: 1rem;
-    float: right;
     cursor: pointer;
+}
+
+.float-right {
+    float: right;
 }

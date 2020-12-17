@@ -16,7 +16,20 @@ class RaidController extends Controller
         return response()->json([
             'raids' => $raids,
         ], 200);
-    }    
+    } 
+    
+    public static function totalRaids($api_route = true)
+    {
+        $count = DB::table('raid')->get()->count();
+        
+        if(!$api_route) {
+            return $count;
+        }
+
+        return response()->json([
+            'totalRaids' => $count,
+        ], 200); 
+    }
     
     public function getRaidInfo($id)
     {

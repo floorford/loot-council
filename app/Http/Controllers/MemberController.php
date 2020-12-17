@@ -40,7 +40,7 @@ class MemberController extends Controller
 
     $member = self::memberInformation($id);
 
-    $total = DB::table('raid')->get()->count();
+    $total = RaidController::totalRaids(false);
 
     return response()->json([
       'details' => $details,

@@ -2005,7 +2005,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "input {\n    border: none;\n    appearance: none;\n    background-color: white;\n    font-family: inherit;\n    font-size: inherit;\n    cursor: inherit;\n    line-height: inherit;\n    width: 100%;\n}\n\ninput:focus {\n    outline: none;\n}\n\n.wrapper .search {\n    justify-content: start;\n}\n\n.search form {\n    margin: 0;\n}\n\nbutton {\n    color: white;\n    font-family: inherit;\n    font-size: inherit;\n    background-color: #f040af;\n    box-shadow: none;\n    border: none;\n    border-radius: 5px;\n    margin: 0 1rem;\n    cursor: pointer;\n}\n\nbutton:disabled {\n    background-color: #7f506e;\n    cursor: not-allowed;\n}\n\n.search {\n    margin-bottom: 4rem;\n}\n\n.lc {\n    border-radius: 5px;\n}\n\n.lc i {\n    margin: 1rem;\n    float: right;\n    cursor: pointer;\n}\n", ""]);
+exports.push([module.i, "input {\n    border: none;\n    appearance: none;\n    background-color: white;\n    font-family: inherit;\n    font-size: inherit;\n    cursor: inherit;\n    line-height: inherit;\n    width: 100%;\n}\n\ninput:focus {\n    outline: none;\n}\n\n.wrapper .search {\n    justify-content: start;\n}\n\n.search form {\n    margin: 0;\n}\n\nbutton {\n    color: white;\n    font-family: inherit;\n    font-size: inherit;\n    background-color: #f040af;\n    box-shadow: none;\n    border: none;\n    border-radius: 5px;\n    margin: 0 1rem;\n    cursor: pointer;\n}\n\nbutton:disabled {\n    background-color: #7f506e;\n    cursor: not-allowed;\n}\n\n.search {\n    margin-bottom: 4rem;\n}\n\n.lc {\n    border-radius: 5px;\n    margin: 0.5rem;\n    width: 40%;\n}\n\n.lc .member {\n    margin: 0;\n    width: unset;\n    box-shadow: unset;\n}\n\n.lc i {\n    margin: 1rem;\n    cursor: pointer;\n}\n\n.float-right {\n    float: right;\n}\n", ""]);
 
 // exports
 
@@ -45122,10 +45122,13 @@ var react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 var lc_1 = __importDefault(__webpack_require__(/*! ../store/lc */ "./resources/js/store/lc.ts"));
 var Member_1 = __importDefault(__webpack_require__(/*! ../components/Member */ "./resources/js/components/Member.tsx"));
+var Stats_1 = __importDefault(__webpack_require__(/*! ../components/Stats */ "./resources/js/components/Stats.tsx"));
 __webpack_require__(/*! ../../css/lootcouncil.css */ "./resources/css/lootcouncil.css");
 var LootCouncil = function () {
     var _a = react_1.useState(""), searchTerm = _a[0], setSearchTerm = _a[1];
     var _b = react_1.useState(lc_1.default.initialState), data = _b[0], setDataState = _b[1];
+    var _c = react_1.useState([]), expanded = _c[0], setExpand = _c[1];
+    var _d = react_1.useState(0), totalRaids = _d[0], setTotal = _d[1];
     react_1.useLayoutEffect(function () {
         var sub = lc_1.default.subscribe(setDataState);
         lc_1.default.init();
@@ -45136,6 +45139,27 @@ var LootCouncil = function () {
     react_1.useEffect(function () {
         var newPlayers = JSON.parse(localStorage.getItem("lcPlayers") || "[]");
         lc_1.default.setPlayers(newPlayers);
+    }, []);
+    react_1.useEffect(function () {
+        if (!totalRaids) {
+            axios_1.default
+                .get("/api/raids/total", {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+                .then(function (response) {
+                setTotal(response.data.totalRaids);
+            })
+                .catch(function (ex) {
+                var err = ex.response.status === 404
+                    ? "The total number of raids couldn't be found"
+                    : "An unexpected error has occurred";
+                lc_1.default.setError(err);
+                lc_1.default.setLoading(false);
+            });
+        }
+        console.log(totalRaids);
     }, []);
     var submitSearch = function (e) {
         e.preventDefault();
@@ -45164,16 +45188,23 @@ var LootCouncil = function () {
         var newPlayers = data.lcPlayers.filter(function (x) { return x.player.id !== player.id; });
         lc_1.default.setPlayers(newPlayers);
     };
+    var getDetails = function (i) {
+        var newExpanded = expanded.slice();
+        newExpanded[i] = !newExpanded[i];
+        setExpand(newExpanded);
+    };
     return (jsx_runtime_1.jsxs("main", __assign({ className: "wrapper" }, { children: [jsx_runtime_1.jsxs("header", __assign({ className: "pink" }, { children: [jsx_runtime_1.jsx("h1", { children: "Loot Council" }, void 0),
                     jsx_runtime_1.jsx("h4", { children: "Add players using the search below to compare" }, void 0)] }), void 0),
             jsx_runtime_1.jsxs("div", __assign({ className: "flex search" }, { children: [jsx_runtime_1.jsx("form", __assign({ onSubmit: function (e) { return submitSearch(e); } }, { children: jsx_runtime_1.jsx("label", __assign({ htmlFor: "search" }, { children: jsx_runtime_1.jsx("input", { type: "search", id: "search", className: "pink", value: searchTerm, placeholder: "Enter a player...", onChange: function (e) { return setSearchTerm(e.target.value); } }, void 0) }), void 0) }), void 0),
                     jsx_runtime_1.jsx("button", __assign({ disabled: !searchTerm.length ? true : false, onClick: function (e) { return submitSearch(e); }, type: "button" }, { children: "Add" }), void 0)] }), void 0),
-            data.lcPlayers.length
-                ? data.lcPlayers.map(function (x, i) { return (jsx_runtime_1.jsxs("section", __assign({ className: "lc " + x.player.class }, { children: [jsx_runtime_1.jsx("i", { className: "fas fa-times", onClick: function () { return deletePlayer(x.player); } }, void 0),
-                        jsx_runtime_1.jsx(Member_1.default, { member: x.player, interactive: false, propClass: "header" }, void 0)] }), i)); })
-                : null,
             data.loading && jsx_runtime_1.jsx("p", __assign({ className: "pink" }, { children: "Loading..." }), void 0),
-            data.error && jsx_runtime_1.jsx("p", __assign({ className: "pink" }, { children: data.error }), void 0)] }), void 0));
+            data.error && jsx_runtime_1.jsx("p", __assign({ className: "pink" }, { children: data.error }), void 0),
+            jsx_runtime_1.jsx("section", __assign({ className: "flex" }, { children: data.lcPlayers.length
+                    ? data.lcPlayers.map(function (x, i) { return (jsx_runtime_1.jsxs("section", __assign({ className: "lc " + x.player.class }, { children: [jsx_runtime_1.jsx("i", { className: "fas fa-times float-right", onClick: function () { return deletePlayer(x.player); } }, void 0),
+                            jsx_runtime_1.jsx(Member_1.default, { member: x.player, interactive: false, propClass: "" }, void 0),
+                            jsx_runtime_1.jsx("i", { className: "fas fa-search-" + (expanded[i] ? "minus" : "plus"), onClick: function () { return getDetails(i); } }, void 0),
+                            jsx_runtime_1.jsx(Stats_1.default, { member: x.player, raidTotal: totalRaids }, void 0)] }), i)); })
+                    : null }), void 0)] }), void 0));
 };
 exports.default = LootCouncil;
 
