@@ -6,6 +6,7 @@ import Raids from "./Raids";
 import Overview from "./Overview";
 import Filter from "./Filter";
 import LootCouncil from "./LootCouncil";
+import Add from "./Add";
 
 const App = (): JSX.Element => {
     return (
@@ -32,6 +33,9 @@ const App = (): JSX.Element => {
                 </Route>
                 <Route path="/loot-council">
                     <LootCouncil />
+                </Route>
+                <Route path="/add">
+                    <Add />
                 </Route>
             </Switch>
         </Router>

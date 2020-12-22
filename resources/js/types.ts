@@ -41,6 +41,14 @@ export interface IData {
     ranks: Array<RoleRankClass>;
     classes: Array<RoleRankClass>;
 }
+export interface IFormField {
+    title: string;
+    fields: Array<IField>;
+}
+export interface IField {
+    label: string;
+    id: string;
+}
 
 export type MemberProps = {
     member: Member;
@@ -62,4 +70,8 @@ export type Loot = {
     item: string;
     id: number;
     member: string;
+};
+
+export type FormProps = {
+    formFields: IFormField;
 };

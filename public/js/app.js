@@ -44713,6 +44713,42 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEB
 
 /***/ }),
 
+/***/ "./resources/js/components/Form.tsx":
+/*!******************************************!*\
+  !*** ./resources/js/components/Form.tsx ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+var Form = function (_a) {
+    var formFields = _a.formFields;
+    return formFields ? (jsx_runtime_1.jsxs("form", { children: [jsx_runtime_1.jsx("h3", __assign({ className: "pink" }, { children: formFields.title }), void 0),
+            formFields.fields.map(function (x, i) {
+                return (jsx_runtime_1.jsxs("section", { children: [jsx_runtime_1.jsx("label", { children: x.label }, void 0),
+                        jsx_runtime_1.jsx("input", { name: x.id, id: x.id, type: "text" }, void 0)] }, i));
+            }),
+            jsx_runtime_1.jsx("input", { name: "id", id: "id", type: "hidden" }, void 0)] }, void 0)) : (jsx_runtime_1.jsx("p", __assign({ className: "pink" }, { children: "Sorry something went wrong!" }), void 0));
+};
+exports.default = Form;
+
+
+/***/ }),
+
 /***/ "./resources/js/components/LootTable.tsx":
 /*!***********************************************!*\
   !*** ./resources/js/components/LootTable.tsx ***!
@@ -44961,11 +44997,73 @@ exports.default = Stats;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ucFirst = void 0;
+exports.formOptions = exports.ucFirst = void 0;
 var ucFirst = function (string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 };
 exports.ucFirst = ucFirst;
+// player
+// raid
+exports.formOptions = [
+    {
+        title: "Player",
+        fields: [
+            { label: "Name", id: "member" },
+            { label: "Class", id: "class_id" },
+            { label: "Role", id: "role_id" },
+            { label: "Rank", id: "rank_id" }
+        ]
+    },
+    {
+        title: "Raid",
+        fields: [{ label: "Name", id: "member" }]
+    }
+];
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/Add.tsx":
+/*!************************************!*\
+  !*** ./resources/js/pages/Add.tsx ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+var react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var helper_1 = __webpack_require__(/*! ../helper */ "./resources/js/helper.ts");
+var Form_1 = __importDefault(__webpack_require__(/*! ../components/Form */ "./resources/js/components/Form.tsx"));
+var Add = function () {
+    var _a = react_1.useState(helper_1.formOptions[0]), selectedForm = _a[0], setForm = _a[1];
+    var setFormChoice = function (value) {
+        var choiceIndex = helper_1.formOptions.findIndex(function (x) { return x.title === value; });
+        setForm(helper_1.formOptions[choiceIndex]);
+    };
+    return (jsx_runtime_1.jsx("main", __assign({ className: "wrapper" }, { children: jsx_runtime_1.jsxs("header", __assign({ className: "pink" }, { children: [jsx_runtime_1.jsx("h1", { children: "Data Entry" }, void 0),
+                jsx_runtime_1.jsx("h4", { children: "Select and use a form below to add a raid, players and attendance" }, void 0),
+                jsx_runtime_1.jsxs("select", __assign({ className: "pink", value: selectedForm.title, onChange: function (e) { return setFormChoice(e.target.value); } }, { children: [jsx_runtime_1.jsx("option", __assign({ value: "" }, { children: "Please Select a Form" }), void 0),
+                        helper_1.formOptions.map(function (form, i) { return (jsx_runtime_1.jsx("option", __assign({ value: form.title }, { children: form.title }), i)); })] }), void 0),
+                jsx_runtime_1.jsx(Form_1.default, { formFields: selectedForm }, void 0)] }), void 0) }), void 0));
+};
+exports.default = Add;
 
 
 /***/ }),
@@ -45002,6 +45100,7 @@ var Raids_1 = __importDefault(__webpack_require__(/*! ./Raids */ "./resources/js
 var Overview_1 = __importDefault(__webpack_require__(/*! ./Overview */ "./resources/js/pages/Overview.tsx"));
 var Filter_1 = __importDefault(__webpack_require__(/*! ./Filter */ "./resources/js/pages/Filter.tsx"));
 var LootCouncil_1 = __importDefault(__webpack_require__(/*! ./LootCouncil */ "./resources/js/pages/LootCouncil.tsx"));
+var Add_1 = __importDefault(__webpack_require__(/*! ./Add */ "./resources/js/pages/Add.tsx"));
 var App = function () {
     return (jsx_runtime_1.jsxs(react_router_dom_1.BrowserRouter, { children: [jsx_runtime_1.jsx(NavBar_1.default, {}, void 0),
             jsx_runtime_1.jsxs(react_router_dom_1.Switch, { children: [jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ exact: true, path: "/" }, { children: jsx_runtime_1.jsx(Overview_1.default, {}, void 0) }), void 0),
@@ -45010,7 +45109,8 @@ var App = function () {
                     jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ exact: true, path: "/ranks" }, { children: jsx_runtime_1.jsx(Filter_1.default, {}, void 0) }), void 0),
                     jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ path: "/player/:playerID" }, { children: jsx_runtime_1.jsx(Player_1.default, {}, void 0) }), void 0),
                     jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ path: ["/raids", "/raids/:raidID"] }, { children: jsx_runtime_1.jsx(Raids_1.default, {}, void 0) }), void 0),
-                    jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ path: "/loot-council" }, { children: jsx_runtime_1.jsx(LootCouncil_1.default, {}, void 0) }), void 0)] }, void 0)] }, void 0));
+                    jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ path: "/loot-council" }, { children: jsx_runtime_1.jsx(LootCouncil_1.default, {}, void 0) }), void 0),
+                    jsx_runtime_1.jsx(react_router_dom_1.Route, __assign({ path: "/add" }, { children: jsx_runtime_1.jsx(Add_1.default, {}, void 0) }), void 0)] }, void 0)] }, void 0));
 };
 exports.default = App;
 
