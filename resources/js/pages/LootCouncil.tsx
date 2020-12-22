@@ -11,7 +11,6 @@ import "../../css/lootcouncil.css";
 const LootCouncil = () => {
     const [searchTerm, setSearchTerm] = useState<string>("");
     const [data, setDataState] = useState<IState>(lcStore.initialState);
-    const [expanded, setExpand] = useState<boolean[]>([]);
     const [totalRaids, setTotal] = useState<number>(0);
 
     useLayoutEffect(() => {
@@ -84,14 +83,6 @@ const LootCouncil = () => {
         );
         lcStore.setPlayers(newPlayers);
         localStorage.setItem("lcPlayers", JSON.stringify(newPlayers));
-
-        setExpand([]);
-    };
-
-    const getDetails = (i: number) => {
-        const newExpanded = expanded.slice();
-        newExpanded[i] = !newExpanded[i];
-        setExpand(newExpanded);
     };
 
     return (
@@ -131,12 +122,6 @@ const LootCouncil = () => {
                           <section key={i} className={`lc ${x.player.class}`}>
                               <div className="float-right">
                                   <i
-                                      className={`fas fa-search-${
-                                          expanded[i] ? "minus" : "plus"
-                                      }`}
-                                      onClick={() => getDetails(i)}
-                                  ></i>{" "}
-                                  <i
                                       className="fas fa-times"
                                       onClick={() => deletePlayer(x.player)}
                                   ></i>
@@ -147,18 +132,16 @@ const LootCouncil = () => {
                                   propClass=""
                               />
 
-                              {expanded[i] ? (
-                                  <div className="collapsible">
-                                      <Stats
-                                          member={x.player}
-                                          raidTotal={totalRaids}
-                                      />
-                                      <LootTable
-                                          details={x.playerLoot}
-                                          playerClass={x.player.class}
-                                      />
-                                  </div>
-                              ) : null}
+                              <div className="collapsible">
+                                  <Stats
+                                      member={x.player}
+                                      raidTotal={totalRaids}
+                                  />
+                                  <LootTable
+                                      details={x.playerLoot}
+                                      playerClass={x.player.class}
+                                  />
+                              </div>
                           </section>
                       ))
                     : null}

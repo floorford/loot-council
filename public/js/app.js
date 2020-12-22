@@ -2005,7 +2005,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "input {\n    border: none;\n    appearance: none;\n    background-color: white;\n    font-family: inherit;\n    font-size: inherit;\n    cursor: inherit;\n    line-height: inherit;\n    width: 100%;\n}\n\ninput:focus {\n    outline: none;\n}\n\n.wrapper .search {\n    justify-content: start;\n}\n\n.search form {\n    margin: 0;\n}\n\nbutton {\n    color: white;\n    font-family: inherit;\n    font-size: inherit;\n    background-color: #f040af;\n    box-shadow: none;\n    border: none;\n    border-radius: 5px;\n    margin: 0 1rem;\n    cursor: pointer;\n}\n\nbutton:disabled {\n    background-color: #7f506e;\n    cursor: not-allowed;\n}\n\n.search {\n    margin-bottom: 4rem;\n}\n\n.lc {\n    border-radius: 5px;\n    margin: 0.5rem;\n    width: 100%;\n}\n\n.lc .member {\n    margin: 0;\n    width: unset;\n    box-shadow: unset;\n}\n\n.lc i {\n    margin: 1rem 0.5rem;\n    cursor: pointer;\n}\n\n.float-right {\n    float: right;\n}\n\n.collapsible table {\n    width: 90%;\n    margin-top: 8px;\n}\n\n.collapsible .player-info {\n    padding-top: 0;\n    padding-bottom: 0;\n}\n\n.collapsible h3 {\n    margin: 0;\n}\n\n.collapsible tbody td {\n    padding: 8px;\n}\n\n.collapsible tbody td p {\n    margin: 4px 0 4px 0;\n}\n\n.grid {\n    display: grid;\n    grid-template-columns: repeat(3, 1fr);\n    gap: 10px;\n}\n", ""]);
+exports.push([module.i, "input {\n    border: none;\n    appearance: none;\n    background-color: white;\n    font-family: inherit;\n    font-size: inherit;\n    cursor: inherit;\n    line-height: inherit;\n    width: 100%;\n}\n\ninput:focus {\n    outline: none;\n}\n\n.wrapper .search {\n    justify-content: start;\n}\n\n.search form {\n    margin: 0;\n}\n\nbutton {\n    color: white;\n    font-family: inherit;\n    font-size: inherit;\n    background-color: #f040af;\n    box-shadow: none;\n    border: none;\n    border-radius: 5px;\n    margin: 0 1rem;\n    cursor: pointer;\n}\n\nbutton:disabled {\n    background-color: #7f506e;\n    cursor: not-allowed;\n}\n\n.search {\n    margin-bottom: 4rem;\n}\n\n.lc {\n    border-radius: 5px;\n    margin: 0.5rem;\n    width: 100%;\n}\n\n.lc .member {\n    margin: 0;\n    width: unset;\n    box-shadow: unset;\n}\n\n.lc i {\n    margin: 1rem 0.5rem;\n    cursor: pointer;\n}\n\n.float-right {\n    float: right;\n}\n\n.collapsible table {\n    width: 90%;\n    margin-top: 8px;\n}\n\n.collapsible .player-info {\n    padding-top: 0;\n    padding-bottom: 0;\n}\n\n.collapsible h3 {\n    margin: 0;\n}\n\n.collapsible tbody td {\n    padding: 8px;\n}\n\n.collapsible tbody td p {\n    margin: 4px 0 4px 0;\n}\n\n.collapsible .flex {\n    width: 90%;\n    margin: 0 auto;\n}\n\n.grid {\n    display: grid;\n    grid-template-columns: repeat(3, 1fr);\n    gap: 10px;\n}\n", ""]);
 
 // exports
 
@@ -45129,8 +45129,7 @@ __webpack_require__(/*! ../../css/lootcouncil.css */ "./resources/css/lootcounci
 var LootCouncil = function () {
     var _a = react_1.useState(""), searchTerm = _a[0], setSearchTerm = _a[1];
     var _b = react_1.useState(lc_1.default.initialState), data = _b[0], setDataState = _b[1];
-    var _c = react_1.useState([]), expanded = _c[0], setExpand = _c[1];
-    var _d = react_1.useState(0), totalRaids = _d[0], setTotal = _d[1];
+    var _c = react_1.useState(0), totalRaids = _c[0], setTotal = _c[1];
     react_1.useLayoutEffect(function () {
         var sub = lc_1.default.subscribe(setDataState);
         lc_1.default.init();
@@ -45189,12 +45188,6 @@ var LootCouncil = function () {
         var newPlayers = data.lcPlayers.filter(function (x) { return x.player.id !== player.id; });
         lc_1.default.setPlayers(newPlayers);
         localStorage.setItem("lcPlayers", JSON.stringify(newPlayers));
-        setExpand([]);
-    };
-    var getDetails = function (i) {
-        var newExpanded = expanded.slice();
-        newExpanded[i] = !newExpanded[i];
-        setExpand(newExpanded);
     };
     return (jsx_runtime_1.jsxs("main", __assign({ className: "wrapper" }, { children: [jsx_runtime_1.jsxs("header", __assign({ className: "pink" }, { children: [jsx_runtime_1.jsx("h1", { children: "Loot Council" }, void 0),
                     jsx_runtime_1.jsx("h4", { children: "Add players using the search below to compare" }, void 0)] }), void 0),
@@ -45203,10 +45196,10 @@ var LootCouncil = function () {
             data.loading && jsx_runtime_1.jsx("p", __assign({ className: "pink" }, { children: "Loading..." }), void 0),
             data.error && jsx_runtime_1.jsx("p", __assign({ className: "pink" }, { children: data.error }), void 0),
             jsx_runtime_1.jsx("section", __assign({ className: "grid" }, { children: data.lcPlayers.length
-                    ? data.lcPlayers.map(function (x, i) { return (jsx_runtime_1.jsxs("section", __assign({ className: "lc " + x.player.class }, { children: [jsx_runtime_1.jsxs("div", __assign({ className: "float-right" }, { children: [jsx_runtime_1.jsx("i", { className: "fas fa-search-" + (expanded[i] ? "minus" : "plus"), onClick: function () { return getDetails(i); } }, void 0), " ", jsx_runtime_1.jsx("i", { className: "fas fa-times", onClick: function () { return deletePlayer(x.player); } }, void 0)] }), void 0),
+                    ? data.lcPlayers.map(function (x, i) { return (jsx_runtime_1.jsxs("section", __assign({ className: "lc " + x.player.class }, { children: [jsx_runtime_1.jsx("div", __assign({ className: "float-right" }, { children: jsx_runtime_1.jsx("i", { className: "fas fa-times", onClick: function () { return deletePlayer(x.player); } }, void 0) }), void 0),
                             jsx_runtime_1.jsx(Member_1.default, { member: x.player, interactive: true, propClass: "" }, void 0),
-                            expanded[i] ? (jsx_runtime_1.jsxs("div", __assign({ className: "collapsible" }, { children: [jsx_runtime_1.jsx(Stats_1.default, { member: x.player, raidTotal: totalRaids }, void 0),
-                                    jsx_runtime_1.jsx(LootTable_1.default, { details: x.playerLoot, playerClass: x.player.class }, void 0)] }), void 0)) : null] }), i)); })
+                            jsx_runtime_1.jsxs("div", __assign({ className: "collapsible" }, { children: [jsx_runtime_1.jsx(Stats_1.default, { member: x.player, raidTotal: totalRaids }, void 0),
+                                    jsx_runtime_1.jsx(LootTable_1.default, { details: x.playerLoot, playerClass: x.player.class }, void 0)] }), void 0)] }), i)); })
                     : null }), void 0)] }), void 0));
 };
 exports.default = LootCouncil;

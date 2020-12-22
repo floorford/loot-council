@@ -85,6 +85,11 @@ button:disabled {
     margin: 4px 0 4px 0;
 }
 
+.collapsible .flex {
+    width: 90%;
+    margin: 0 auto;
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
