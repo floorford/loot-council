@@ -43,7 +43,7 @@ const Raids = () => {
 
         if (raidID) {
             axios
-                .get(`/api/raids/${raidID}`, {
+                .get(`/api/raids/specific/${raidID}`, {
                     headers: {
                         "Content-Type": "application/json"
                     }

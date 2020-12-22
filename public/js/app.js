@@ -2005,7 +2005,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "input {\n    border: none;\n    appearance: none;\n    background-color: white;\n    font-family: inherit;\n    font-size: inherit;\n    cursor: inherit;\n    line-height: inherit;\n    width: 100%;\n}\n\ninput:focus {\n    outline: none;\n}\n\n.wrapper .search {\n    justify-content: start;\n}\n\n.search form {\n    margin: 0;\n}\n\nbutton {\n    color: white;\n    font-family: inherit;\n    font-size: inherit;\n    background-color: #f040af;\n    box-shadow: none;\n    border: none;\n    border-radius: 5px;\n    margin: 0 1rem;\n    cursor: pointer;\n}\n\nbutton:disabled {\n    background-color: #7f506e;\n    cursor: not-allowed;\n}\n\n.search {\n    margin-bottom: 4rem;\n}\n\n.lc {\n    border-radius: 5px;\n    margin: 0.5rem;\n    width: 40%;\n}\n\n.lc .member {\n    margin: 0;\n    width: unset;\n    box-shadow: unset;\n}\n\n.lc i {\n    margin: 1rem;\n    cursor: pointer;\n}\n\n.float-right {\n    float: right;\n}\n", ""]);
+exports.push([module.i, "input {\n    border: none;\n    appearance: none;\n    background-color: white;\n    font-family: inherit;\n    font-size: inherit;\n    cursor: inherit;\n    line-height: inherit;\n    width: 100%;\n}\n\ninput:focus {\n    outline: none;\n}\n\n.wrapper .search {\n    justify-content: start;\n}\n\n.search form {\n    margin: 0;\n}\n\nbutton {\n    color: white;\n    font-family: inherit;\n    font-size: inherit;\n    background-color: #f040af;\n    box-shadow: none;\n    border: none;\n    border-radius: 5px;\n    margin: 0 1rem;\n    cursor: pointer;\n}\n\nbutton:disabled {\n    background-color: #7f506e;\n    cursor: not-allowed;\n}\n\n.search {\n    margin-bottom: 4rem;\n}\n\n.lc {\n    border-radius: 5px;\n    margin: 0.5rem;\n    width: 100%;\n}\n\n.lc .member {\n    margin: 0;\n    width: unset;\n    box-shadow: unset;\n}\n\n.lc i {\n    margin: 1rem 0.5rem;\n    cursor: pointer;\n}\n\n.float-right {\n    float: right;\n}\n\n.collapsible table {\n    width: 90%;\n    margin-top: 8px;\n}\n\n.collapsible .player-info {\n    padding-top: 0;\n    padding-bottom: 0;\n}\n\n.collapsible h3 {\n    margin: 0;\n}\n\n.collapsible tbody td {\n    padding: 8px;\n}\n\n.collapsible tbody td p {\n    margin: 4px 0 4px 0;\n}\n\n.grid {\n    display: grid;\n    grid-template-columns: repeat(3, 1fr);\n    gap: 10px;\n}\n", ""]);
 
 // exports
 
@@ -44793,8 +44793,8 @@ var Member = function (_a) {
     var urlName = member.member.indexOf("/") !== -1
         ? member.member.slice(0, member.member.indexOf("/"))
         : member.member;
-    return (jsx_runtime_1.jsxs("section", __assign({ className: "member " + member.class + " " + propClass, onClick: selectMember }, { children: [jsx_runtime_1.jsx("img", { className: "class-icon", alt: member.class, src: "/assets/" + member.class + ".png" }, void 0),
-            jsx_runtime_1.jsxs("div", __assign({ className: "member-wrapper" }, { children: [jsx_runtime_1.jsxs("header", __assign({ className: "member-header" }, { children: [jsx_runtime_1.jsx("h1", { children: member.member }, void 0),
+    return (jsx_runtime_1.jsxs("section", __assign({ className: "member " + member.class + " " + propClass }, { children: [jsx_runtime_1.jsx("img", { className: "class-icon", alt: member.class, src: "/assets/" + member.class + ".png" }, void 0),
+            jsx_runtime_1.jsxs("div", __assign({ className: "member-wrapper" }, { children: [jsx_runtime_1.jsxs("header", __assign({ className: "member-header" }, { children: [jsx_runtime_1.jsx("h1", __assign({ onClick: selectMember }, { children: member.member }), void 0),
                             jsx_runtime_1.jsxs("a", __assign({ href: "https://classic.warcraftlogs.com/character/eu/firemaw/" + urlName, target: "_blank", className: "tooltip" }, { children: [jsx_runtime_1.jsx("img", { className: "icon", alt: "Warcraft Logs", src: "/assets/warcraftlogs.png" }, void 0),
                                     jsx_runtime_1.jsx("span", __assign({ className: "tooltip-text" }, { children: "Warcraft Logs" }), void 0)] }), void 0)] }), void 0),
                     jsx_runtime_1.jsx("p", { children: helper_1.ucFirst(member.class) }, void 0),
@@ -44940,10 +44940,11 @@ var Stats = function (_a) {
     var member = _a.member, raidTotal = _a.raidTotal;
     var absence = member.absence, prev_raids = member.prev_raids, six_months = member.six_months, one_oh_one = member.one_oh_one;
     return (jsx_runtime_1.jsxs("section", __assign({ className: "player-info " + member.class }, { children: [jsx_runtime_1.jsx("h3", __assign({ className: "pink" }, { children: "Player Stats" }), void 0),
-            jsx_runtime_1.jsxs("p", { children: ["Missed Raids: ", absence] }, void 0),
-            jsx_runtime_1.jsxs("p", { children: ["Attendance:", " ", Math.ceil(((raidTotal - absence) / raidTotal) * 100), "%"] }, void 0),
-            jsx_runtime_1.jsxs("p", { children: ["Raids before MO: ", prev_raids] }, void 0),
-            six_months ? (jsx_runtime_1.jsxs("p", { children: ["6 months", jsx_runtime_1.jsx("sup", { children: "+" }, void 0), " member"] }, void 0)) : null] }), void 0));
+            jsx_runtime_1.jsxs("section", __assign({ className: "flex", style: { justifyContent: "space-between" } }, { children: [jsx_runtime_1.jsxs("div", { children: [jsx_runtime_1.jsxs("p", { children: ["Missed Raids: ", absence] }, void 0),
+                            jsx_runtime_1.jsxs("p", { children: ["Raids before MO: ", prev_raids] }, void 0)] }, void 0),
+                    jsx_runtime_1.jsxs("div", { children: [jsx_runtime_1.jsxs("p", { children: ["Attendance:", Math.ceil(((raidTotal - absence) / raidTotal) * 100), "%"] }, void 0),
+                            jsx_runtime_1.jsx("p", { children: "Recent Attendance: ??" }, void 0),
+                            six_months ? (jsx_runtime_1.jsxs("p", { children: ["6 months", jsx_runtime_1.jsx("sup", { children: "+" }, void 0), " member"] }, void 0)) : null] }, void 0)] }), void 0)] }), void 0));
 };
 exports.default = Stats;
 
@@ -45123,6 +45124,7 @@ var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/a
 var lc_1 = __importDefault(__webpack_require__(/*! ../store/lc */ "./resources/js/store/lc.ts"));
 var Member_1 = __importDefault(__webpack_require__(/*! ../components/Member */ "./resources/js/components/Member.tsx"));
 var Stats_1 = __importDefault(__webpack_require__(/*! ../components/Stats */ "./resources/js/components/Stats.tsx"));
+var LootTable_1 = __importDefault(__webpack_require__(/*! ../components/LootTable */ "./resources/js/components/LootTable.tsx"));
 __webpack_require__(/*! ../../css/lootcouncil.css */ "./resources/css/lootcouncil.css");
 var LootCouncil = function () {
     var _a = react_1.useState(""), searchTerm = _a[0], setSearchTerm = _a[1];
@@ -45141,7 +45143,7 @@ var LootCouncil = function () {
         lc_1.default.setPlayers(newPlayers);
     }, []);
     react_1.useEffect(function () {
-        if (!totalRaids) {
+        if (totalRaids === 0) {
             axios_1.default
                 .get("/api/raids/total", {
                 headers: {
@@ -45159,7 +45161,6 @@ var LootCouncil = function () {
                 lc_1.default.setLoading(false);
             });
         }
-        console.log(totalRaids);
     }, []);
     var submitSearch = function (e) {
         e.preventDefault();
@@ -45187,6 +45188,8 @@ var LootCouncil = function () {
     var deletePlayer = function (player) {
         var newPlayers = data.lcPlayers.filter(function (x) { return x.player.id !== player.id; });
         lc_1.default.setPlayers(newPlayers);
+        localStorage.setItem("lcPlayers", JSON.stringify(newPlayers));
+        setExpand([]);
     };
     var getDetails = function (i) {
         var newExpanded = expanded.slice();
@@ -45199,11 +45202,11 @@ var LootCouncil = function () {
                     jsx_runtime_1.jsx("button", __assign({ disabled: !searchTerm.length ? true : false, onClick: function (e) { return submitSearch(e); }, type: "button" }, { children: "Add" }), void 0)] }), void 0),
             data.loading && jsx_runtime_1.jsx("p", __assign({ className: "pink" }, { children: "Loading..." }), void 0),
             data.error && jsx_runtime_1.jsx("p", __assign({ className: "pink" }, { children: data.error }), void 0),
-            jsx_runtime_1.jsx("section", __assign({ className: "flex" }, { children: data.lcPlayers.length
-                    ? data.lcPlayers.map(function (x, i) { return (jsx_runtime_1.jsxs("section", __assign({ className: "lc " + x.player.class }, { children: [jsx_runtime_1.jsx("i", { className: "fas fa-times float-right", onClick: function () { return deletePlayer(x.player); } }, void 0),
-                            jsx_runtime_1.jsx(Member_1.default, { member: x.player, interactive: false, propClass: "" }, void 0),
-                            jsx_runtime_1.jsx("i", { className: "fas fa-search-" + (expanded[i] ? "minus" : "plus"), onClick: function () { return getDetails(i); } }, void 0),
-                            jsx_runtime_1.jsx(Stats_1.default, { member: x.player, raidTotal: totalRaids }, void 0)] }), i)); })
+            jsx_runtime_1.jsx("section", __assign({ className: "grid" }, { children: data.lcPlayers.length
+                    ? data.lcPlayers.map(function (x, i) { return (jsx_runtime_1.jsxs("section", __assign({ className: "lc " + x.player.class }, { children: [jsx_runtime_1.jsxs("div", __assign({ className: "float-right" }, { children: [jsx_runtime_1.jsx("i", { className: "fas fa-search-" + (expanded[i] ? "minus" : "plus"), onClick: function () { return getDetails(i); } }, void 0), " ", jsx_runtime_1.jsx("i", { className: "fas fa-times", onClick: function () { return deletePlayer(x.player); } }, void 0)] }), void 0),
+                            jsx_runtime_1.jsx(Member_1.default, { member: x.player, interactive: true, propClass: "" }, void 0),
+                            expanded[i] ? (jsx_runtime_1.jsxs("div", __assign({ className: "collapsible" }, { children: [jsx_runtime_1.jsx(Stats_1.default, { member: x.player, raidTotal: totalRaids }, void 0),
+                                    jsx_runtime_1.jsx(LootTable_1.default, { details: x.playerLoot, playerClass: x.player.class }, void 0)] }), void 0)) : null] }), i)); })
                     : null }), void 0)] }), void 0));
 };
 exports.default = LootCouncil;
@@ -45358,7 +45361,7 @@ var Raids = function () {
         }
         if (raidID) {
             axios_1.default
-                .get("/api/raids/" + raidID, {
+                .get("/api/raids/specific/" + raidID, {
                 headers: {
                     "Content-Type": "application/json"
                 }
@@ -45486,8 +45489,8 @@ exports.default = lcStore;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /var/www/loot-council/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /var/www/loot-council/resources/css/app.css */"./resources/css/app.css");
+__webpack_require__(/*! /var/www/loot-council/loot-council-backend/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /var/www/loot-council/loot-council-backend/resources/css/app.css */"./resources/css/app.css");
 
 
 /***/ })

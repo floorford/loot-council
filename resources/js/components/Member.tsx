@@ -25,10 +25,7 @@ const Member = ({
             : member.member;
 
     return (
-        <section
-            className={`member ${member.class} ${propClass}`}
-            onClick={selectMember}
-        >
+        <section className={`member ${member.class} ${propClass}`}>
             <img
                 className="class-icon"
                 alt={member.class}
@@ -36,7 +33,7 @@ const Member = ({
             />
             <div className="member-wrapper">
                 <header className="member-header">
-                    <h1>{member.member}</h1>
+                    <h1 onClick={selectMember}>{member.member}</h1>
                     <a
                         href={`https://classic.warcraftlogs.com/character/eu/firemaw/${urlName}`}
                         target="_blank"

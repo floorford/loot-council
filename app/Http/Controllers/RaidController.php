@@ -19,9 +19,9 @@ class RaidController extends Controller
     } 
     
     public static function totalRaids($api_route = true)
-    {
-        $count = DB::table('raid')->get()->count();
-        
+    { 
+        $count = Raid::all()->count();
+
         if(!$api_route) {
             return $count;
         }
@@ -58,7 +58,7 @@ class RaidController extends Controller
             ], 404); 
         }
         
-        $details = MemberController::playerLoot($id->id);
+        $details = MemberController::playerLoot($id->id, true);
     
         $member = MemberController::memberInformation($id->id);
 

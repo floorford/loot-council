@@ -49,12 +49,17 @@ class MemberController extends Controller
     ], 200);  
   } 
   
-  public static function playerLoot($id) 
+  public static function playerLoot($id, $limit = false) 
   {
     $query = DB::table('items')
       ->join('raid', 'items.raid_id', '=', 'raid.id')
       ->select('raid.id', 'items.item', 'raid.title')
       ->where('items.member_id', '=', $id)
+      ->when($limit, function ($query) {
+        return $query->limit(5);
+      }, function ($query) {
+        return $query;
+      })
       ->get();
      
     return $query;

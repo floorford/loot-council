@@ -5,6 +5,7 @@ import lcStore from "../store/lc";
 import { IState } from "../types";
 import MemberCard from "../components/Member";
 import Stats from "../components/Stats";
+import LootTable from "../components/LootTable";
 import "../../css/lootcouncil.css";
 
 const LootCouncil = () => {
@@ -30,7 +31,7 @@ const LootCouncil = () => {
     }, []);
 
     useEffect(() => {
-        if (!totalRaids) {
+        if (totalRaids === 0) {
             axios
                 .get(`/api/raids/total`, {
                     headers: {
@@ -49,7 +50,6 @@ const LootCouncil = () => {
                     lcStore.setLoading(false);
                 });
         }
-        console.log(totalRaids);
     }, []);
 
     const submitSearch = (e: React.SyntheticEvent): void => {
@@ -83,6 +83,9 @@ const LootCouncil = () => {
             (x: any) => x.player.id !== player.id
         );
         lcStore.setPlayers(newPlayers);
+        localStorage.setItem("lcPlayers", JSON.stringify(newPlayers));
+
+        setExpand([]);
     };
 
     const getDetails = (i: number) => {
@@ -97,7 +100,6 @@ const LootCouncil = () => {
                 <h1>Loot Council</h1>
                 <h4>Add players using the search below to compare</h4>
             </header>
-
             <div className="flex search">
                 <form onSubmit={e => submitSearch(e)}>
                     <label htmlFor="search">
@@ -121,30 +123,42 @@ const LootCouncil = () => {
             </div>
 
             {data.loading && <p className="pink">Loading...</p>}
-
             {data.error && <p className="pink">{data.error}</p>}
 
-            <section className="flex">
+            <section className="grid">
                 {data.lcPlayers.length
                     ? data.lcPlayers.map((x: any, i: number) => (
                           <section key={i} className={`lc ${x.player.class}`}>
-                              <i
-                                  className="fas fa-times float-right"
-                                  onClick={() => deletePlayer(x.player)}
-                              ></i>
+                              <div className="float-right">
+                                  <i
+                                      className={`fas fa-search-${
+                                          expanded[i] ? "minus" : "plus"
+                                      }`}
+                                      onClick={() => getDetails(i)}
+                                  ></i>{" "}
+                                  <i
+                                      className="fas fa-times"
+                                      onClick={() => deletePlayer(x.player)}
+                                  ></i>
+                              </div>
                               <MemberCard
                                   member={x.player}
-                                  interactive={false}
+                                  interactive={true}
                                   propClass=""
                               />
-                              <i
-                                  className={`fas fa-search-${
-                                      expanded[i] ? "minus" : "plus"
-                                  }`}
-                                  onClick={() => getDetails(i)}
-                              ></i>
 
-                              <Stats member={x.player} raidTotal={totalRaids} />
+                              {expanded[i] ? (
+                                  <div className="collapsible">
+                                      <Stats
+                                          member={x.player}
+                                          raidTotal={totalRaids}
+                                      />
+                                      <LootTable
+                                          details={x.playerLoot}
+                                          playerClass={x.player.class}
+                                      />
+                                  </div>
+                              ) : null}
                           </section>
                       ))
                     : null}

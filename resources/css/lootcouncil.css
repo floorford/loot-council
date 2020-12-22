@@ -45,7 +45,7 @@ button:disabled {
 .lc {
     border-radius: 5px;
     margin: 0.5rem;
-    width: 40%;
+    width: 100%;
 }
 
 .lc .member {
@@ -55,10 +55,38 @@ button:disabled {
 }
 
 .lc i {
-    margin: 1rem;
+    margin: 1rem 0.5rem;
     cursor: pointer;
 }
 
 .float-right {
     float: right;
+}
+
+.collapsible table {
+    width: 90%;
+    margin-top: 8px;
+}
+
+.collapsible .player-info {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.collapsible h3 {
+    margin: 0;
+}
+
+.collapsible tbody td {
+    padding: 8px;
+}
+
+.collapsible tbody td p {
+    margin: 4px 0 4px 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
 }
