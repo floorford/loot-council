@@ -59,11 +59,13 @@ export type MemberProps = {
 export type StatsProps = {
     member: Member;
     raidTotal: number;
+    totalLoot: Array<Detail>;
 };
 
 export type LootTableProps = {
     details: Array<Detail>;
     playerClass: string;
+    maxHeight: number;
 };
 
 export type Loot = {

@@ -2005,7 +2005,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "input {\n    border: none;\n    appearance: none;\n    background-color: white;\n    font-family: inherit;\n    font-size: inherit;\n    cursor: inherit;\n    line-height: inherit;\n    width: 100%;\n}\n\ninput:focus {\n    outline: none;\n}\n\n.wrapper .search {\n    justify-content: start;\n}\n\n.search form {\n    margin: 0;\n}\n\nbutton {\n    color: white;\n    font-family: inherit;\n    font-size: inherit;\n    background-color: #f040af;\n    box-shadow: none;\n    border: none;\n    border-radius: 5px;\n    margin: 0 1rem;\n    cursor: pointer;\n}\n\nbutton:disabled {\n    background-color: #7f506e;\n    cursor: not-allowed;\n}\n\n.search {\n    margin-bottom: 4rem;\n}\n\n.lc {\n    border-radius: 5px;\n    margin: 0.5rem;\n    width: 100%;\n}\n\n.lc .member {\n    margin: 0;\n    width: unset;\n    box-shadow: unset;\n}\n\n.lc i {\n    margin: 1rem 0.5rem;\n    cursor: pointer;\n}\n\n.float-right {\n    float: right;\n}\n\n.collapsible table {\n    width: 90%;\n    margin-top: 8px;\n}\n\n.collapsible .player-info {\n    padding-top: 0;\n    padding-bottom: 0;\n}\n\n.collapsible h3 {\n    margin: 0;\n}\n\n.collapsible tbody td {\n    padding: 8px;\n}\n\n.collapsible tbody td p {\n    margin: 4px 0 4px 0;\n}\n\n.collapsible .flex {\n    width: 90%;\n    margin: 0 auto;\n}\n\n.grid {\n    display: grid;\n    grid-template-columns: repeat(3, 1fr);\n    gap: 10px;\n}\n", ""]);
+exports.push([module.i, "input {\n    border: none;\n    appearance: none;\n    background-color: white;\n    font-family: inherit;\n    font-size: inherit;\n    cursor: inherit;\n    line-height: inherit;\n    width: 100%;\n}\n\ninput:focus {\n    outline: none;\n}\n\n.wrapper .search {\n    justify-content: start;\n}\n\n.search form {\n    margin: 0;\n}\n\nbutton {\n    color: white;\n    font-family: inherit;\n    font-size: inherit;\n    background-color: #f040af;\n    box-shadow: none;\n    border: none;\n    border-radius: 5px;\n    margin: 0 1rem;\n    cursor: pointer;\n}\n\nbutton:disabled {\n    background-color: #7f506e;\n    cursor: not-allowed;\n}\n\n.search {\n    margin-bottom: 4rem;\n}\n\n.lc {\n    border-radius: 5px;\n    margin: 0.5rem;\n    width: 100%;\n}\n\n.lc .member {\n    margin: 0;\n    width: unset;\n    box-shadow: unset;\n}\n\n.lc i {\n    margin: 1rem;\n    cursor: pointer;\n}\n\n.float-right {\n    float: right;\n}\n\n.collapsible table {\n    width: 100%;\n    margin-top: 16px;\n}\n\n.collapsible .player-info {\n    padding-top: 0;\n    padding-bottom: 0;\n}\n\n.collapsible h3 {\n    margin: 0;\n}\n\n.collapsible tbody td {\n    padding: 8px;\n}\n\n.collapsible tbody td p {\n    margin: 4px 0 4px 0;\n}\n\n.collapsible .flex {\n    margin: 0 auto;\n}\n\n.grid {\n    display: grid;\n    grid-template-columns: repeat(3, 1fr);\n    gap: 10px;\n}\n", ""]);
 
 // exports
 
@@ -2024,7 +2024,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".member {\n    box-shadow: 0 0 0.25em 0.25em rgba(0, 0, 0, 0.25);\n    width: 39%;\n    padding: 1rem;\n    margin: 0.5rem;\n    border-radius: 5px;\n    display: flex;\n    justify-content: start;\n    flex-wrap: nowrap;\n    cursor: pointer;\n}\n\n.member.header {\n    box-shadow: unset;\n    width: unset;\n    cursor: unset;\n}\n\n.member h1 {\n    margin: 0;\n}\n\n.member .member-wrapper {\n    margin: 0 0 0 1rem;\n    width: 100%;\n}\n\n.member-wrapper h1 {\n    overflow: hidden;\n    max-width: 90%;\n}\n\n.member-header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    width: 100%;\n}\n\n.member p {\n    margin: 0;\n    font-size: 13px;\n}\n\n.tooltip {\n    position: relative;\n    display: inline-block;\n    border-bottom: 1px dotted black;\n}\n\n.tooltip .tooltip-text {\n    visibility: hidden;\n    width: 120px;\n    background-color: black;\n    color: #fff;\n    text-align: center;\n    border-radius: 6px;\n    padding: 5px 0;\n\n    /* Position the tooltip */\n    position: absolute;\n    z-index: 1;\n    top: -5px;\n    left: 105%;\n}\n\n.tooltip:hover .tooltip-text {\n    visibility: visible;\n}\n\n.warrior {\n    background-color: #c69b6d;\n}\n\n.druid {\n    background-color: #ff7c0a;\n}\n\n.hunter {\n    background-color: #aad372;\n}\n\n.priest {\n    background-color: #ffffff;\n}\n\n.warlock {\n    background-color: #8788ee;\n}\n\n.mage {\n    background-color: #3fc7eb;\n}\n\n.shaman {\n    background-color: #0070dd;\n}\n\n.icon {\n    height: 20px;\n    width: 20px;\n}\n\n.rogue {\n    background-color: #fff468;\n}\n\n.team-role {\n    color: #f040af;\n    padding: 1rem;\n    border: 1px solid #f040af;\n    width: fit-content;\n}\n\ni {\n    margin-right: 5px;\n}\n\n.wrapper .flex {\n    flex-wrap: wrap;\n    justify-content: center;\n}\n\n.class-icon {\n    height: 100%;\n}\n", ""]);
+exports.push([module.i, ".member {\n    box-shadow: 0 0 0.25em 0.25em rgba(0, 0, 0, 0.25);\n    width: 39%;\n    padding: 1rem;\n    margin: 0.5rem;\n    border-radius: 5px;\n    display: flex;\n    justify-content: start;\n    flex-wrap: nowrap;\n}\n\n.member.header {\n    box-shadow: unset;\n    width: unset;\n    cursor: unset;\n}\n\n.member h1 {\n    margin: 0;\n    cursor: pointer;\n}\n\n.member .member-wrapper {\n    margin: 0 0 0 1rem;\n    width: 100%;\n}\n\n.member-wrapper h1 {\n    overflow: hidden;\n    max-width: 90%;\n}\n\n.member-header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    width: 100%;\n}\n\n.member p {\n    margin: 2px 0;\n    font-size: 13px;\n}\n\n.tooltip {\n    position: relative;\n    display: inline-block;\n    border-bottom: 1px dotted black;\n}\n\n.tooltip .tooltip-text {\n    visibility: hidden;\n    width: 120px;\n    background-color: black;\n    color: #fff;\n    text-align: center;\n    border-radius: 6px;\n    padding: 5px 0;\n\n    /* Position the tooltip */\n    position: absolute;\n    z-index: 1;\n    top: -5px;\n    left: 105%;\n}\n\n.tooltip:hover .tooltip-text {\n    visibility: visible;\n}\n\n.warrior {\n    background-color: #c69b6d;\n}\n\n.druid {\n    background-color: #ff7c0a;\n}\n\n.hunter {\n    background-color: #aad372;\n}\n\n.priest {\n    background-color: #ffffff;\n}\n\n.warlock {\n    background-color: #8788ee;\n}\n\n.mage {\n    background-color: #3fc7eb;\n}\n\n.shaman {\n    background-color: #0070dd;\n}\n\n.icon {\n    height: 20px;\n    width: 20px;\n}\n\n.rogue {\n    background-color: #fff468;\n}\n\n.team-role {\n    color: #f040af;\n    padding: 1rem;\n    border: 1px solid #f040af;\n    width: fit-content;\n}\n\ni {\n    margin-right: 5px;\n}\n\n.wrapper .flex {\n    flex-wrap: wrap;\n    justify-content: center;\n}\n\n.class-icon {\n    height: 100%;\n    margin: auto;\n}\n", ""]);
 
 // exports
 
@@ -2062,7 +2062,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "table {\n    width: 800px;\n    border-collapse: collapse;\n    overflow: hidden;\n    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\n    margin: 0 auto;\n}\n\nth,\ntd {\n    padding: 15px;\n    background-color: rgba(255, 255, 255, 0.2);\n    color: black;\n}\n\nth {\n    text-align: left;\n}\n\nthead th {\n    background-color: #8936a4;\n}\n\ntbody td {\n    position: relative;\n}\n\n.player-info i {\n    margin: 5px;\n}\n\n.player-info {\n    padding: 1rem;\n    margin: 0.5rem;\n    border-radius: 5px;\n}\n", ""]);
+exports.push([module.i, "table {\n    width: 800px;\n    border-collapse: collapse;\n    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\n    margin: 0 auto;\n}\n\nth,\ntd {\n    padding: 15px;\n    background-color: rgba(255, 255, 255, 0.2);\n    color: black;\n}\n\nth {\n    text-align: left;\n}\n\nthead th {\n    background-color: #8936a4;\n}\n\ntbody td {\n    position: relative;\n    padding: 0.5rem 1rem;\n}\n\n.player-info i {\n    margin: 5px;\n}\n\n.player-info {\n    padding: 1rem;\n    margin: 0.5rem;\n    border-radius: 5px;\n}\n\n.table-wrapper {\n    overflow: auto;\n}\n\n.player-wrapper {\n    margin: 0 0.5rem 0 0.5rem;\n}\n\n.player-wrapper .player-info {\n    padding: 1rem;\n    margin: 0;\n}\n\n.player-wrapper .player-info:first-of-type {\n    width: 30%;\n    margin-right: 1%;\n}\n\n.player-wrapper .player-info:last-of-type {\n    width: 69%;\n}\n\n.player-wrapper .player-info > section {\n    flex-direction: column;\n}\n", ""]);
 
 // exports
 
@@ -44773,15 +44773,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 var LootTable = function (_a) {
-    var details = _a.details, playerClass = _a.playerClass;
+    var details = _a.details, playerClass = _a.playerClass, maxHeight = _a.maxHeight;
     return (jsx_runtime_1.jsxs("section", __assign({ className: "player-info " + playerClass }, { children: [jsx_runtime_1.jsx("h3", __assign({ className: "pink" }, { children: "Loot Recieved" }), void 0),
-            details ? (jsx_runtime_1.jsxs("table", { children: [jsx_runtime_1.jsx("thead", { children: jsx_runtime_1.jsxs("tr", { children: [jsx_runtime_1.jsx("th", { children: "Raid" }, void 0),
-                                jsx_runtime_1.jsx("th", { children: "Item" }, void 0)] }, void 0) }, void 0),
-                    jsx_runtime_1.jsx("tbody", { children: details.map(function (item) {
-                            var formattedItems = item.item.split("/");
-                            return (jsx_runtime_1.jsxs("tr", { children: [jsx_runtime_1.jsx("td", { children: jsx_runtime_1.jsx(react_router_dom_1.Link, __assign({ to: "/raids/" + item.id }, { children: item.title }), void 0) }, void 0),
-                                    jsx_runtime_1.jsx("td", { children: formattedItems.map(function (x, i) { return (jsx_runtime_1.jsx("p", { children: x }, i)); }) }, void 0)] }, item.id));
-                        }) }, void 0)] }, void 0)) : (jsx_runtime_1.jsx("p", { children: "No loot recieved!" }, void 0))] }), void 0));
+            details ? (jsx_runtime_1.jsx("div", __assign({ className: "table-wrapper", style: { maxHeight: maxHeight } }, { children: jsx_runtime_1.jsxs("table", { children: [jsx_runtime_1.jsx("thead", { children: jsx_runtime_1.jsxs("tr", { children: [jsx_runtime_1.jsx("th", { children: "Raid" }, void 0),
+                                    jsx_runtime_1.jsx("th", { children: "Item" }, void 0)] }, void 0) }, void 0),
+                        jsx_runtime_1.jsx("tbody", { children: details.map(function (item) {
+                                var formattedItems = item.item.split("/");
+                                return (jsx_runtime_1.jsxs("tr", { children: [jsx_runtime_1.jsx("td", { children: jsx_runtime_1.jsx(react_router_dom_1.Link, __assign({ to: "/raids/" + item.id }, { children: item.title }), void 0) }, void 0),
+                                        jsx_runtime_1.jsx("td", { children: formattedItems.map(function (x, i) { return (jsx_runtime_1.jsx("p", { children: x }, i)); }) }, void 0)] }, item.id));
+                            }) }, void 0)] }, void 0) }), void 0)) : (jsx_runtime_1.jsx("p", { children: "No loot recieved!" }, void 0))] }), void 0));
 };
 exports.default = LootTable;
 
@@ -44830,11 +44830,11 @@ var Member = function (_a) {
         ? member.member.slice(0, member.member.indexOf("/"))
         : member.member;
     return (jsx_runtime_1.jsxs("section", __assign({ className: "member " + member.class + " " + propClass }, { children: [jsx_runtime_1.jsx("img", { className: "class-icon", alt: member.class, src: "/assets/" + member.class + ".png" }, void 0),
-            jsx_runtime_1.jsxs("div", __assign({ className: "member-wrapper" }, { children: [jsx_runtime_1.jsxs("header", __assign({ className: "member-header" }, { children: [jsx_runtime_1.jsx("h1", __assign({ onClick: selectMember }, { children: member.member }), void 0),
-                            jsx_runtime_1.jsxs("a", __assign({ href: "https://classic.warcraftlogs.com/character/eu/firemaw/" + urlName, target: "_blank", className: "tooltip" }, { children: [jsx_runtime_1.jsx("img", { className: "icon", alt: "Warcraft Logs", src: "/assets/warcraftlogs.png" }, void 0),
-                                    jsx_runtime_1.jsx("span", __assign({ className: "tooltip-text" }, { children: "Warcraft Logs" }), void 0)] }), void 0)] }), void 0),
+            jsx_runtime_1.jsxs("div", __assign({ className: "member-wrapper" }, { children: [jsx_runtime_1.jsx("header", __assign({ className: "member-header" }, { children: jsx_runtime_1.jsx("h1", __assign({ onClick: selectMember }, { children: member.member }), void 0) }), void 0),
                     jsx_runtime_1.jsx("p", { children: helper_1.ucFirst(member.class) }, void 0),
-                    jsx_runtime_1.jsxs("p", { children: ["Rank: ", helper_1.ucFirst(member.rank)] }, void 0)] }), void 0)] }), void 0));
+                    jsx_runtime_1.jsxs("p", { children: ["Rank: ", helper_1.ucFirst(member.rank)] }, void 0),
+                    jsx_runtime_1.jsxs("a", __assign({ href: "https://classic.warcraftlogs.com/character/eu/firemaw/" + urlName, target: "_blank", className: "tooltip" }, { children: [jsx_runtime_1.jsx("img", { className: "icon", alt: "Warcraft Logs", src: "/assets/warcraftlogs.png" }, void 0),
+                            jsx_runtime_1.jsx("span", __assign({ className: "tooltip-text" }, { children: "Warcraft Logs" }), void 0)] }), void 0)] }), void 0)] }), void 0));
 };
 exports.default = Member;
 
@@ -44942,8 +44942,8 @@ var Player = function () {
         });
     }, []);
     return (jsx_runtime_1.jsxs("main", __assign({ className: "wrapper" }, { children: [jsx_runtime_1.jsx(Member_1.default, { member: data.selectedMember, interactive: false, propClass: "header" }, void 0),
-            jsx_runtime_1.jsx(Stats_1.default, { member: data.selectedMember, raidTotal: raidTotal }, void 0),
-            jsx_runtime_1.jsx(LootTable_1.default, { details: details, playerClass: data.selectedMember.class }, void 0)] }), void 0));
+            jsx_runtime_1.jsxs("section", __assign({ className: "flex player-wrapper" }, { children: [jsx_runtime_1.jsx(Stats_1.default, { member: data.selectedMember, raidTotal: raidTotal, totalLoot: details }, void 0),
+                    jsx_runtime_1.jsx(LootTable_1.default, { details: details, maxHeight: 750, playerClass: data.selectedMember.class }, void 0)] }), void 0)] }), void 0));
 };
 exports.default = Player;
 
@@ -44973,13 +44973,22 @@ var __assign = (this && this.__assign) || function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 var Stats = function (_a) {
-    var member = _a.member, raidTotal = _a.raidTotal;
-    var absence = member.absence, prev_raids = member.prev_raids, six_months = member.six_months, one_oh_one = member.one_oh_one;
+    var member = _a.member, raidTotal = _a.raidTotal, totalLoot = _a.totalLoot;
+    var absence = member.absence, prev_raids = member.prev_raids, six_months = member.six_months, one_oh_one = member.one_oh_one, no_show = member.no_show;
+    var lootNumber = totalLoot
+        .slice()
+        .reduce(function (acc, val) {
+        var itemSplit = val.item.split("/");
+        acc += itemSplit.length;
+        return acc;
+    }, 0);
     return (jsx_runtime_1.jsxs("section", __assign({ className: "player-info " + member.class }, { children: [jsx_runtime_1.jsx("h3", __assign({ className: "pink" }, { children: "Player Stats" }), void 0),
             jsx_runtime_1.jsxs("section", __assign({ className: "flex", style: { justifyContent: "space-between" } }, { children: [jsx_runtime_1.jsxs("div", { children: [jsx_runtime_1.jsxs("p", { children: ["Missed Raids: ", absence] }, void 0),
-                            jsx_runtime_1.jsxs("p", { children: ["Raids before MO: ", prev_raids] }, void 0)] }, void 0),
-                    jsx_runtime_1.jsxs("div", { children: [jsx_runtime_1.jsxs("p", { children: ["Attendance:", Math.ceil(((raidTotal - absence) / raidTotal) * 100), "%"] }, void 0),
+                            jsx_runtime_1.jsxs("p", { children: ["Raids before MO: ", prev_raids] }, void 0),
+                            jsx_runtime_1.jsxs("p", { children: ["Total loot recieved: ", lootNumber] }, void 0)] }, void 0),
+                    jsx_runtime_1.jsxs("div", { children: [jsx_runtime_1.jsxs("p", { children: ["Attendance:", " ", Math.ceil(((raidTotal - absence) / raidTotal) * 100), "%"] }, void 0),
                             jsx_runtime_1.jsx("p", { children: "Recent Attendance: ??" }, void 0),
+                            jsx_runtime_1.jsxs("p", { children: ["No shows: ", no_show] }, void 0),
                             six_months ? (jsx_runtime_1.jsxs("p", { children: ["6 months", jsx_runtime_1.jsx("sup", { children: "+" }, void 0), " member"] }, void 0)) : null] }, void 0)] }), void 0)] }), void 0));
 };
 exports.default = Stats;
@@ -45296,10 +45305,10 @@ var LootCouncil = function () {
             data.loading && jsx_runtime_1.jsx("p", __assign({ className: "pink" }, { children: "Loading..." }), void 0),
             data.error && jsx_runtime_1.jsx("p", __assign({ className: "pink" }, { children: data.error }), void 0),
             jsx_runtime_1.jsx("section", __assign({ className: "grid" }, { children: data.lcPlayers.length
-                    ? data.lcPlayers.map(function (x, i) { return (jsx_runtime_1.jsxs("section", __assign({ className: "lc " + x.player.class }, { children: [jsx_runtime_1.jsx("div", __assign({ className: "float-right" }, { children: jsx_runtime_1.jsx("i", { className: "fas fa-times", onClick: function () { return deletePlayer(x.player); } }, void 0) }), void 0),
+                    ? data.lcPlayers.map(function (x, i) { return (jsx_runtime_1.jsxs("section", __assign({ className: "lc " + x.player.class }, { children: [jsx_runtime_1.jsx("div", __assign({ className: "float-right" }, { children: jsx_runtime_1.jsx("i", { className: "fas fa-lg fa-times", onClick: function () { return deletePlayer(x.player); } }, void 0) }), void 0),
                             jsx_runtime_1.jsx(Member_1.default, { member: x.player, interactive: true, propClass: "" }, void 0),
-                            jsx_runtime_1.jsxs("div", __assign({ className: "collapsible" }, { children: [jsx_runtime_1.jsx(Stats_1.default, { member: x.player, raidTotal: totalRaids }, void 0),
-                                    jsx_runtime_1.jsx(LootTable_1.default, { details: x.playerLoot, playerClass: x.player.class }, void 0)] }), void 0)] }), i)); })
+                            jsx_runtime_1.jsxs("div", __assign({ className: "collapsible" }, { children: [jsx_runtime_1.jsx(Stats_1.default, { member: x.player, raidTotal: totalRaids, totalLoot: x.playerLoot }, void 0),
+                                    jsx_runtime_1.jsx(LootTable_1.default, { details: x.playerLoot, maxHeight: 350, playerClass: x.player.class }, void 0)] }), void 0)] }), i)); })
                     : null }), void 0)] }), void 0));
 };
 exports.default = LootCouncil;

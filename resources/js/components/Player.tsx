@@ -54,12 +54,19 @@ const Player = (): JSX.Element => {
                 propClass="header"
             />
 
-            <Stats member={data.selectedMember} raidTotal={raidTotal} />
+            <section className="flex player-wrapper">
+                <Stats
+                    member={data.selectedMember}
+                    raidTotal={raidTotal}
+                    totalLoot={details}
+                />
 
-            <LootTable
-                details={details}
-                playerClass={data.selectedMember.class}
-            />
+                <LootTable
+                    details={details}
+                    maxHeight={750}
+                    playerClass={data.selectedMember.class}
+                />
+            </section>
         </main>
     );
 };

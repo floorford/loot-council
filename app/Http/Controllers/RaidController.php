@@ -58,7 +58,7 @@ class RaidController extends Controller
             ], 404); 
         }
         
-        $details = MemberController::playerLoot($id->id, true);
+        $details = MemberController::playerLoot($id->id);
     
         $member = MemberController::memberInformation($id->id);
 

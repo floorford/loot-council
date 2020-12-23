@@ -34,21 +34,21 @@ const Member = ({
             <div className="member-wrapper">
                 <header className="member-header">
                     <h1 onClick={selectMember}>{member.member}</h1>
-                    <a
-                        href={`https://classic.warcraftlogs.com/character/eu/firemaw/${urlName}`}
-                        target="_blank"
-                        className="tooltip"
-                    >
-                        <img
-                            className="icon"
-                            alt="Warcraft Logs"
-                            src={`/assets/warcraftlogs.png`}
-                        />
-                        <span className="tooltip-text">Warcraft Logs</span>
-                    </a>
                 </header>
                 <p>{ucFirst(member.class)}</p>
                 <p>Rank: {ucFirst(member.rank)}</p>
+                <a
+                    href={`https://classic.warcraftlogs.com/character/eu/firemaw/${urlName}`}
+                    target="_blank"
+                    className="tooltip"
+                >
+                    <img
+                        className="icon"
+                        alt="Warcraft Logs"
+                        src={`/assets/warcraftlogs.png`}
+                    />
+                    <span className="tooltip-text">Warcraft Logs</span>
+                </a>
             </div>
         </section>
     );

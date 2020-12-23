@@ -122,7 +122,7 @@ const LootCouncil = () => {
                           <section key={i} className={`lc ${x.player.class}`}>
                               <div className="float-right">
                                   <i
-                                      className="fas fa-times"
+                                      className="fas fa-lg fa-times"
                                       onClick={() => deletePlayer(x.player)}
                                   ></i>
                               </div>
@@ -136,9 +136,11 @@ const LootCouncil = () => {
                                   <Stats
                                       member={x.player}
                                       raidTotal={totalRaids}
+                                      totalLoot={x.playerLoot}
                                   />
                                   <LootTable
                                       details={x.playerLoot}
+                                      maxHeight={350}
                                       playerClass={x.player.class}
                                   />
                               </div>

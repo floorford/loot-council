@@ -55,7 +55,7 @@ button:disabled {
 }
 
 .lc i {
-    margin: 1rem 0.5rem;
+    margin: 1rem;
     cursor: pointer;
 }
 
@@ -64,8 +64,8 @@ button:disabled {
 }
 
 .collapsible table {
-    width: 90%;
-    margin-top: 8px;
+    width: 100%;
+    margin-top: 16px;
 }
 
 .collapsible .player-info {
@@ -86,7 +86,6 @@ button:disabled {
 }
 
 .collapsible .flex {
-    width: 90%;
     margin: 0 auto;
 }
 

@@ -49,19 +49,25 @@ class MemberController extends Controller
     ], 200);  
   } 
   
-  public static function playerLoot($id, $limit = false) 
+  public static function playerLoot($id) 
   {
     $query = DB::table('items')
       ->join('raid', 'items.raid_id', '=', 'raid.id')
       ->select('raid.id', 'items.item', 'raid.title')
       ->where('items.member_id', '=', $id)
-      ->when($limit, function ($query) {
-        return $query->limit(5);
-      }, function ($query) {
-        return $query;
-      })
+      ->orderBy('id', 'desc')
       ->get();
-     
+
+      // attendance percentage of last 12 raids is recent
+      // wowhead widget embed
+      // script to import vs. form for adding data
+      // calculation for 6 months
+      // import script from sheets to db
+      // chat to Nervath about google sheet info/changes for DB
+      // hover overs for percentage (3/12 and 45/129)
+      // use logo from chickun project
+      // dismiss for error messages and too much margin?
+
     return $query;
   }  
   
@@ -75,6 +81,13 @@ class MemberController extends Controller
               'members.six_months', 'members.id', 'rank.title as rank', 'role.title as role', 'class.title AS class')
       ->where('members.id', '=', $id)
       ->get();
+
+    $query2 = DB::table('attendance')
+              ->select(DB::raw('count(id) as no_show'))
+              ->where('attendance.event_id', '=', '1')
+              ->get();
+
+    $query[0]->no_show = $query2[0]->no_show;
      
     return $query;
   }
